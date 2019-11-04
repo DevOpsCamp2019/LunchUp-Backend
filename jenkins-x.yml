@@ -4,4 +4,4 @@ pipelineConfig:
     pullRequest:
       preBuild:
         steps:
-        - command: echo "shady stuff going on hiiire"
+        - command: echo "shady stuff going on here"
