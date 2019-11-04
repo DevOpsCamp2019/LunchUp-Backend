@@ -34,7 +34,8 @@ namespace LunchUp.WebHost
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseHsts();
+            app.UseHttpsRedirection();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
