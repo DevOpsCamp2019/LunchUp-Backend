@@ -1,21 +1,20 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS builder
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim AS base
 WORKDIR /app
-
-# caches restore result by copying csproj file separately
-COPY *.csproj .
-RUN dotnet restore
-
-COPY . .
-RUN dotnet publish --output /app/ --configuration Release
-RUN sed -n 's:.*<AssemblyName>\(.*\)</AssemblyName>.*:\1:p' *.csproj > __assemblyname
-RUN if [ ! -s __assemblyname ]; then filename=$(ls *.csproj); echo ${filename%.*} > __assemblyname; fi
-
-# Stage 2
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
-WORKDIR /app
-COPY --from=builder /app .
-
-ENV PORT 80
 EXPOSE 80
+EXPOSE 443
 
-ENTRYPOINT dotnet $(cat /app/__assemblyname).dll
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
+WORKDIR /src
+COPY ["src/LunchUp.Backend/", "LunchUp.Backend/"]
+RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln"
+COPY . .
+WORKDIR "/src/LunchUp.Backend"
+RUN dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "LunchUp.WebHost.dll"]
