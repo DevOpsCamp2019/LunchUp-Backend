@@ -1,18 +1,1 @@
 buildPack: csharp
-
-pipelineConfig:
-  pipelines:
-    release:
-      pipeline:
-        agent:
-          image: "jenkins-jx-base"
-        stages:
-          - name: "Dummy Stage :)"
-            steps:
-              - command: echo
-                args:
-                  - "Shady stuff going on here..."
-              
-
-          
-
