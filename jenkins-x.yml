@@ -4,6 +4,8 @@ pipelineConfig:
   pipelines:
     release:
       pipeline:
+        agent:
+          image: "jenkins-jx-base"
         stages:
           - name: "Dummy Stage :)"
             steps:
