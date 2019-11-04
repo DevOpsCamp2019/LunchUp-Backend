@@ -1,14 +1,15 @@
 buildPack: csharp
 
-pipelines:
-  release:
-    pipeline:
-      stages:
-        - name: "Dummy Stage :)"
-          steps:
-            - command: echo
-              args:
-                - "Shady stuff going on here..."
+pipelineConfig:
+  pipelines:
+    release:
+      pipeline:
+        stages:
+          - name: "Dummy Stage :)"
+            steps:
+              - command: echo
+                args:
+                  - "Shady stuff going on here..."
               
 
           
