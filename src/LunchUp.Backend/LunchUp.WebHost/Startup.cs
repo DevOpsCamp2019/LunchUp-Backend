@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Models;
 
 
@@ -21,7 +23,13 @@ namespace LunchUp.WebHost
                 c.SwaggerDoc("v1", new OpenApiInfo()
                 { 
                     Title = "LunchUp API",
-                    Version = "V1"
+                    Version = "V1",
+                    Description = "The Documentation for the LunchUp API",
+                    Contact = new OpenApiContact()
+                    {
+                        Name = "CU DevOps",
+                        Email = "354ccef8.Zuhlke.onmicrosoft.com@emea.teams.ms"
+                    }
                 });
             });
 
