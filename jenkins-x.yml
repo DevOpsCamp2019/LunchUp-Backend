@@ -1,1 +1,7 @@
 buildPack: csharp
+pipelineConfig:
+  pipelines:
+    pullRequest:
+      preBuild:
+        steps:
+        - command: echo "shady stuff going on hiiire"
