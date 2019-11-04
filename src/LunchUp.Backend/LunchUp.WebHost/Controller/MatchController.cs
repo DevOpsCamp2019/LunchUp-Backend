@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LunchUp.WebHost.Dto;
@@ -10,7 +11,11 @@ namespace LunchUp.WebHost.Controller
     [ApiController]
     public class MatchController : ControllerBase
     {
+        /// <summary>
+        /// Get all matches
+        /// </summary>
         [HttpGet]
+        [Produces("application/json")]
         public Task<List<Person>> GetMatches()
         {
             var matches = SampleData.Suggestions().Take(2).ToList();

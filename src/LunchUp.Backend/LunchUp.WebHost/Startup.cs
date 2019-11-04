@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,6 +31,9 @@ namespace LunchUp.WebHost
                         Email = "354ccef8.Zuhlke.onmicrosoft.com@emea.teams.ms"
                     }
                 });
+                
+                var xmlFile = Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml");
+                c.IncludeXmlComments(xmlFile);
             });
 
         }
@@ -42,7 +45,8 @@ namespace LunchUp.WebHost
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseHsts();
+            app.UseHttpsRedirection();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
