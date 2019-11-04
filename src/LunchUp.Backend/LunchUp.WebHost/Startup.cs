@@ -1,4 +1,5 @@
 using System.IO;
+using LunchUp.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,7 @@ namespace LunchUp.WebHost
         {
             services.AddMvcCore()
                 .AddApiExplorer();
+            services.AddEntityFrameworkNpgsql().AddDbContext<LunchUpContext>(opt =>
 
             services.AddSwaggerGen(c =>
             {
