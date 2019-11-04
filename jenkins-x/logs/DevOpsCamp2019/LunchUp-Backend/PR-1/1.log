@@ -1,0 +1,88 @@
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-mq4dr[0m
+{"level":"warn","ts":1572881147.6183388,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572881147.6203268,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-gqqlv[0m
+{"level":"warn","ts":1572881149.0031986,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572881149.1013198,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-devopscamp2019-lunchup-bac-ntbl2[0m
+{"level":"warn","ts":1572881157.0001142,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"error","ts":1572881158.359691,"logger":"fallback-logger","caller":"git/git.go:35","msg":"Error running git [fetch --depth=1 --recurse-submodules=yes origin fc0f57d762779f705569cb25d095dc3f66a5d12e]: exit status 128\nerror: Server does not allow request for unadvertised object fc0f57d762779f705569cb25d095dc3f66a5d12e\n","stacktrace":"github.com/tektoncd/pipeline/pkg/git.run\n\t/workspace/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:35\ngithub.com/tektoncd/pipeline/pkg/git.Fetch\n\t/workspace/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:88\nmain.main\n\t/workspace/go/src/github.com/tektoncd/pipeline/cmd/git-init/main.go:36\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:200"}
+{"level":"error","ts":1572881159.4337056,"logger":"fallback-logger","caller":"git/git.go:35","msg":"Error running git [pull --recurse-submodules=yes origin]: exit status 1\nFrom https://github.com/DevOpsCamp2019/LunchUp-Backend\n * [new branch]      feature/shady -> origin/feature/shady\n * [new branch]      gh-pages      -> origin/gh-pages\n * [new branch]      master        -> origin/master\nYou asked to pull from the remote 'origin', but did not specify\na branch. Because this is not the default configured remote\nfor your current branch, you must specify a branch on the command line.\n","stacktrace":"github.com/tektoncd/pipeline/pkg/git.run\n\t/workspace/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:35\ngithub.com/tektoncd/pipeline/pkg/git.Fetch\n\t/workspace/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:91\nmain.main\n\t/workspace/go/src/github.com/tektoncd/pipeline/cmd/git-init/main.go:36\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:200"}
+{"level":"warn","ts":1572881159.4341083,"logger":"fallback-logger","caller":"git/git.go:92","msg":"Failed to pull origin : exit status 1"}
+{"level":"info","ts":1572881159.442934,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ fc0f57d762779f705569cb25d095dc3f66a5d12e in path /workspace/source"}
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:fc0f57d762779f705569cb25d095dc3f66a5d12e,1:9a9655a83cc199e422396301cfa3710e85b7563d
+DEBUG: ran git fetch origin 9a9655a83cc199e422396301cfa3710e85b7563d: fc0f57d762779f705569cb25d095dc3f66a5d12e: in 
+DEBUG: Unshallowed git repo in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard fc0f57d762779f705569cb25d095dc3f66a5d12e in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 9a9655a83cc199e422396301cfa3710e85b7563d in 
+Merged SHA 9a9655a83cc199e422396301cfa3710e85b7563d with commit message 'fix pipeline' into base branch master
+Merged SHA 5bcf2c4e3700a0d43ba0f40660a2f051ea9e4b79 with commit message 'add shady build step' into base branch master
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
+DEBUG: ran git fetch origin 9a9655a83cc199e422396301cfa3710e85b7563d: fc0f57d762779f705569cb25d095dc3f66a5d12e: in 
+DEBUG: Unshallowed git repo in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard fc0f57d762779f705569cb25d095dc3f66a5d12e in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 9a9655a83cc199e422396301cfa3710e85b7563d in 
+Merged SHA 9a9655a83cc199e422396301cfa3710e85b7563d with commit message 'fix pipeline' into base branch master
+Merged SHA 5bcf2c4e3700a0d43ba0f40660a2f051ea9e4b79 with commit message 'add shady build step' into base branch master
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+error: failed to create effective pipeline for release: validation failed for Pipeline: No agent specified for stage or for its parent(s): stages[0].agent
+[31m
+Pipeline failed on stage 'meta-pipeline' : container 'step-create-effective-pipeline'. The execution of the pipeline has stopped.[0m
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-mq4dr[0m
+{"level":"warn","ts":1572881147.6183388,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572881147.6203268,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-gqqlv[0m
+{"level":"warn","ts":1572881149.0031986,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572881149.1013198,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-devopscamp2019-lunchup-bac-ntbl2[0m
+{"level":"warn","ts":1572881157.0001142,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"error","ts":1572881158.359691,"logger":"fallback-logger","caller":"git/git.go:35","msg":"Error running git [fetch --depth=1 --recurse-submodules=yes origin fc0f57d762779f705569cb25d095dc3f66a5d12e]: exit status 128\nerror: Server does not allow request for unadvertised object fc0f57d762779f705569cb25d095dc3f66a5d12e\n","stacktrace":"github.com/tektoncd/pipeline/pkg/git.run\n\t/workspace/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:35\ngithub.com/tektoncd/pipeline/pkg/git.Fetch\n\t/workspace/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:88\nmain.main\n\t/workspace/go/src/github.com/tektoncd/pipeline/cmd/git-init/main.go:36\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:200"}
+{"level":"error","ts":1572881159.4337056,"logger":"fallback-logger","caller":"git/git.go:35","msg":"Error running git [pull --recurse-submodules=yes origin]: exit status 1\nFrom https://github.com/DevOpsCamp2019/LunchUp-Backend\n * [new branch]      feature/shady -> origin/feature/shady\n * [new branch]      gh-pages      -> origin/gh-pages\n * [new branch]      master        -> origin/master\nYou asked to pull from the remote 'origin', but did not specify\na branch. Because this is not the default configured remote\nfor your current branch, you must specify a branch on the command line.\n","stacktrace":"github.com/tektoncd/pipeline/pkg/git.run\n\t/workspace/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:35\ngithub.com/tektoncd/pipeline/pkg/git.Fetch\n\t/workspace/go/src/github.com/tektoncd/pipeline/pkg/git/git.go:91\nmain.main\n\t/workspace/go/src/github.com/tektoncd/pipeline/cmd/git-init/main.go:36\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:200"}
+{"level":"warn","ts":1572881159.4341083,"logger":"fallback-logger","caller":"git/git.go:92","msg":"Failed to pull origin : exit status 1"}
+{"level":"info","ts":1572881159.442934,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ fc0f57d762779f705569cb25d095dc3f66a5d12e in path /workspace/source"}
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:fc0f57d762779f705569cb25d095dc3f66a5d12e,1:9a9655a83cc199e422396301cfa3710e85b7563d
+DEBUG: ran git fetch origin 9a9655a83cc199e422396301cfa3710e85b7563d: fc0f57d762779f705569cb25d095dc3f66a5d12e: in 
+DEBUG: Unshallowed git repo in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard fc0f57d762779f705569cb25d095dc3f66a5d12e in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 9a9655a83cc199e422396301cfa3710e85b7563d in 
+Merged SHA 9a9655a83cc199e422396301cfa3710e85b7563d with commit message 'fix pipeline' into base branch master
+Merged SHA 5bcf2c4e3700a0d43ba0f40660a2f051ea9e4b79 with commit message 'add shady build step' into base branch master
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
+DEBUG: ran git fetch origin 9a9655a83cc199e422396301cfa3710e85b7563d: fc0f57d762779f705569cb25d095dc3f66a5d12e: in 
+DEBUG: Unshallowed git repo in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard fc0f57d762779f705569cb25d095dc3f66a5d12e in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 9a9655a83cc199e422396301cfa3710e85b7563d in 
+Merged SHA 9a9655a83cc199e422396301cfa3710e85b7563d with commit message 'fix pipeline' into base branch master
+Merged SHA 5bcf2c4e3700a0d43ba0f40660a2f051ea9e4b79 with commit message 'add shady build step' into base branch master
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-scx2z-1[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+error: failed to create effective pipeline for release: validation failed for Pipeline: No agent specified for stage or for its parent(s): stages[0].agent
+[31m
+Pipeline failed on stage 'meta-pipeline' : container 'step-create-effective-pipeline'. The execution of the pipeline has stopped.[0m
