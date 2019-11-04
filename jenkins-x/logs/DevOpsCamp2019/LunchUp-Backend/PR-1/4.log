@@ -1,0 +1,89 @@
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zw4l2-4[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-24s9t[0m
+{"level":"warn","ts":1572884570.143169,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572884570.143733,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zw4l2-4[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-zj9fb[0m
+{"level":"warn","ts":1572884575.180025,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572884575.182199,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zw4l2-4[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zw4l2-4[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-devopscamp2019-lunchup-backend-gfp8s[0m
+{"level":"warn","ts":1572884667.3674307,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572884668.8575883,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ master in path /workspace/source"}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zw4l2-4[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:ef4779b23b57edd2dc288bb75d6465a924e7a810,1:7dfa23a83c7db6a4cc3273056b40e762c2f94d5d
+DEBUG: ran git fetch --unshallow origin 7dfa23a83c7db6a4cc3273056b40e762c2f94d5d: ef4779b23b57edd2dc288bb75d6465a924e7a810: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard ef4779b23b57edd2dc288bb75d6465a924e7a810 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 7dfa23a83c7db6a4cc3273056b40e762c2f94d5d in 
+Merged SHA 2e778aeb985f309fc46944d6ca8f3475a779187a with commit message 'Merge commit '7dfa23a83c7db6a4cc3273056b40e762c2f94d5d'' into base branch master
+Merged SHA 7dfa23a83c7db6a4cc3273056b40e762c2f94d5d with commit message 'force rebuild' into base branch master
+Merged SHA e25def98e95d1294077353feaa026367f18d8e2a with commit message 'add proper shady step' into base branch master
+Merged SHA 18fe4a1706e6e50a19c8400bdc01aa2ed231b6e4 with commit message 'remove shady pipeline' into base branch master
+Merged SHA d9fa89194a5a7d8a4457a02cf3165848fae5a415 with commit message 'add agent to pipeline' into base branch master
+Merged SHA 9a9655a83cc199e422396301cfa3710e85b7563d with commit message 'fix pipeline' into base branch master
+Merged SHA 5bcf2c4e3700a0d43ba0f40660a2f051ea9e4b79 with commit message 'add shady build step' into base branch master
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zw4l2-4[0m stage [32mfrom-build-pack[0m and container [32mstep-prebuild-step2[0m
+shady stuff going on here
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zw4l2-4[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+ERROR: logging before flag.Parse: E1104 16:24:32.352911      11 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E1104 16:24:32.356801      11 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2019/11/04 16:24:32 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0001] Error while retrieving image from cache: getting file info: stat /workspace/sha256:803b70d9de2c57a168af4cc7d44e77a9c0591b49ce2af73d50c344aa22048eda: no such file or directory 
+[36mINFO[0m[0001] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+2019/11/04 16:24:33 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0002] Taking snapshot of full filesystem...        
+[36mINFO[0m[0002] WORKDIR /app                                 
+[36mINFO[0m[0002] cmd: workdir                                 
+[36mINFO[0m[0002] Changed working directory to /app            
+[36mINFO[0m[0002] Creating directory /app                      
+[36mINFO[0m[0002] Taking snapshot of files...                  
+[36mINFO[0m[0002] EXPOSE 80                                    
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] EXPOSE 443                                   
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] Storing source image from stage 0 at path /kaniko/stages/0 
+[36mINFO[0m[0022] Deleting filesystem...                       
+[36mINFO[0m[0022] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/04 16:24:54 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0023] Error while retrieving image from cache: getting file info: stat /workspace/sha256:65c0187e27b42bc45ea5ef98226c7ef37d1b706e10031ddce377bf6da3dcd9aa: no such file or directory 
+[36mINFO[0m[0023] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/04 16:24:55 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0024] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0024] Checking for cached layer gcr.io/deliverymachine/cache:b0258fc6cd80e6664a349a8f3aa13f6f870ef5c13c6bbd54b95f425d49957fce... 
+[36mINFO[0m[0025] Using caching version of cmd: RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0025] Using files from context: [/workspace/source] 
+[36mINFO[0m[0025] Checking for cached layer gcr.io/deliverymachine/cache:4968be25e3e5574de067241858f1034e891d5c3f3f4b83372765f8a6e01e06ae... 
+[36mINFO[0m[0025] No cached layer found for cmd RUN dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build 
+[36mINFO[0m[0025] Unpacking rootfs as cmd RUN dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build requires it. 
+[36mINFO[0m[0061] Taking snapshot of full filesystem...        
+[36mINFO[0m[0065] WORKDIR /src                                 
+[36mINFO[0m[0065] cmd: workdir                                 
+[36mINFO[0m[0065] Changed working directory to /src            
+[36mINFO[0m[0065] Creating directory /src                      
+[36mINFO[0m[0065] Taking snapshot of files...                  
+[36mINFO[0m[0065] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0065] COPY ["src/LunchUp.Backend/", "LunchUp.Backend/"] 
+[36mINFO[0m[0065] Taking snapshot of files...                  
+[36mINFO[0m[0065] RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0065] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0069] Taking snapshot of files...                  
+error building image: error building stage: Unable to add file /tmp/clr-debug-pipe-62-1023574-out to layered map: Error creating hash for /tmp/clr-debug-pipe-62-1023574-out: lstat /tmp/clr-debug-pipe-62-1023574-out: no such file or directory
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
