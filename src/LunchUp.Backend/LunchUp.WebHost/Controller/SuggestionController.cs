@@ -47,14 +47,15 @@ namespace LunchUp.WebHost.Controller
         /// Response to a suggestion
         /// </summary>
         /// <param name="personId">ID of the matching target Person</param>
-        /// <param name="result"></param>
+        /// <param name="response"></param>
         /// <response code="200">Response Created</response>
         /// <response code="401">Unauthorized</response>
         [HttpPost]
         [Route("{personId}")]
+        [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public Task CreateReponse([FromRoute] [Required] Guid personId, [FromBody] [Required] bool result)
+        public Task CreateResponse([FromRoute] [Required] Guid personId, [FromBody] [Required] Response response)
         {
             return Task.FromResult(StatusCodes.Status201Created);
         }
