@@ -27,7 +27,9 @@ namespace LunchUp.WebHost
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
-            services.AddMvcCore().AddApiExplorer();
+            services.AddMvcCore().AddApiExplorer().ConfigureApiBehaviorOptions(
+                options => { options.SuppressMapClientErrors = true; });
+
             services.AddEntityFrameworkNpgsql().AddDbContext<LunchUpContext>(opt =>
                 opt.UseNpgsql(Configuration.GetConnectionString("LunchUpConnection")));
 
@@ -49,8 +51,10 @@ namespace LunchUp.WebHost
                 c.IncludeXmlComments(xmlFile);
             });
 
-            services.AddSingleton<IMatchingService, SimpleMatchingService>();
-            services.AddSingleton<IIntegrationService, IntegrationService>();
+            services.AddTransient<IMatchingService, SimpleMatchingService>();
+            services.AddTransient<IIntegrationService, IntegrationService>();
+
+            services.AddHealthChecks();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -69,6 +73,7 @@ namespace LunchUp.WebHost
             app.UseRouting();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseHealthChecks("/api/health");
 
 
         }
