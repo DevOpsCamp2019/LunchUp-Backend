@@ -3,6 +3,7 @@ using AutoMapper;
 using LunchUp.Core.Integration;
 using LunchUp.Core.Matching;
 using LunchUp.Model.Models;
+using LunchUp.WebHost.HealthCheck;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json;
 
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
@@ -55,7 +55,8 @@ namespace LunchUp.WebHost
             services.AddTransient<IMatchingService, SimpleMatchingService>();
             services.AddTransient<IIntegrationService, IntegrationService>();
 
-            services.AddHealthChecks();
+            services.AddHealthChecks()
+                .AddCheck("LunchDbHealthCheck", new NpgSqlConnectionHealthCheck(Configuration.GetConnectionString("LunchUpConnection")));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

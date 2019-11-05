@@ -30,6 +30,7 @@ namespace LunchUp.WebHost.Controller
         [HttpGet]
         [ProducesResponseType(typeof(HealthReport), (int)StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status503ServiceUnavailable)]
+        [Produces("application/json")]
         public async Task<IActionResult> GetHealthStatus()
         {
             var report = await _healthCheckService.CheckHealthAsync();
