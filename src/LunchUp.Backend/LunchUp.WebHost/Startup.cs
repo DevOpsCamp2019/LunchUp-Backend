@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json;
+using Npgsql;
 
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
@@ -29,8 +29,16 @@ namespace LunchUp.WebHost
         {
             services.AddAutoMapper(typeof(Startup));
             services.AddMvcCore().AddApiExplorer();
+
+            var connection = Configuration.GetSection("Database:lunchup").Get<DatabaseSettings>();
+            var connectionString = new NpgsqlConnectionStringBuilder
+            {
+                Database = connection.Database, Host = connection.Host, Port = connection.Port,
+                Username = connection.Username, Password = connection.Password
+            };
+
             services.AddEntityFrameworkNpgsql().AddDbContext<LunchUpContext>(opt =>
-                opt.UseNpgsql(Configuration.GetConnectionString("LunchUpConnection")));
+                opt.UseNpgsql(connectionString.ConnectionString));
 
             services.AddSwaggerGen(c =>
             {
