@@ -27,8 +27,8 @@ cleanup:
 env:
 volumePermissions:
   securityContext:
-    runAsUser: 70
-    fsGroup: 70
+    runAsUser: 1000
+    fsGroup: 1000
     enabled: true
 
 global:
