@@ -1,0 +1,245 @@
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-5gv96-6[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-gbk2s[0m
+{"level":"warn","ts":1572945015.8357987,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572945015.8375916,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-5gv96-6[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-vp7vq[0m
+{"level":"warn","ts":1572945016.5595887,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572945016.563561,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-5gv96-6[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-5gv96-6[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-devopscamp2019-lunchup-backend-msw5g[0m
+{"level":"warn","ts":1572945022.597502,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572945023.5904405,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ master in path /workspace/source"}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-5gv96-6[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:5269e8f153163a3aa3d6ab6996adcafe00946151,1:09e7551a35754d0cc9452f2af2b6dbf12df0ecad
+DEBUG: ran git fetch --unshallow origin 09e7551a35754d0cc9452f2af2b6dbf12df0ecad: 5269e8f153163a3aa3d6ab6996adcafe00946151: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 5269e8f153163a3aa3d6ab6996adcafe00946151 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 09e7551a35754d0cc9452f2af2b6dbf12df0ecad in 
+Merged SHA e8cfd1cc820e5bffc8458f2269a465a1426589e7 with commit message 'Merge commit '09e7551a35754d0cc9452f2af2b6dbf12df0ecad'' into base branch master
+Merged SHA 09e7551a35754d0cc9452f2af2b6dbf12df0ecad with commit message 'make hello shady post prebuild' into base branch master
+Merged SHA 051c22333d77b4966b24809aebe5a60ddaf3b48b with commit message 'remove GÄNSEFÜSSCHEN to fix shady' into base branch master
+Merged SHA 7dfa23a83c7db6a4cc3273056b40e762c2f94d5d with commit message 'force rebuild' into base branch master
+Merged SHA e25def98e95d1294077353feaa026367f18d8e2a with commit message 'add proper shady step' into base branch master
+Merged SHA 18fe4a1706e6e50a19c8400bdc01aa2ed231b6e4 with commit message 'remove shady pipeline' into base branch master
+Merged SHA d9fa89194a5a7d8a4457a02cf3165848fae5a415 with commit message 'add agent to pipeline' into base branch master
+Merged SHA 9a9655a83cc199e422396301cfa3710e85b7563d with commit message 'fix pipeline' into base branch master
+Merged SHA 5bcf2c4e3700a0d43ba0f40660a2f051ea9e4b79 with commit message 'add shady build step' into base branch master
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-5gv96-6[0m stage [32mfrom-build-pack[0m and container [32mstep-prebuild-step2[0m
+hello shady
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-5gv96-6[0m stage [32mfrom-build-pack[0m and container [32mstep-prebuild-step3[0m
+shady stuff going on here
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-5gv96-6[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+ERROR: logging before flag.Parse: E1105 09:10:26.932034      10 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E1105 09:10:26.936024      10 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2019/11/05 09:10:26 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0001] Error while retrieving image from cache: getting file info: stat /workspace/sha256:803b70d9de2c57a168af4cc7d44e77a9c0591b49ce2af73d50c344aa22048eda: no such file or directory 
+[36mINFO[0m[0001] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+2019/11/05 09:10:28 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0002] Taking snapshot of full filesystem...        
+[36mINFO[0m[0002] WORKDIR /app                                 
+[36mINFO[0m[0002] cmd: workdir                                 
+[36mINFO[0m[0002] Changed working directory to /app            
+[36mINFO[0m[0002] Creating directory /app                      
+[36mINFO[0m[0002] Taking snapshot of files...                  
+[36mINFO[0m[0002] EXPOSE 80                                    
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] EXPOSE 443                                   
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] Storing source image from stage 0 at path /kaniko/stages/0 
+[36mINFO[0m[0016] Deleting filesystem...                       
+[36mINFO[0m[0016] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/05 09:10:43 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0017] Error while retrieving image from cache: getting file info: stat /workspace/sha256:65c0187e27b42bc45ea5ef98226c7ef37d1b706e10031ddce377bf6da3dcd9aa: no such file or directory 
+[36mINFO[0m[0017] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/05 09:10:44 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0018] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0018] Checking for cached layer gcr.io/deliverymachine/cache:7b32af9c81d9e2bdca54bf1ec5ee52232f88fd4beec9d626a3e6d00856ab8e2d... 
+[36mINFO[0m[0019] Using caching version of cmd: RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0019] Using files from context: [/workspace/source] 
+[36mINFO[0m[0019] Checking for cached layer gcr.io/deliverymachine/cache:a5a691afdc8528159905da5a5ec24859e8c040affa347a11b78e925b9eef69fc... 
+[36mINFO[0m[0019] No cached layer found for cmd RUN dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build 
+[36mINFO[0m[0019] Unpacking rootfs as cmd RUN dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build requires it. 
+[36mINFO[0m[0041] Taking snapshot of full filesystem...        
+[36mINFO[0m[0060] WORKDIR /src                                 
+[36mINFO[0m[0060] cmd: workdir                                 
+[36mINFO[0m[0060] Changed working directory to /src            
+[36mINFO[0m[0060] Creating directory /src                      
+[36mINFO[0m[0060] Taking snapshot of files...                  
+[36mINFO[0m[0060] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0060] COPY ["src/LunchUp.Backend/", "LunchUp.Backend/"] 
+[36mINFO[0m[0060] Taking snapshot of files...                  
+[36mINFO[0m[0060] RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0060] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0069] Taking snapshot of files...                  
+[36mINFO[0m[0078] Using files from context: [/workspace/source] 
+[36mINFO[0m[0078] COPY . .                                     
+[36mINFO[0m[0078] Taking snapshot of files...                  
+[36mINFO[0m[0079] WORKDIR "/src/LunchUp.Backend"               
+[36mINFO[0m[0079] cmd: workdir                                 
+[36mINFO[0m[0079] Changed working directory to /src/LunchUp.Backend 
+[36mINFO[0m[0079] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0079] RUN dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build 
+[36mINFO[0m[0079] cmd: /bin/sh                                 
+[36mINFO[0m[0079] args: [-c dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build] 
+Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 32.94 ms for /src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj.
+  Restore completed in 32.94 ms for /src/LunchUp.Backend/LunchUp.Model/LunchUp.Model.csproj.
+  Restore completed in 2.22 ms for /src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj.
+  LunchUp.Model -> /app/build/LunchUp.Model.dll
+  LunchUp.Core -> /app/build/LunchUp.Core.dll
+Dto/Person.cs(5,18): warning CS1591: Missing XML comment for publicly visible type or member 'Person' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Person.cs(7,21): warning CS1591: Missing XML comment for publicly visible type or member 'Person.Id' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Person.cs(8,23): warning CS1591: Missing XML comment for publicly visible type or member 'Person.Lastname' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Person.cs(9,23): warning CS1591: Missing XML comment for publicly visible type or member 'Person.Firstname' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Person.cs(10,23): warning CS1591: Missing XML comment for publicly visible type or member 'Person.Email' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Person.cs(11,23): warning CS1591: Missing XML comment for publicly visible type or member 'Person.Photo' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Response.cs(3,18): warning CS1591: Missing XML comment for publicly visible type or member 'Response' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Response.cs(5,21): warning CS1591: Missing XML comment for publicly visible type or member 'Response.Match' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Program.cs(6,18): warning CS1591: Missing XML comment for publicly visible type or member 'Program' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Program.cs(8,28): warning CS1591: Missing XML comment for publicly visible type or member 'Program.Main(string[])' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Program.cs(13,36): warning CS1591: Missing XML comment for publicly visible type or member 'Program.CreateHostBuilder(string[])' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Startup.cs(15,18): warning CS1591: Missing XML comment for publicly visible type or member 'Startup' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Startup.cs(17,16): warning CS1591: Missing XML comment for publicly visible type or member 'Startup.Startup(IConfiguration)' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Startup.cs(22,31): warning CS1591: Missing XML comment for publicly visible type or member 'Startup.Configuration' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Startup.cs(26,21): warning CS1591: Missing XML comment for publicly visible type or member 'Startup.ConfigureServices(IServiceCollection)' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Startup.cs(57,21): warning CS1591: Missing XML comment for publicly visible type or member 'Startup.Configure(IApplicationBuilder, IWebHostEnvironment)' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+  LunchUp.WebHost -> /app/build/LunchUp.WebHost.dll
+
+Build succeeded.
+
+Dto/Person.cs(5,18): warning CS1591: Missing XML comment for publicly visible type or member 'Person' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Person.cs(7,21): warning CS1591: Missing XML comment for publicly visible type or member 'Person.Id' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Person.cs(8,23): warning CS1591: Missing XML comment for publicly visible type or member 'Person.Lastname' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Person.cs(9,23): warning CS1591: Missing XML comment for publicly visible type or member 'Person.Firstname' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Person.cs(10,23): warning CS1591: Missing XML comment for publicly visible type or member 'Person.Email' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Person.cs(11,23): warning CS1591: Missing XML comment for publicly visible type or member 'Person.Photo' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Response.cs(3,18): warning CS1591: Missing XML comment for publicly visible type or member 'Response' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Dto/Response.cs(5,21): warning CS1591: Missing XML comment for publicly visible type or member 'Response.Match' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Program.cs(6,18): warning CS1591: Missing XML comment for publicly visible type or member 'Program' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Program.cs(8,28): warning CS1591: Missing XML comment for publicly visible type or member 'Program.Main(string[])' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Program.cs(13,36): warning CS1591: Missing XML comment for publicly visible type or member 'Program.CreateHostBuilder(string[])' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Startup.cs(15,18): warning CS1591: Missing XML comment for publicly visible type or member 'Startup' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Startup.cs(17,16): warning CS1591: Missing XML comment for publicly visible type or member 'Startup.Startup(IConfiguration)' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Startup.cs(22,31): warning CS1591: Missing XML comment for publicly visible type or member 'Startup.Configuration' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Startup.cs(26,21): warning CS1591: Missing XML comment for publicly visible type or member 'Startup.ConfigureServices(IServiceCollection)' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+Startup.cs(57,21): warning CS1591: Missing XML comment for publicly visible type or member 'Startup.Configure(IApplicationBuilder, IWebHostEnvironment)' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+    16 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:07.57
+[36mINFO[0m[0087] Taking snapshot of full filesystem...        
+[36mINFO[0m[0092] ignoring socket dotnet-diagnostic-102-262802-socket, not adding to tar 
+[36mINFO[0m[0092] ignoring socket dotnet-diagnostic-71-262561-socket, not adding to tar 
+[36mINFO[0m[0092] ignoring socket g+DM1dBf3hsd22AO8JuBabg4ChjyflqwMaiOYpIurSs, not adding to tar 
+[36mINFO[0m[0093] Pushing layer gcr.io/deliverymachine/cache:a5a691afdc8528159905da5a5ec24859e8c040affa347a11b78e925b9eef69fc to cache now 
+2019/11/05 09:12:04 pushed blob: sha256:60c84b187863393649d913d27317f157327d511da8c2aca34dc8259508e83716
+2019/11/05 09:12:05 pushed blob: sha256:cd19c830aa7f9e01518393cafe1d94d2cee965fbed7a1fd2d83d97cce34e76c7
+2019/11/05 09:12:06 gcr.io/deliverymachine/cache:a5a691afdc8528159905da5a5ec24859e8c040affa347a11b78e925b9eef69fc: digest: sha256:1e7cf536eddfb3c8ac7a3d0181106788fc7f0ef7fab277384602c5e8233ff2f7 size: 428
+[36mINFO[0m[0099] Storing source image from stage 1 at path /kaniko/stages/1 
+[36mINFO[0m[0163] Deleting filesystem...                       
+[36mINFO[0m[0166] Base image from previous stage 1 found, using saved tar at path /kaniko/stages/1 
+[36mINFO[0m[0172] Checking for cached layer gcr.io/deliverymachine/cache:863c1c15715f281c8ff2b392b07629663509152ee228c849c5513afe0ba02f9b... 
+[36mINFO[0m[0173] No cached layer found for cmd RUN dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish 
+[36mINFO[0m[0173] Unpacking rootfs as cmd RUN dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish requires it. 
+[36mINFO[0m[0190] Taking snapshot of full filesystem...        
+[36mINFO[0m[0196] RUN dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish 
+[36mINFO[0m[0196] cmd: /bin/sh                                 
+[36mINFO[0m[0196] args: [-c dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish] 
+Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 30.19 ms for /src/LunchUp.Backend/LunchUp.Model/LunchUp.Model.csproj.
+  Restore completed in 33.49 ms for /src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj.
+  Restore completed in 2.08 ms for /src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj.
+  LunchUp.Model -> /src/LunchUp.Backend/LunchUp.Model/bin/Release/netcoreapp3.0/LunchUp.Model.dll
+  LunchUp.Core -> /src/LunchUp.Backend/LunchUp.Core/bin/Release/netcoreapp3.0/LunchUp.Core.dll
+  LunchUp.WebHost -> /src/LunchUp.Backend/LunchUp.WebHost/bin/Release/netcoreapp3.0/LunchUp.WebHost.dll
+  LunchUp.WebHost -> /app/publish/
+[36mINFO[0m[0201] Taking snapshot of full filesystem...        
+[36mINFO[0m[0205] ignoring socket dotnet-diagnostic-176-274245-socket, not adding to tar 
+[36mINFO[0m[0206] Pushing layer gcr.io/deliverymachine/cache:863c1c15715f281c8ff2b392b07629663509152ee228c849c5513afe0ba02f9b to cache now 
+2019/11/05 09:13:57 pushed blob: sha256:44b82bdc20f9e600e9a273e0145677d5abca9c28a1bfc2be2d70a3cf5db0039d
+2019/11/05 09:14:00 pushed blob: sha256:d115205c95d9657409bd0045d48d96bd38880729db4a4c694ce90903ad24a860
+2019/11/05 09:14:02 gcr.io/deliverymachine/cache:863c1c15715f281c8ff2b392b07629663509152ee228c849c5513afe0ba02f9b: digest: sha256:2c7fe1fdcfe73c660d9044f984e9313580b92593e8607285994c5db300722c4c size: 429
+[36mINFO[0m[0215] Storing source image from stage 2 at path /kaniko/stages/2 
+[36mINFO[0m[0236] Deleting filesystem...                       
+[36mINFO[0m[0238] Base image from previous stage 0 found, using saved tar at path /kaniko/stages/0 
+[36mINFO[0m[0245] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0245] Taking snapshot of full filesystem...        
+[36mINFO[0m[0245] WORKDIR /app                                 
+[36mINFO[0m[0245] cmd: workdir                                 
+[36mINFO[0m[0245] Changed working directory to /app            
+[36mINFO[0m[0245] Creating directory /app                      
+[36mINFO[0m[0245] Taking snapshot of files...                  
+[36mINFO[0m[0245] COPY --from=publish /app/publish .           
+[36mINFO[0m[0245] Taking snapshot of files...                  
+[36mINFO[0m[0246] ENTRYPOINT ["dotnet", "LunchUp.WebHost.dll"] 
+[36mINFO[0m[0246] No files changed in this command, skipping snapshotting. 
+2019/11/05 09:14:33 existing blob: sha256:8d691f585fa8cec0eba196be460cfaffd69939782d6162986c3e0c5225d54f02
+2019/11/05 09:14:33 existing blob: sha256:7a6b64767b0b4ec3bb235712bc93f6cada4812dbfec432d98ca9c485f9ce2ea8
+2019/11/05 09:14:33 existing blob: sha256:68f6aee67b9130df079abf2476334ad9474e116c69efedd19e272bbff3643971
+2019/11/05 09:14:33 existing blob: sha256:9526604e089d8d4aa947f34e52a14ac8793232dd181022932f3c15291c5cd3af
+2019/11/05 09:14:33 existing blob: sha256:a9e6ceefc5a08dc7b1b04a1105c47e00e9340349177009bc8926571ee8a39204
+2019/11/05 09:14:36 pushed blob: sha256:825c54459472e86cf026337707effeee57ebf36534047d2390bf6cf1a86e4335
+2019/11/05 09:14:37 pushed blob: sha256:838ade482031bed8da959e63e9e20f74bec1a7ca23543b554b94df705f40fb8c
+2019/11/05 09:14:38 pushed blob: sha256:22ece3ccdf1c0bd2433bee7c83972d19cd69aa9fb2dbe4ed6d97e4d95649b6f6
+2019/11/05 09:14:38 pushed blob: sha256:813676038a83a4eed71e79f6f7de170631cf5aef12ed03977a378f02657261d4
+2019/11/05 09:14:40 gcr.io/deliverymachine/lunchup-backend:0.0.0-SNAPSHOT-PR-1-6: digest: sha256:2427e60ef36a4ebd9bd821b99815d0a7333d682ce4992d416bc65e1d2f32a41e size: 1571
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-5gv96-6[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-5gv96-6[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-1-6/" Chart.yaml
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-1-6/" ../*/Chart.yaml
+sed -i -e "s|repository:.*|repository: gcr.io\/devopscamp2019\/lunchup-backend|" values.yaml
+sed -i -e "s/tag:.*/tag: 0.0.0-SNAPSHOT-PR-1-6/" values.yaml
+sed -i -e "s/tag:.*/tag: 0.0.0-SNAPSHOT-PR-1-6/" values.yaml
+pwd
+/workspace/source/charts/preview
+ls
+Chart.yaml
+Makefile
+requirements.yaml
+templates
+values.yaml
+ls ..
+lunchup-backend
+preview
+echo "  version: 0.0.0-SNAPSHOT-PR-1-6" >> requirements.yaml
+** step helm build
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+error: failed to lint the chart '.': failed to run 'helm lint --values values.yaml' command in directory '.', output: '==> Linting .
+[ERROR] Chart.yaml: version is required
+
+Error: 1 chart(s) linted, 1 chart(s) failed'
+make: *** [preview] Error 1
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-promote-make-preview'. The execution of the pipeline has stopped.[0m
