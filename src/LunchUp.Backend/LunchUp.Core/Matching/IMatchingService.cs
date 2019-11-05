@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using LunchUp.Model;
+﻿using System.Collections.Generic;
+using LunchUp.Model.Models;
 
-namespace LunchUp.Core
+namespace LunchUp.Core.Matching
 {
     public interface IMatchingService
     {

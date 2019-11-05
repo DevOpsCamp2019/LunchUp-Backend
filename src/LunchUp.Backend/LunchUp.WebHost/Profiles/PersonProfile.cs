@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LunchUp.Model;
+using LunchUp.Model.Models;
 using LunchUp.WebHost.Dto;
 
 namespace LunchUp.WebHost.Profiles
