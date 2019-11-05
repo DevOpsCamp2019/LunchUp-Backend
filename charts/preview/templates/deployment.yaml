@@ -24,6 +24,19 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
+        - name: LUNCHUP_DB_USER
+          value: lunchup
+        - name: LUNCHUP_DB_PASSWORD 
+          value: lunchup
+        - name: LUNCHUP_DB_SERVER
+          value: preview-db-0
+        - name: LUNCHUP_DB_PORT
+          value: 5432
+        - name: LUNCHUP_DB_DATABASE
+          value: lunchup
+        - name: ASPNETCORE_ENVIRONMENT
+          value: preview
+
 {{- range $pkey, $pval := .Values.env }}
         - name: {{ $pkey }}
           value: {{ $pval }}
