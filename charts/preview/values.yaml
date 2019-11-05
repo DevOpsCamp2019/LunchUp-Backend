@@ -25,12 +25,17 @@ cleanup:
 
 # define environment variables here as a map of key: value
 env:
+volumePermissions:
+  securityContext:
+    runAsUser: 70
+    fsGroup: 70
+    enabled: true
 
 global:
   postgresql:
     postgresqlUsername: admin
     postgresqlPassword: admin
-
+    
 preview:
   image:
     repository: /devopscamp2019/lunchup-backend
