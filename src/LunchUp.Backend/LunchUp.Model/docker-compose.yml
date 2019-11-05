@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    image: postgres:12
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    environment:
+      POSTGRES_PASSWORD: lunchup
+      POSTGRES_DB: lunchup
+      POSTGRES_USER: lunchup
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+volumes:
+  postgres-data:
