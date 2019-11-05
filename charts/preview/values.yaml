@@ -38,7 +38,7 @@ global:
     
 preview:
   image:
-    repository: /devopscamp2019/lunchup-backend
+    repository: /deliverymachine/lunchup-backend
     tag: 
     pullPolicy: IfNotPresent
 
