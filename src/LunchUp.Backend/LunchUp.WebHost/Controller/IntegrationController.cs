@@ -15,8 +15,11 @@ namespace LunchUp.WebHost.Controller
         public IntegrationController() {  }
 
         /// <summary>
-        /// Create a person
+        /// Create or update a person
         /// </summary>
+        /// <response code="200">Person updated</response>
+        /// <response code="201">Person created</response>
+        /// <response code="401">Unauthorized</response>
         [HttpPut]
         [Route("person")]
         [ProducesResponseType(StatusCodes.Status200OK)]

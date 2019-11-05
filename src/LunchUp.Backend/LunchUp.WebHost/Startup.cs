@@ -1,7 +1,10 @@
 using System.IO;
 using AutoMapper;
-using LunchUp.Core;
+using LunchUp.Core.Integration;
+using LunchUp.Core.Matching;
 using LunchUp.Model.Models;
+using LunchUp.WebHost.Extension;
+using LunchUp.WebHost.HealthCheck;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Npgsql;
 
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
@@ -26,10 +30,20 @@ namespace LunchUp.WebHost
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
-            services.AddMvcCore()
-                .AddApiExplorer();
+            services.AddMvcCore().AddApiExplorer();
+
+            var connection = Configuration.GetSection("Database:lunchup").Get<DatabaseSettings>();
+            var connectionString = new NpgsqlConnectionStringBuilder
+            {
+                Database = connection.Database, Host = connection.Host, Port = connection.Port,
+                Username = connection.Username, Password = connection.Password
+            };
+
+            services.AddMvcCore().AddApiExplorer().ConfigureApiBehaviorOptions(
+                options => { options.SuppressMapClientErrors = true; });
+
             services.AddEntityFrameworkNpgsql().AddDbContext<LunchUpContext>(opt =>
-                opt.UseNpgsql(Configuration.GetConnectionString("LunchUpConnection")));
+                opt.UseNpgsql(connectionString.ConnectionString));
 
             services.AddSwaggerGen(c =>
             {
@@ -49,12 +63,16 @@ namespace LunchUp.WebHost
                 c.IncludeXmlComments(xmlFile);
             });
 
-            services.AddSingleton<IMatchingService, SimpleMatchingService>();
+            services.AddTransient<IMatchingService, SimpleMatchingService>();
+            services.AddTransient<IIntegrationService, IntegrationService>();
+
+            services.AddHealthChecks()
+                .AddCheck("LunchDbHealthCheck", new NpgSqlConnectionHealthCheck(connectionString.ConnectionString));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            UpdateDatabase(app);
+            app.MigrateDatabase<LunchUpContext>();
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
             app.UseHsts();
             app.UseHttpsRedirection();
@@ -68,17 +86,9 @@ namespace LunchUp.WebHost
             app.UseRouting();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseHealthChecks("/api/health");
 
 
-        }
-
-        private static void UpdateDatabase(IApplicationBuilder app)
-        {
-            using var serviceScope = app.ApplicationServices
-                .GetRequiredService<IServiceScopeFactory>()
-                .CreateScope();
-            using var context = serviceScope.ServiceProvider.GetService<LunchUpContext>();
-            context.Database.Migrate();
         }
     }
 }

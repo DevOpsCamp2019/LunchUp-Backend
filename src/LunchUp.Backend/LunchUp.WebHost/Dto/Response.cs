@@ -8,6 +8,6 @@
         /// <summary>
         /// Indicates whether the suggestion has been accepted or declined
         /// </summary>
-        public bool Match { get; set; }
+        public bool Accepted { get; set; }
     }
 }
