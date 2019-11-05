@@ -1,0 +1,229 @@
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-2kpqz-19[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-ppntw[0m
+{"level":"warn","ts":1572969702.7003484,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572969702.7342653,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-2kpqz-19[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-vd8tx[0m
+{"level":"warn","ts":1572969703.949505,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572969703.9509559,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-2kpqz-19[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-2kpqz-19[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-devopscamp2019-lunchup-backend-gv694[0m
+{"level":"warn","ts":1572969710.0570016,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572969711.885575,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ v0.0.19 in path /workspace/source"}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-2kpqz-19[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:db1a9aa3cc100c6eaca809ef809aacd5b8814702
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-2kpqz-19[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-2kpqz-19[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+ERROR: logging before flag.Parse: E1105 16:01:56.749406       9 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E1105 16:01:56.754550       9 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2019/11/05 16:01:56 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0001] Error while retrieving image from cache: getting file info: stat /workspace/sha256:803b70d9de2c57a168af4cc7d44e77a9c0591b49ce2af73d50c344aa22048eda: no such file or directory 
+[36mINFO[0m[0001] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+2019/11/05 16:01:57 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0002] Taking snapshot of full filesystem...        
+[36mINFO[0m[0002] WORKDIR /app                                 
+[36mINFO[0m[0002] cmd: workdir                                 
+[36mINFO[0m[0002] Changed working directory to /app            
+[36mINFO[0m[0002] Creating directory /app                      
+[36mINFO[0m[0002] Taking snapshot of files...                  
+[36mINFO[0m[0002] EXPOSE 80                                    
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] EXPOSE 443                                   
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] Storing source image from stage 0 at path /kaniko/stages/0 
+[36mINFO[0m[0023] Deleting filesystem...                       
+[36mINFO[0m[0023] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/05 16:02:20 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0023] Error while retrieving image from cache: getting file info: stat /workspace/sha256:65c0187e27b42bc45ea5ef98226c7ef37d1b706e10031ddce377bf6da3dcd9aa: no such file or directory 
+[36mINFO[0m[0023] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/05 16:02:20 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0024] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0024] Checking for cached layer gcr.io/deliverymachine/cache:3dc911fdf4a17c0933f0c26093c67096e0c5f4979becf344c670aef44fd86484... 
+[36mINFO[0m[0025] No cached layer found for cmd RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0025] Unpacking rootfs as cmd RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" requires it. 
+[36mINFO[0m[0074] Taking snapshot of full filesystem...        
+[36mINFO[0m[0082] WORKDIR /src                                 
+[36mINFO[0m[0082] cmd: workdir                                 
+[36mINFO[0m[0082] Changed working directory to /src            
+[36mINFO[0m[0082] Creating directory /src                      
+[36mINFO[0m[0082] Taking snapshot of files...                  
+[36mINFO[0m[0082] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0082] COPY ["src/LunchUp.Backend/", "LunchUp.Backend/"] 
+[36mINFO[0m[0082] Taking snapshot of files...                  
+[36mINFO[0m[0082] RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0082] cmd: /bin/sh                                 
+[36mINFO[0m[0082] args: [-c dotnet restore "LunchUp.Backend/LunchUp.Backend.sln"] 
+  Restore completed in 6.7 sec for /src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj.
+  Restore completed in 6.7 sec for /src/LunchUp.Backend/LunchUp.Model/LunchUp.Model.csproj.
+  Restore completed in 5.33 sec for /src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj.
+[36mINFO[0m[0096] Taking snapshot of full filesystem...        
+[36mINFO[0m[0102] ignoring socket dotnet-diagnostic-62-96022-socket, not adding to tar 
+[36mINFO[0m[0113] Pushing layer gcr.io/deliverymachine/cache:3dc911fdf4a17c0933f0c26093c67096e0c5f4979becf344c670aef44fd86484 to cache now 
+[36mINFO[0m[0113] Using files from context: [/workspace/source] 
+[36mINFO[0m[0113] COPY . .                                     
+[36mINFO[0m[0113] Taking snapshot of files...                  
+[36mINFO[0m[0113] WORKDIR "/src/LunchUp.Backend"               
+[36mINFO[0m[0113] cmd: workdir                                 
+[36mINFO[0m[0113] Changed working directory to /src/LunchUp.Backend 
+[36mINFO[0m[0113] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0113] RUN dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build 
+[36mINFO[0m[0113] cmd: /bin/sh                                 
+[36mINFO[0m[0113] args: [-c dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build] 
+Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 27.57 ms for /src/LunchUp.Backend/LunchUp.Model/LunchUp.Model.csproj.
+  Restore completed in 29.37 ms for /src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj.
+  Restore completed in 2.66 ms for /src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj.
+2019/11/05 16:03:53 pushed blob: sha256:ca38c37f8835f392639acd2b37d9fdd3daa6089dfb572b3ae81c79a48f1f49fa
+  LunchUp.Model -> /app/build/LunchUp.Model.dll
+  LunchUp.Core -> /app/build/LunchUp.Core.dll
+  LunchUp.WebHost -> /app/build/LunchUp.WebHost.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:09.62
+[36mINFO[0m[0123] Taking snapshot of full filesystem...        
+[36mINFO[0m[0132] ignoring socket dotnet-diagnostic-164-99455-socket, not adding to tar 
+[36mINFO[0m[0132] ignoring socket g+DM1dBf3hsd22AO8JuBabg4ChjyflqwMaiOYpIurSs, not adding to tar 
+[36mINFO[0m[0132] ignoring socket dotnet-diagnostic-138-99218-socket, not adding to tar 
+[36mINFO[0m[0133] Pushing layer gcr.io/deliverymachine/cache:20fcd4384b75e7d1b4ed8bfc42d510e50e35012bb4721c18365bb5d238448fa8 to cache now 
+2019/11/05 16:04:14 pushed blob: sha256:cf064402ef5cf6a83a2474350499e8243cdf90f02110e89aa00378df5f14cafc
+2019/11/05 16:04:15 pushed blob: sha256:5f11ce8dfb3da217e898b6ee5da65c378676b97669c87d3a2a696fe6f49f8ed9
+2019/11/05 16:04:17 gcr.io/deliverymachine/cache:3dc911fdf4a17c0933f0c26093c67096e0c5f4979becf344c670aef44fd86484: digest: sha256:cf6797cd5646482d55abe2a08ba59311c15f358de8fd8f9baa9b38f5909e01cc size: 430
+2019/11/05 16:04:17 pushed blob: sha256:4e4d21e9984820aad47c8b9a95e3babbf98643747afe488f9a7fadd181f23f71
+2019/11/05 16:04:18 gcr.io/deliverymachine/cache:20fcd4384b75e7d1b4ed8bfc42d510e50e35012bb4721c18365bb5d238448fa8: digest: sha256:aa7c373c7b9e951d2d8c84a8588851ff1c8b28b32c69540696f16a2513ce0f21 size: 429
+[36mINFO[0m[0142] Storing source image from stage 1 at path /kaniko/stages/1 
+[36mINFO[0m[0223] Deleting filesystem...                       
+[36mINFO[0m[0224] Base image from previous stage 1 found, using saved tar at path /kaniko/stages/1 
+[36mINFO[0m[0226] Checking for cached layer gcr.io/deliverymachine/cache:23ad083f86ad8a3b3c193c9daaca78876f2bf1889298a9a0e6395d5357ac7924... 
+[36mINFO[0m[0227] No cached layer found for cmd RUN dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish 
+[36mINFO[0m[0227] Unpacking rootfs as cmd RUN dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish requires it. 
+[36mINFO[0m[0243] Taking snapshot of full filesystem...        
+[36mINFO[0m[0254] RUN dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish 
+[36mINFO[0m[0254] cmd: /bin/sh                                 
+[36mINFO[0m[0254] args: [-c dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish] 
+Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 25.98 ms for /src/LunchUp.Backend/LunchUp.Model/LunchUp.Model.csproj.
+  Restore completed in 30 ms for /src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj.
+  Restore completed in 2.73 ms for /src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj.
+  LunchUp.Model -> /src/LunchUp.Backend/LunchUp.Model/bin/Release/netcoreapp3.0/LunchUp.Model.dll
+  LunchUp.Core -> /src/LunchUp.Backend/LunchUp.Core/bin/Release/netcoreapp3.0/LunchUp.Core.dll
+  LunchUp.WebHost -> /src/LunchUp.Backend/LunchUp.WebHost/bin/Release/netcoreapp3.0/LunchUp.WebHost.dll
+  LunchUp.WebHost -> /app/publish/
+[36mINFO[0m[0258] Taking snapshot of full filesystem...        
+[36mINFO[0m[0262] ignoring socket dotnet-diagnostic-244-113233-socket, not adding to tar 
+[36mINFO[0m[0265] Pushing layer gcr.io/deliverymachine/cache:23ad083f86ad8a3b3c193c9daaca78876f2bf1889298a9a0e6395d5357ac7924 to cache now 
+2019/11/05 16:06:25 pushed blob: sha256:e3ff37cad85edc9b657c70e0e5478cf68aaa4eda750ee53c430207e28a765cdf
+2019/11/05 16:06:29 pushed blob: sha256:fe2e6c5e1363401f0401a0e17d647ece1c56869fef51931c655d655f4466fe8a
+2019/11/05 16:06:30 gcr.io/deliverymachine/cache:23ad083f86ad8a3b3c193c9daaca78876f2bf1889298a9a0e6395d5357ac7924: digest: sha256:c507a7d4e13b2ff545cf50d5c677ef68770e7d86dcb9a2fc15a31e0004e8d5d7 size: 429
+[36mINFO[0m[0274] Storing source image from stage 2 at path /kaniko/stages/2 
+[36mINFO[0m[0297] Deleting filesystem...                       
+[36mINFO[0m[0299] Base image from previous stage 0 found, using saved tar at path /kaniko/stages/0 
+[36mINFO[0m[0301] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0301] Taking snapshot of full filesystem...        
+[36mINFO[0m[0301] WORKDIR /app                                 
+[36mINFO[0m[0301] cmd: workdir                                 
+[36mINFO[0m[0301] Changed working directory to /app            
+[36mINFO[0m[0301] Creating directory /app                      
+[36mINFO[0m[0301] Taking snapshot of files...                  
+[36mINFO[0m[0301] COPY --from=publish /app/publish .           
+[36mINFO[0m[0301] Taking snapshot of files...                  
+[36mINFO[0m[0302] ENTRYPOINT ["dotnet", "LunchUp.WebHost.dll"] 
+[36mINFO[0m[0302] No files changed in this command, skipping snapshotting. 
+2019/11/05 16:06:59 existing blob: sha256:a9e6ceefc5a08dc7b1b04a1105c47e00e9340349177009bc8926571ee8a39204
+2019/11/05 16:06:59 existing blob: sha256:68f6aee67b9130df079abf2476334ad9474e116c69efedd19e272bbff3643971
+2019/11/05 16:06:59 existing blob: sha256:8d691f585fa8cec0eba196be460cfaffd69939782d6162986c3e0c5225d54f02
+2019/11/05 16:06:59 existing blob: sha256:7a6b64767b0b4ec3bb235712bc93f6cada4812dbfec432d98ca9c485f9ce2ea8
+2019/11/05 16:06:59 existing blob: sha256:9526604e089d8d4aa947f34e52a14ac8793232dd181022932f3c15291c5cd3af
+2019/11/05 16:07:03 pushed blob: sha256:4eee3d2364e89284db35674ea07319780860037bb543eb5a651856fedcf07d4e
+2019/11/05 16:07:03 pushed blob: sha256:f5a8e2e783e3b3fcb11dca64b09953894f6396380dc348998a8d498be398d463
+2019/11/05 16:07:03 pushed blob: sha256:052c8f5fbe0dffab48ed2be74ec9809ce74d3fd622738b4e0893eb1441e61874
+2019/11/05 16:07:06 pushed blob: sha256:92f09dd1ee3dd667af7b9927ea9f8ef0aed0d5ecd1a1bd66ce8ce130dbc6cb1d
+2019/11/05 16:07:07 gcr.io/deliverymachine/lunchup-backend:0.0.19: digest: sha256:5c28273a69b57bde1717efdd7634e2936a9ad17edf96c160466e281021603543 size: 1572
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-2kpqz-19[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-2kpqz-19[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/lunchup-backend to an unshallow repository
+Generating change log from git ref 48b6169440e9c71f3dc9dc361631f9335430dfd9 => c2b208abd51a027cc8e4f2a89f11f1b7e5565628
+Associating user x-0 in users.jenkins.io with email Jonas.Gschwend@zuehlke.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit db1a9aa3cc100c6eaca809ef809aacd5b8814702 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Associating user x-0 in users.jenkins.io with email Jonas.Gschwend@zuehlke.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit db1a9aa3cc100c6eaca809ef809aacd5b8814702 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Finding issues in commit messages using git format
+Associating user x-0 in users.jenkins.io with email Jonas.Gschwend@zuehlke.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 7816d14db059d61d76dae52e2923913faf4eff2b with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Associating user x-0 in users.jenkins.io with email Jonas.Gschwend@zuehlke.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 7816d14db059d61d76dae52e2923913faf4eff2b with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+WARNING: No release found for DevOpsCamp2019/LunchUp-Backend and tag v0.0.19 so creating a new release
+Updated the release information at https://github.com/DevOpsCamp2019/LunchUp-Backend/releases/tag/v0.0.19
+generated: /workspace/source/charts/lunchup-backend/templates/release.yaml
+Created Release lunchup-backend-0-0-19 resource in namespace **
+Updating PipelineActivity devopscamp2019-lunchup-backend-master-19 with version 0.0.19
+Updated PipelineActivities devopscamp2019-lunchup-backend-master-19 with release notes URL: https://github.com/DevOpsCamp2019/LunchUp-Backend/releases/tag/v0.0.19
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-2kpqz-19[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file lunchup-backend-0.0.19.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-2kpqz-19[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+Promoting app lunchup-backend version 0.0.19 to namespace **-staging
+Created Pull Request: https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22
+Added label updatebot to Pull Request https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+WARNING: Failed to query the Pull Request last commit status for https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 ref 5a5995e86006740397a28b717f335f75c4590e3c Could not find a status for repository DevOpsCamp2019/environment-deliverymachine-one-staging with ref 5a5995e86006740397a28b717f335f75c4590e3c
+got git provider status pending from PR https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22
+got git provider status pending from PR https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22
+got git provider status pending from PR https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22
+got git provider status pending from PR https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22
+Pull Request https://github.com/DevOpsCamp2019/environment-deliverymachine-one-staging/pull/22 is merged at sha 7eceef7113dbe4c3c23f526951849e21fc1b6646
+Pull Request merged but we are not waiting for the update pipeline to complete!
