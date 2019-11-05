@@ -1,0 +1,7 @@
+# !! File must end with empty line !!
+dependencies:
+    # Ephemeral PostgeSQL created in preview environment.
+- name: postgresql
+  repository: https://kubernetes-charts.storage.googleapis.com
+  version: 2.6.2
+
