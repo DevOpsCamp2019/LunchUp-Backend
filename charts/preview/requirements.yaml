@@ -9,13 +9,15 @@ dependencies:
   repository: http://chartmuseum.jenkins-x.io
   version: 2.3.92
 
+  # Ephemeral PostgeSQL
+- alias: db
+  name: postgresql
+  repository: https://kubernetes-charts.storage.googleapis.com
+  version: 2.6.2
+
   # !! "alias: preview" must be last entry in dependencies array !!
   # !! Place custom dependencies above !!
 - alias: preview
   name: lunchup-backend
   repository: file://../lunchup-backend
 
-  # Ephemeral PostgeSQL
-- name: postgresql
-  repository: https://kubernetes-charts.storage.googleapis.com
-  version: 2.6.2
