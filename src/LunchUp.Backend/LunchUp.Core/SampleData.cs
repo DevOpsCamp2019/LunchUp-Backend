@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
-using LunchUp.Model.Models;
+using System;
+using System.Collections.Generic;
+using System.Net.Mail;
+using LunchUp.Model;
 
 namespace LunchUp.Core
 {
@@ -11,6 +13,7 @@ namespace LunchUp.Core
             {
                 new PersonEntity
                 {
+                    Id = new Guid("928f4104-a379-4ce0-a52e-4612673934c0"),
                     Firstname = "Chuck",
                     Lastname = "Norris",
                     Email = "Chuck.Norris@Roundhousekick.com",
@@ -19,6 +22,7 @@ namespace LunchUp.Core
                 },
                 new PersonEntity
                 {
+                    Id = new Guid("d56d9f85-54e4-4533-86de-340e71881a92"),
                     Firstname = "Dwayne",
                     Lastname = "Johnson",
                     Email = "Dwayne.Johnson@therock.com",
@@ -27,6 +31,7 @@ namespace LunchUp.Core
                 },
                 new PersonEntity
                 {
+                    Id = new Guid("94465f3f-9063-4612-89f1-e166611714c1"),
                     Firstname = "Bill",
                     Lastname = "Gates",
                     Email = "Bill.Gates@microsoft.com",

@@ -1,4 +1,4 @@
-﻿namespace LunchUp.WebHost.Dto
+namespace LunchUp.WebHost.Dto
 {
     /// <summary>
     /// The object representing the response to a suggestion
