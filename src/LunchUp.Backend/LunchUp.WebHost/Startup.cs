@@ -1,6 +1,8 @@
 using System.IO;
 using LunchUp.Model;
 using LunchUp.Model.Models;
+using AutoMapper;
+using LunchUp.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,11 +27,16 @@ namespace LunchUp.WebHost
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+
+
+            services.AddAutoMapper(typeof(Startup));
             services.AddMvcCore()
                 .AddApiExplorer();
             services.AddEntityFrameworkNpgsql().AddDbContext<LunchUpContext>(opt =>
                 opt.UseNpgsql(Configuration.GetConnectionString("LunchUpConection")));
             
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo()
@@ -48,6 +55,7 @@ namespace LunchUp.WebHost
                 c.IncludeXmlComments(xmlFile);
             });
 
+            services.AddSingleton<IMatchingService, SimpleMatchingService>();
 
         }
 

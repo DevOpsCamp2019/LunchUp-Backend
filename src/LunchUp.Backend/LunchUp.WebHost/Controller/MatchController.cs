@@ -1,25 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
+using LunchUp.Core;
 using LunchUp.WebHost.Dto;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LunchUp.WebHost.Controller
 {
+    /// <inheritdoc />
     [Route("api/match")]
     [ApiController]
     public class MatchController : ControllerBase
     {
+        private readonly IMapper _mapper;
+        private readonly IMatchingService _matchingService;
+
+        /// <inheritdoc />
+        public MatchController(IMapper mapper, IMatchingService matchingService)
+        {
+            _mapper = mapper;
+            _matchingService = matchingService;
+        }
+
         /// <summary>
         /// Get all matches
         /// </summary>
         [HttpGet]
+        [ProducesResponseType(typeof(List<Person>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Person>), StatusCodes.Status401Unauthorized)]
         [Produces("application/json")]
         public Task<List<Person>> GetMatches()
         {
-            var matches = SampleData.Suggestions().Take(2).ToList();
-            return Task.FromResult(matches);
+            var matches = _matchingService.GetMatches();
+            return Task.FromResult(_mapper.Map<List<Person>>(matches));
         }
     }
 }
