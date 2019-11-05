@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using LunchUp.Model;
+using LunchUp.Model.Models;
 
 namespace LunchUp.Core
 {

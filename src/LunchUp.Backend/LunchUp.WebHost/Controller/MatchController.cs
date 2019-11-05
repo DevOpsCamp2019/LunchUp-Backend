@@ -24,7 +24,7 @@ namespace LunchUp.WebHost.Controller
         }
 
         /// <summary>
-        /// Get all matches
+        ///     Get all matches
         /// </summary>
         /// <returns>A list of matches</returns>
         [HttpGet]

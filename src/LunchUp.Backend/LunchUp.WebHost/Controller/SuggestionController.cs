@@ -26,23 +26,23 @@ namespace LunchUp.WebHost.Controller
         }
 
         /// <summary>
-        /// Get random suggestions
+        ///     Get random suggestions
         /// </summary>
         /// <param name="count">Number of suggestions</param>
         /// <returns>List of person</returns>
         [HttpGet]
         [Route("")]
         [Produces("application/json")]
-        [ProducesResponseType(typeof(List<Person>),StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Person>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public Task<List<Person>> GetSuggestions([FromQuery]int count = 10)
+        public Task<List<Person>> GetSuggestions([FromQuery] int count = 10)
         {
             var suggestions = _matchingService.GetSuggestions();
             return Task.FromResult(_mapper.Map<List<Person>>(suggestions));
         }
 
         /// <summary>
-        /// Save match
+        ///     Save match
         /// </summary>
         /// <param name="personId">ID of the matching target Person</param>
         /// <param name="result"></param>
@@ -50,7 +50,7 @@ namespace LunchUp.WebHost.Controller
         [Route("{personId}")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public Task CreateReponse([FromRoute][Required] Guid personId, [FromBody][Required] bool result)
+        public Task CreateReponse([FromRoute] [Required] Guid personId, [FromBody] [Required] bool result)
         {
             return Task.FromResult(StatusCodes.Status201Created);
         }
