@@ -1,6 +1,7 @@
 using System.IO;
 using AutoMapper;
-using LunchUp.Core;
+using LunchUp.Core.Integration;
+using LunchUp.Core.Matching;
 using LunchUp.Model.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,8 +27,7 @@ namespace LunchUp.WebHost
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
-            services.AddMvcCore()
-                .AddApiExplorer();
+            services.AddMvcCore().AddApiExplorer();
             services.AddEntityFrameworkNpgsql().AddDbContext<LunchUpContext>(opt =>
                 opt.UseNpgsql(Configuration.GetConnectionString("LunchUpConnection")));
 
@@ -50,6 +50,7 @@ namespace LunchUp.WebHost
             });
 
             services.AddSingleton<IMatchingService, SimpleMatchingService>();
+            services.AddSingleton<IIntegrationService, IntegrationService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
