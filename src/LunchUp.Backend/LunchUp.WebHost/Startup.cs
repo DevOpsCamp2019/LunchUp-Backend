@@ -55,6 +55,7 @@ namespace LunchUp.WebHost
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            UpdateDatabase(app);
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
             app.UseHsts();
             app.UseHttpsRedirection();
@@ -69,7 +70,7 @@ namespace LunchUp.WebHost
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
-            UpdateDatabase(app);
+
         }
 
         private static void UpdateDatabase(IApplicationBuilder app)
