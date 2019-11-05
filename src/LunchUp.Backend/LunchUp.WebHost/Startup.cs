@@ -42,8 +42,9 @@ namespace LunchUp.WebHost
             services.AddMvcCore().AddApiExplorer().ConfigureApiBehaviorOptions(
                 options => { options.SuppressMapClientErrors = true; });
 
-            services.AddEntityFrameworkNpgsql().AddDbContext<LunchUpContext>(opt =>
-                opt.UseNpgsql(connectionString.ConnectionString));
+            services.AddDbContext<LunchUpContext>(opt =>
+                opt.UseNpgsql(connectionString.ConnectionString)
+            );
 
             services.AddSwaggerGen(c =>
             {
