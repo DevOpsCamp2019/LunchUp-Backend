@@ -11,10 +11,5 @@ services:
       POSTGRES_PASSWORD: lunchup
       POSTGRES_DB: lunchup
       POSTGRES_USER: lunchup
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
 volumes:
   postgres-data:
