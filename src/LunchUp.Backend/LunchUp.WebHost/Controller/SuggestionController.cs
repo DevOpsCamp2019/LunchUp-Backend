@@ -45,12 +45,12 @@ namespace LunchUp.WebHost.Controller
         /// Save match
         /// </summary>
         /// <param name="personId">ID of the matching target Person</param>
-        /// <param name="result"></param>
+        /// <param name="response"></param>
         [HttpPost]
         [Route("{personId}")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public void CreateReponse([FromRoute][Required] Guid personId,[Required] bool result)
+        public void CreateResponse([FromRoute][Required] Guid personId,[Required] Response response)
         {
         }
     }

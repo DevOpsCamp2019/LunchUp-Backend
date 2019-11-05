@@ -2,6 +2,6 @@
 {
     public class Response
     {
-        public bool Match { get; set; }
+        public bool Accepted { get; set; }
     }
 }
