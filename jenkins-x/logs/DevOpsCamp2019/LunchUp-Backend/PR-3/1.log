@@ -1,0 +1,32 @@
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-b8fhm-1[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-4d5zx[0m
+{"level":"warn","ts":1572967957.2296026,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572967957.230364,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-b8fhm-1[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-grnmn[0m
+{"level":"warn","ts":1572967958.2220104,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572967958.2235856,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-b8fhm-1[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-b8fhm-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-devopscamp2019-lunchup-bac-7rgpg[0m
+{"level":"warn","ts":1572967964.3200374,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572967965.7993758,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ db1a9aa3cc100c6eaca809ef809aacd5b8814702 in path /workspace/source"}
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-b8fhm-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:db1a9aa3cc100c6eaca809ef809aacd5b8814702,3:d1dd0f82c1007b3d4f84f38d0854f76891eed364
+DEBUG: ran git fetch --unshallow origin d1dd0f82c1007b3d4f84f38d0854f76891eed364: db1a9aa3cc100c6eaca809ef809aacd5b8814702: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard db1a9aa3cc100c6eaca809ef809aacd5b8814702 in 
+DEBUG: ran clean --force -d . in 
+error: error during merge: merging d1dd0f82c1007b3d4f84f38d0854f76891eed364 into master: git output: Auto-merging src/LunchUp.Backend/LunchUp.WebHost/Dto/Response.cs
+CONFLICT (content): Merge conflict in src/LunchUp.Backend/LunchUp.WebHost/Dto/Response.cs
+Auto-merging src/LunchUp.Backend/LunchUp.WebHost/Controller/SuggestionController.cs
+CONFLICT (content): Merge conflict in src/LunchUp.Backend/LunchUp.WebHost/Controller/SuggestionController.cs
+Automatic merge failed; fix conflicts and then commit the result.: failed to run 'git merge d1dd0f82c1007b3d4f84f38d0854f76891eed364' command in directory '', output: 'Auto-merging src/LunchUp.Backend/LunchUp.WebHost/Dto/Response.cs
+CONFLICT (content): Merge conflict in src/LunchUp.Backend/LunchUp.WebHost/Dto/Response.cs
+Auto-merging src/LunchUp.Backend/LunchUp.WebHost/Controller/SuggestionController.cs
+CONFLICT (content): Merge conflict in src/LunchUp.Backend/LunchUp.WebHost/Controller/SuggestionController.cs
+Automatic merge failed; fix conflicts and then commit the result.'
+[31m
+Pipeline failed on stage 'meta-pipeline' : container 'step-git-merge'. The execution of the pipeline has stopped.[0m
