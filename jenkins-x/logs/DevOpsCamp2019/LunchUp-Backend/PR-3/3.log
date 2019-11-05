@@ -1,0 +1,114 @@
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-jkv52-3[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-hsvcz[0m
+{"level":"warn","ts":1572970051.5403829,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572970051.5408523,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-jkv52-3[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-tlxbd[0m
+{"level":"warn","ts":1572970052.6651046,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572970052.6665478,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-jkv52-3[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-jkv52-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-devopscamp2019-lunchup-backend-rf29l[0m
+{"level":"warn","ts":1572970058.7431703,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572970060.2988021,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ master in path /workspace/source"}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-jkv52-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:26f65e628763dfbb57edffcf3b77eea476be7942,3:dc2fe6fedde232532d5ea1bcd05a5da0e79c6034
+DEBUG: ran git fetch --unshallow origin dc2fe6fedde232532d5ea1bcd05a5da0e79c6034: 26f65e628763dfbb57edffcf3b77eea476be7942: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 26f65e628763dfbb57edffcf3b77eea476be7942 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge dc2fe6fedde232532d5ea1bcd05a5da0e79c6034 in 
+Merged SHA ce1dd6c07f535f815bf1501da9aa9a323fe0dce2 with commit message 'Merge commit 'dc2fe6fedde232532d5ea1bcd05a5da0e79c6034'' into base branch master
+Merged SHA dc2fe6fedde232532d5ea1bcd05a5da0e79c6034 with commit message 'Merge branch 'master' into hotfix' into base branch master
+Merged SHA 5da253d446bf033c2cfa5d38fda9fc67c4248b62 with commit message 'Add id to person' into base branch master
+Merged SHA d1dd0f82c1007b3d4f84f38d0854f76891eed364 with commit message 'fix dtos' into base branch master
+Merged SHA 4ebf05818e4b02c1fe7a3e26afe84ab83a1883e6 with commit message 'release 0.0.9' into base branch master
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-jkv52-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+ERROR: logging before flag.Parse: E1105 16:07:46.207047      10 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+ERROR: logging before flag.Parse: E1105 16:07:46.212908      10 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+2019/11/05 16:07:46 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0001] Error while retrieving image from cache: getting file info: stat /workspace/sha256:803b70d9de2c57a168af4cc7d44e77a9c0591b49ce2af73d50c344aa22048eda: no such file or directory 
+[36mINFO[0m[0001] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+2019/11/05 16:07:47 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0002] Taking snapshot of full filesystem...        
+[36mINFO[0m[0002] WORKDIR /app                                 
+[36mINFO[0m[0002] cmd: workdir                                 
+[36mINFO[0m[0002] Changed working directory to /app            
+[36mINFO[0m[0002] Creating directory /app                      
+[36mINFO[0m[0002] Taking snapshot of files...                  
+[36mINFO[0m[0002] EXPOSE 80                                    
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] EXPOSE 443                                   
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] Storing source image from stage 0 at path /kaniko/stages/0 
+[36mINFO[0m[0022] Deleting filesystem...                       
+[36mINFO[0m[0022] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/05 16:08:08 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0023] Error while retrieving image from cache: getting file info: stat /workspace/sha256:65c0187e27b42bc45ea5ef98226c7ef37d1b706e10031ddce377bf6da3dcd9aa: no such file or directory 
+[36mINFO[0m[0023] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/05 16:08:09 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0023] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0023] Checking for cached layer gcr.io/deliverymachine/cache:1464468846e3c75e9f5871ced353027d2f55b321d12ff7f234a7461e06362609... 
+[36mINFO[0m[0024] No cached layer found for cmd RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0024] Unpacking rootfs as cmd RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" requires it. 
+[36mINFO[0m[0064] Taking snapshot of full filesystem...        
+[36mINFO[0m[0067] WORKDIR /src                                 
+[36mINFO[0m[0067] cmd: workdir                                 
+[36mINFO[0m[0067] Changed working directory to /src            
+[36mINFO[0m[0067] Creating directory /src                      
+[36mINFO[0m[0067] Taking snapshot of files...                  
+[36mINFO[0m[0067] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0067] COPY ["src/LunchUp.Backend/", "LunchUp.Backend/"] 
+[36mINFO[0m[0067] Taking snapshot of files...                  
+[36mINFO[0m[0067] RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0067] cmd: /bin/sh                                 
+[36mINFO[0m[0067] args: [-c dotnet restore "LunchUp.Backend/LunchUp.Backend.sln"] 
+  Restore completed in 6.07 sec for /src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj.
+  Restore completed in 6.07 sec for /src/LunchUp.Backend/LunchUp.Model/LunchUp.Model.csproj.
+  Restore completed in 6.54 sec for /src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj.
+[36mINFO[0m[0082] Taking snapshot of full filesystem...        
+[36mINFO[0m[0090] ignoring socket dotnet-diagnostic-65-129472-socket, not adding to tar 
+[36mINFO[0m[0103] Using files from context: [/workspace/source] 
+[36mINFO[0m[0104] COPY . .                                     
+[36mINFO[0m[0104] Taking snapshot of files...                  
+[36mINFO[0m[0104] WORKDIR "/src/LunchUp.Backend"               
+[36mINFO[0m[0104] cmd: workdir                                 
+[36mINFO[0m[0104] Changed working directory to /src/LunchUp.Backend 
+[36mINFO[0m[0104] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0104] RUN dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build 
+[36mINFO[0m[0104] cmd: /bin/sh                                 
+[36mINFO[0m[0104] args: [-c dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build] 
+Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+[36mINFO[0m[0105] Pushing layer gcr.io/deliverymachine/cache:1464468846e3c75e9f5871ced353027d2f55b321d12ff7f234a7461e06362609 to cache now 
+  Restore completed in 42.45 ms for /src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj.
+  Restore completed in 44.94 ms for /src/LunchUp.Backend/LunchUp.Model/LunchUp.Model.csproj.
+  Restore completed in 40.85 ms for /src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj.
+2019/11/05 16:09:35 pushed blob: sha256:87ef52bb9bcb500b99bd53b9c591662ab72945a9deb4f4890b31f1a0f744b864
+  LunchUp.Model -> /app/build/LunchUp.Model.dll
+SampleData.cs(10,28): error CS0246: The type or namespace name 'PersonEntity' could not be found (are you missing a using directive or an assembly reference?) [/src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj]
+
+Build FAILED.
+
+SampleData.cs(10,28): error CS0246: The type or namespace name 'PersonEntity' could not be found (are you missing a using directive or an assembly reference?) [/src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:10.05
+error building image: error building stage: waiting for process to exit: exit status 1
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
