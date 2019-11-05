@@ -26,6 +26,7 @@ namespace LunchUp.WebHost.Controller
         /// <summary>
         ///     Get all matches
         /// </summary>
+        /// <returns>A list of matches</returns>
         [HttpGet]
         [ProducesResponseType(typeof(List<Person>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(List<Person>), StatusCodes.Status401Unauthorized)]

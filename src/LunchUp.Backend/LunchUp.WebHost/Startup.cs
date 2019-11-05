@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace LunchUp.WebHost
 {
     public class Startup
@@ -21,16 +23,13 @@ namespace LunchUp.WebHost
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
             services.AddMvcCore()
                 .AddApiExplorer();
             services.AddEntityFrameworkNpgsql().AddDbContext<LunchUpContext>(opt =>
-                opt.UseNpgsql(Configuration.GetConnectionString("LunchUpConection")));
-
+                opt.UseNpgsql(Configuration.GetConnectionString("LunchUpConnection")));
 
             services.AddSwaggerGen(c =>
             {
@@ -53,9 +52,9 @@ namespace LunchUp.WebHost
             services.AddSingleton<IMatchingService, SimpleMatchingService>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            UpdateDatabase(app);
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
             app.UseHsts();
             app.UseHttpsRedirection();
@@ -70,7 +69,7 @@ namespace LunchUp.WebHost
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
-            UpdateDatabase(app);
+
         }
 
         private static void UpdateDatabase(IApplicationBuilder app)

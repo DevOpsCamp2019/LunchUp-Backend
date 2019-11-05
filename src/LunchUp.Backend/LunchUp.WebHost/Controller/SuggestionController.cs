@@ -50,8 +50,9 @@ namespace LunchUp.WebHost.Controller
         [Route("{personId}")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public void CreateReponse([FromRoute] [Required] Guid personId, [Required] bool result)
+        public Task CreateReponse([FromRoute] [Required] Guid personId, [FromBody] [Required] bool result)
         {
+            return Task.FromResult(StatusCodes.Status201Created);
         }
     }
 }
