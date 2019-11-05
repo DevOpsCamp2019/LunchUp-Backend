@@ -26,6 +26,11 @@ cleanup:
 # define environment variables here as a map of key: value
 env:
 
+global:
+  postgresql:
+    postgresqlUsername: admin
+    postgresqlPassword: admin
+
 preview:
   image:
     repository: /devopscamp2019/lunchup-backend
