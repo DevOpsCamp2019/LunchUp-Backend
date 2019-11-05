@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace LunchUp.WebHost
 {
     public class Program
