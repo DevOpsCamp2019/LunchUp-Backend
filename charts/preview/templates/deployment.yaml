@@ -24,15 +24,15 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
-        - name: Database:lunchUp:Password
+        - name: Database__lunchUp__Password
           value: lunchup
-        - name: Database:lunchUp:Username
+        - name: Database__lunchUp__Username
           value: lunchup
-        - name: Database:lunchUp:Host
+        - name: Database__lunchUp__Host
           value: preview-db-0
-        - name: Database:lunchUp:Port
+        - name: Database__lunchUp__Port
           value: "5432"
-        - name: Database:lunchUp:Database
+        - name: Database__lunchUp__Database
           value: lunchup
         - name: ASPNETCORE_ENVIRONMENT
           value: preview
