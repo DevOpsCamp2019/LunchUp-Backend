@@ -3,6 +3,8 @@ using AutoMapper;
 using LunchUp.Core.Integration;
 using LunchUp.Core.Matching;
 using LunchUp.Model.Models;
+using LunchUp.WebHost.Extension;
+using LunchUp.WebHost.HealthCheck;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +39,9 @@ namespace LunchUp.WebHost
                 Username = connection.Username, Password = connection.Password
             };
 
+            services.AddMvcCore().AddApiExplorer().ConfigureApiBehaviorOptions(
+                options => { options.SuppressMapClientErrors = true; });
+
             services.AddEntityFrameworkNpgsql().AddDbContext<LunchUpContext>(opt =>
                 opt.UseNpgsql(connectionString.ConnectionString));
 
@@ -60,11 +65,14 @@ namespace LunchUp.WebHost
 
             services.AddTransient<IMatchingService, SimpleMatchingService>();
             services.AddTransient<IIntegrationService, IntegrationService>();
+
+            services.AddHealthChecks()
+                .AddCheck("LunchDbHealthCheck", new NpgSqlConnectionHealthCheck(connectionString.ConnectionString));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            UpdateDatabase(app);
+            app.MigrateDatabase<LunchUpContext>();
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
             app.UseHsts();
             app.UseHttpsRedirection();
@@ -78,17 +86,9 @@ namespace LunchUp.WebHost
             app.UseRouting();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseHealthChecks("/api/health");
 
 
-        }
-
-        private static void UpdateDatabase(IApplicationBuilder app)
-        {
-            using var serviceScope = app.ApplicationServices
-                .GetRequiredService<IServiceScopeFactory>()
-                .CreateScope();
-            using var context = serviceScope.ServiceProvider.GetService<LunchUpContext>();
-            context.Database.Migrate();
         }
     }
 }
