@@ -1,7 +1,10 @@
 using System.IO;
 using LunchUp.Model;
+using LunchUp.Model.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
@@ -11,6 +14,13 @@ namespace LunchUp.WebHost
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; private set; }
+
+        public Startup(IConfiguration configuration)
+        {
+            this.Configuration = configuration;
+        }
+        
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -18,7 +28,8 @@ namespace LunchUp.WebHost
             services.AddMvcCore()
                 .AddApiExplorer();
             services.AddEntityFrameworkNpgsql().AddDbContext<LunchUpContext>(opt =>
-
+                opt.UseNpgsql(Configuration.GetConnectionString("LunchUpConection")));
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo()
@@ -36,6 +47,7 @@ namespace LunchUp.WebHost
                 var xmlFile = Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml");
                 c.IncludeXmlComments(xmlFile);
             });
+
 
         }
 
@@ -61,6 +73,17 @@ namespace LunchUp.WebHost
             {
                 endpoints.MapControllers();
             });
+
+            UpdateDatabase(app);
+        }
+
+        private static void UpdateDatabase(IApplicationBuilder app)
+        {
+            using var serviceScope = app.ApplicationServices
+                .GetRequiredService<IServiceScopeFactory>()
+                .CreateScope();
+            using var context = serviceScope.ServiceProvider.GetService<LunchUpContext>();
+            context.Database.Migrate();
         }
     }
 }

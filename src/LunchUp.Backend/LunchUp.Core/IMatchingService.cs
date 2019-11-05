@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using LunchUp.Model;
+using LunchUp.Model.Models;
 
 namespace LunchUp.Core
 {
