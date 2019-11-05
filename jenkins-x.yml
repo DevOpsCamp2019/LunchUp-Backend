@@ -3,7 +3,6 @@ pipelineConfig:
   pipelines:
     pullRequest:
       preBuild:
-        preSteps:
-        - command: echo hello world
         steps:
+        - command: echo hello shady
         - command: echo shady stuff going on here
