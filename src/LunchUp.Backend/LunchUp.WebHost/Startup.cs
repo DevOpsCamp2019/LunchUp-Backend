@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
@@ -49,8 +50,8 @@ namespace LunchUp.WebHost
                 c.IncludeXmlComments(xmlFile);
             });
 
-            services.AddSingleton<IMatchingService, SimpleMatchingService>();
-            services.AddSingleton<IIntegrationService, IntegrationService>();
+            services.AddTransient<IMatchingService, SimpleMatchingService>();
+            services.AddTransient<IIntegrationService, IntegrationService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
