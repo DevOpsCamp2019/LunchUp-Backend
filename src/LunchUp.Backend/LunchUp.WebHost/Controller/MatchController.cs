@@ -24,7 +24,7 @@ namespace LunchUp.WebHost.Controller
         }
 
         /// <summary>
-        /// Get all matches
+        ///     Get all matches
         /// </summary>
         [HttpGet]
         [ProducesResponseType(typeof(List<Person>), StatusCodes.Status200OK)]

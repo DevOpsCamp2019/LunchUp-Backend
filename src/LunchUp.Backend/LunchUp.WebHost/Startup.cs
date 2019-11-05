@@ -1,8 +1,7 @@
 using System.IO;
-using LunchUp.Model;
-using LunchUp.Model.Models;
 using AutoMapper;
 using LunchUp.Core;
+using LunchUp.Model.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -11,61 +10,53 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-
 namespace LunchUp.WebHost
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; private set; }
-
         public Startup(IConfiguration configuration)
         {
-            this.Configuration = configuration;
+            Configuration = configuration;
         }
-        
+
+        public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-
-
             services.AddAutoMapper(typeof(Startup));
             services.AddMvcCore()
                 .AddApiExplorer();
             services.AddEntityFrameworkNpgsql().AddDbContext<LunchUpContext>(opt =>
                 opt.UseNpgsql(Configuration.GetConnectionString("LunchUpConection")));
-            
 
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo()
-                { 
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
                     Title = "LunchUp API",
                     Version = "V1",
                     Description = "The Documentation for the LunchUp API",
-                    Contact = new OpenApiContact()
+                    Contact = new OpenApiContact
                     {
                         Name = "CU DevOps",
                         Email = "354ccef8.Zuhlke.onmicrosoft.com@emea.teams.ms"
                     }
                 });
-                
+
                 var xmlFile = Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml");
                 c.IncludeXmlComments(xmlFile);
             });
 
             services.AddSingleton<IMatchingService, SimpleMatchingService>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
             app.UseHsts();
             app.UseHttpsRedirection();
             app.UseSwagger();
@@ -77,10 +68,7 @@ namespace LunchUp.WebHost
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
             UpdateDatabase(app);
         }
