@@ -2,7 +2,7 @@
 using System.Linq;
 using LunchUp.Model.Models;
 
-namespace LunchUp.Core
+namespace LunchUp.Core.Matching
 {
     public class SimpleMatchingService : IMatchingService
     {
