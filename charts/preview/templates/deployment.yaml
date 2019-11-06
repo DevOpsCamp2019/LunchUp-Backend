@@ -24,10 +24,13 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
-        - name: Database__lunchUp__Password
-          value: lunchup
         - name: Database__lunchUp__Username
-          value: lunchup
+          value: postgres
+        - name: Database__lunchUp__Password
+          valueFrom:
+            secretKeyRef:
+              name: preview-db
+              key: postgresql-password
         - name: Database__lunchUp__Host
           value: preview-db
         - name: Database__lunchUp__Port
