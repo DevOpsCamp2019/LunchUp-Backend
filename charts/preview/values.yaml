@@ -34,7 +34,10 @@ volumePermissions:
 postgresqlUsername: lunchup
 postgresqlPassword: lunchup
 postgresqlDatabase: lunchup
-    
+
+persistence:
+  enabled: false
+
 preview:
   image:
     repository: /deliverymachine/lunchup-backend
