@@ -31,12 +31,12 @@ volumePermissions:
     fsGroup: 1000
     enabled: true
 
-postgresqlUsername: lunchup
-postgresqlPassword: lunchup
-postgresqlDatabase: lunchup
-
-persistence:
-  enabled: false
+postgresql:
+  postgresqlUsername: lunchup
+  postgresqlPassword: lunchup
+  postgresqlDatabase: lunchup
+  persistence:
+    enabled: false
 
 preview:
   image:

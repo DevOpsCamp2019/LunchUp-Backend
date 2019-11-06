@@ -25,21 +25,21 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
         - name: Database__lunchUp__Username
-          value: {{ .Values.postgresqlUsername }}
+          value: {{ .Values.postgresql.postgresqlUsername }}
         - name: POSTGRESQL_USERNAME
-          value: {{ .Values.postgresqlUsername }}
+          value: {{ .Values.postgresql.postgresqlUsername }}
         - name: Database__lunchUp__Password
-          value: {{ .Values.postgresqlPassword }}
+          value: {{ .Values.postgresql.postgresqlPassword }}
         - name: POSTGRESQL_PASSWORD
-          value: {{ .Values.postgresqlPassword }}
+          value: {{ .Values.postgresql.postgresqlPassword }}
         - name: Database__lunchUp__Host
           value: db
         - name: Database__lunchUp__Port
           value: "5432"
         - name: Database__lunchUp__Database
-          value: {{ .Values.postgresqlDatabase }}
+          value: {{ .Values.postgresql.postgresqlDatabase }}
         - name: POSTGRESQL_DATABASE
-          value: {{ .Values.postgresqlDatabase }}
+          value: {{ .Values.postgresql.postgresqlDatabase }}
         - name: ASPNETCORE_ENVIRONMENT
           value: production
 {{- range $pkey, $pval := .Values.env }}
