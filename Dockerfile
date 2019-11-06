@@ -1,9 +1,11 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim AS base
+ENV COMPlus_EnableDiagnostics=0
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
+ENV COMPlus_EnableDiagnostics=0
 WORKDIR /src
 COPY ["src/LunchUp.Backend/", "LunchUp.Backend/"]
 RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln"
