@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -10,6 +11,7 @@ namespace LunchUp.WebHost.Controller
 {
     /// <inheritdoc />
     [Route("api/health")]
+    [AllowAnonymous]
     [ApiController]
     public class HealthController : ControllerBase
     {

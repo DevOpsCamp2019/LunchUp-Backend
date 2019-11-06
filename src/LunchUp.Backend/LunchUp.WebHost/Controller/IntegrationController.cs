@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using LunchUp.WebHost.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace LunchUp.WebHost.Controller
 {
     /// <inheritdoc />
     [Route("api/integration")]
+    [Authorize]
     [ApiController]
     public class IntegrationController : ControllerBase
     {
@@ -29,6 +31,5 @@ namespace LunchUp.WebHost.Controller
         {
             return Task.FromResult(StatusCodes.Status200OK);
         }
-
     }
 }

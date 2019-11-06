@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using LunchUp.Model;
 using LunchUp.Model.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LunchUp.Core.Matching
 {
@@ -13,16 +15,29 @@ namespace LunchUp.Core.Matching
             _lunchUpContext = lunchUpContext;
         }
         
-        public List<PersonEntity> GetSuggestions(int count = 10)
+        public List<PersonEntity> GetSuggestions(string currentUserMail, int count)
         {
-            var person = _lunchUpContext.Person.OrderBy(r => Guid.NewGuid()).Take(count).ToList();
+            var person = _lunchUpContext.Person.Where(entity => entity.Email != currentUserMail && entity.OptIn != null).OrderBy(r => Guid.NewGuid()).Take(count).ToList();
             return person;
         }
 
-        public List<PersonEntity> GetMatches()
+        public List<PersonEntity> GetMatches(string currentUserUpn)
         {
-            var matches = SampleData.Suggestions().Take(2).ToList();
+            var matches = _lunchUpContext.Response.Include(x => x.Origin)
+                .Where(entity => entity.Origin.Email == currentUserUpn && entity.Like == true).Select(x => x.Target).ToList();
             return matches;
+        }
+        
+        public void AddMatch(string currentUserUpn, Guid personId, bool accepted)
+        {
+            var response = new ResponseEntity();
+            response.Id = Guid.NewGuid();
+            response.Like = accepted;
+            response.Origin = _lunchUpContext.Person.First(x => x.Email == currentUserUpn);
+            response.Target = _lunchUpContext.Person.First(x => x.Id == personId);
+            response.ResponseDate = DateTime.UtcNow;
+            _lunchUpContext.Add(response);
+            _lunchUpContext.SaveChanges();
         }
     }
 }

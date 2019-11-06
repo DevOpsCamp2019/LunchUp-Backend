@@ -9,5 +9,7 @@ namespace LunchUp.Model.Models
         public string Firstname { get; set; }
         public string Email { get; set; }
         public string Photo { get; set; }
+        public string Company { get; set; }
+        public DateTime? OptIn { get; set; }
     }
 }
