@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using LunchUp.Core.Common;
 using LunchUp.Core.Matching;
-using LunchUp.Model.Models;
 using LunchUp.WebHost.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -20,9 +18,9 @@ namespace LunchUp.WebHost.Controller
     [ApiController]
     public class SuggestionController : ControllerBase
     {
+        private readonly ICommonService _commonService;
         private readonly IMapper _mapper;
         private readonly IMatchingService _matchingService;
-        private readonly ICommonService _commonService;
 
         /// <inheritdoc />
         public SuggestionController(IMapper mapper, IMatchingService matchingService, ICommonService commonService)
@@ -33,7 +31,7 @@ namespace LunchUp.WebHost.Controller
         }
 
         /// <summary>
-        /// Get random suggestions
+        ///     Get random suggestions
         /// </summary>
         /// <param name="count">Number of suggestions</param>
         /// <returns>List of persons</returns>
@@ -54,7 +52,7 @@ namespace LunchUp.WebHost.Controller
         }
 
         /// <summary>
-        /// Response to a suggestion
+        ///     Response to a suggestion
         /// </summary>
         /// <param name="personId">ID of the matching target Person</param>
         /// <param name="response"></param>

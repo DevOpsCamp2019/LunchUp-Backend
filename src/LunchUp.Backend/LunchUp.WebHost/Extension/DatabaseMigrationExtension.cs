@@ -5,12 +5,12 @@ using Microsoft.Extensions.DependencyInjection;
 namespace LunchUp.WebHost.Extension
 {
     /// <summary>
-    /// Extension for IApplicationBuilder
+    ///     Extension for IApplicationBuilder
     /// </summary>
     public static class DatabaseMigrationExtension
     {
         /// <summary>
-        /// Migrates the Database
+        ///     Migrates the Database
         /// </summary>
         /// <param name="app">The IApplicationBuilder</param>
         public static void MigrateDatabase<T>(this IApplicationBuilder app) where T : DbContext

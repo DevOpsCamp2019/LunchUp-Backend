@@ -6,7 +6,7 @@ namespace LunchUp.Core.Common
     public class CommonService : ICommonService
     {
         private static LunchUpContext _lunchUpContext;
-        
+
         public CommonService(LunchUpContext lunchUpContext)
         {
             _lunchUpContext = lunchUpContext;

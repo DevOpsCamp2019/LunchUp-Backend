@@ -7,11 +7,9 @@ using LunchUp.Core.Common;
 using LunchUp.Core.Integration;
 using LunchUp.Core.Matching;
 using LunchUp.Model;
-using LunchUp.Model.Models;
 using LunchUp.WebHost.Extension;
 using LunchUp.WebHost.HealthCheck;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -19,12 +17,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Npgsql;
-
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace LunchUp.WebHost
@@ -46,7 +42,8 @@ namespace LunchUp.WebHost
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(jwtOptions =>
                 {
-                    jwtOptions.Authority = $"https://{Configuration["AzureAdB2C:Hostname"]}/tfp/{Configuration["AzureAdB2C:Tenant"]}/{Configuration["AzureAdB2C:Policy"]}/v2.0/";
+                    jwtOptions.Authority =
+                        $"https://{Configuration["AzureAdB2C:Hostname"]}/tfp/{Configuration["AzureAdB2C:Tenant"]}/{Configuration["AzureAdB2C:Policy"]}/v2.0/";
                     jwtOptions.Audience = Configuration["AzureAdB2C:ClientId"];
                     jwtOptions.Events = new JwtBearerEvents
                     {
@@ -77,12 +74,9 @@ namespace LunchUp.WebHost
             services.AddDbContext<LunchUpContext>(opt =>
                 opt.UseNpgsql(connectionString.ConnectionString)
             );
-            
-            services.Configure<KestrelServerOptions>(options =>
-            {
-                options.AllowSynchronousIO = true;
-            });
-            
+
+            services.Configure<KestrelServerOptions>(options => { options.AllowSynchronousIO = true; });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -99,14 +93,15 @@ namespace LunchUp.WebHost
 
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
-                    Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
+                    Description =
+                        "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey,
                     Scheme = "Bearer"
                 });
 
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
                         new OpenApiSecurityScheme
@@ -118,12 +113,12 @@ namespace LunchUp.WebHost
                             },
                             Scheme = "oauth2",
                             Name = "Bearer",
-                            In = ParameterLocation.Header,
+                            In = ParameterLocation.Header
                         },
                         new List<string>()
                     }
                 });
-                
+
                 var xmlFile = Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml");
                 c.IncludeXmlComments(xmlFile);
             });
@@ -144,8 +139,9 @@ namespace LunchUp.WebHost
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                IdentityModelEventSource.ShowPII = true; 
+                IdentityModelEventSource.ShowPII = true;
             }
+
             app.MigrateDatabase<LunchUpContext>();
             app.UseHsts();
             app.UseHttpsRedirection();
@@ -160,7 +156,7 @@ namespace LunchUp.WebHost
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             app.UseHealthChecks("/api/health");
         }
-        
+
         private Task AuthenticationFailed(AuthenticationFailedContext arg)
         {
             // For debugging purposes only!

@@ -12,13 +12,9 @@ namespace LunchUp.WebHost.HealthCheck
     {
         private const string DefaultTestQuery = "Select 1";
 
-        private string ConnectionString { get; }
-
-        private string TestQuery { get; }
-
         /// <inheritdoc />
         public NpgSqlConnectionHealthCheck(string connectionString)
-            : this(connectionString, testQuery: DefaultTestQuery)
+            : this(connectionString, DefaultTestQuery)
         {
         }
 
@@ -29,8 +25,13 @@ namespace LunchUp.WebHost.HealthCheck
             TestQuery = testQuery;
         }
 
+        private string ConnectionString { get; }
+
+        private string TestQuery { get; }
+
         /// <inheritdoc />
-        public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = new CancellationToken())
+        public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context,
+            CancellationToken cancellationToken = new CancellationToken())
         {
             await using (var connection = new NpgsqlConnection(ConnectionString))
             {
@@ -48,7 +49,7 @@ namespace LunchUp.WebHost.HealthCheck
                 }
                 catch (DbException)
                 {
-                    return new HealthCheckResult(status: context.Registration.FailureStatus);
+                    return new HealthCheckResult(context.Registration.FailureStatus);
                 }
             }
 

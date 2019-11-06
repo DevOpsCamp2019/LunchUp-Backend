@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using LunchUp.Model;
 using LunchUp.Model.Models;
 
@@ -8,6 +7,7 @@ namespace LunchUp.Core.Integration
     public class IntegrationService : IIntegrationService
     {
         private static LunchUpContext _lunchUpContext;
+
         public IntegrationService(LunchUpContext lunchUpContext)
         {
             _lunchUpContext = lunchUpContext;
@@ -29,7 +29,7 @@ namespace LunchUp.Core.Integration
             {
                 _lunchUpContext.Add(person);
             }
-            
+
             _lunchUpContext.SaveChanges();
         }
     }
