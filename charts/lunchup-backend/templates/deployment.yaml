@@ -25,18 +25,15 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
         - name: Database__lunchUp__Username
-          value: postgres
+          value: {{ .Values.postgresqlUsername }}
         - name: Database__lunchUp__Password
-          valueFrom:
-            secretKeyRef:
-              name: db
-              key: postgresql-password
+          value: {{ .Values.postgresqlPassword }}
         - name: Database__lunchUp__Host
           value: db
         - name: Database__lunchUp__Port
           value: "5432"
         - name: Database__lunchUp__Database
-          value: lunchup
+          value: {{ .Values.postgresqlDatabase }}
         - name: ASPNETCORE_ENVIRONMENT
           value: production
 {{- range $pkey, $pval := .Values.env }}
