@@ -13,9 +13,10 @@ env:
 # enable this flag to use knative serve to deploy the app
 knativeDeploy: false
 
-postgresqlUsername: lunchup
-postgresqlPassword: lunchup
-postgresqlDatabase: lunchup
+postgresql:
+  postgresqlUsername: lunchup
+  postgresqlPassword: lunchup
+  postgresqlDatabase: lunchup
 
 service:
   name: lunchup-backend
