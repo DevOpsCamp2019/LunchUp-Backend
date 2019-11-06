@@ -31,7 +31,7 @@ volumePermissions:
     fsGroup: 1000
     enabled: true
 
-postgresql:
+db:
   postgresqlUsername: lunchup
   postgresqlPassword: lunchup
   postgresqlDatabase: lunchup
