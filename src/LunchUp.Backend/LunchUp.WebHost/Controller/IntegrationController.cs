@@ -1,5 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
+using AutoMapper;
+using LunchUp.Core.Integration;
+using LunchUp.Model.Models;
 using LunchUp.WebHost.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +17,9 @@ namespace LunchUp.WebHost.Controller
     [ApiController]
     public class IntegrationController : ControllerBase
     {
+        private readonly IIntegrationService _integrationService;
+        private readonly IMapper _mapper;
+
         /// <inheritdoc />
         public IntegrationController() {  }
 
@@ -29,7 +36,9 @@ namespace LunchUp.WebHost.Controller
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public Task CreateOrUpdatePerson([FromBody][Required] Person person)
         {
-            return Task.FromResult(StatusCodes.Status200OK);
+            var personEntity = _mapper.Map<PersonEntity>(person);
+            _integrationService.CreateOrUpdatePerson(personEntity);
+            return Task.FromResult(StatusCodes.Status201Created);
         }
     }
 }

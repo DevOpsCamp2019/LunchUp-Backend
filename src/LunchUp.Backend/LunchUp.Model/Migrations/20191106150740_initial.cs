@@ -11,11 +11,13 @@ namespace LunchUp.Model.Migrations
                 name: "Person",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<string>(type: "varchar(36)", nullable: false),
                     Lastname = table.Column<string>(nullable: true),
                     Firstname = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
-                    Photo = table.Column<string>(nullable: true)
+                    Photo = table.Column<string>(nullable: true),
+                    Company = table.Column<string>(nullable: true),
+                    OptIn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -26,9 +28,9 @@ namespace LunchUp.Model.Migrations
                 name: "Response",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
-                    OriginId = table.Column<Guid>(nullable: true),
-                    TargetId = table.Column<Guid>(nullable: true),
+                    Id = table.Column<string>(type: "varchar(36)", nullable: false),
+                    OriginId = table.Column<string>(nullable: true),
+                    TargetId = table.Column<string>(nullable: true),
                     Like = table.Column<bool>(nullable: false),
                     ResponseDate = table.Column<DateTime>(nullable: false)
                 },

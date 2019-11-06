@@ -21,9 +21,8 @@ namespace LunchUp.Model.Migrations
 
             modelBuilder.Entity("LunchUp.Model.Models.PersonEntity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(36)");
 
                     b.Property<string>("Company")
                         .HasColumnType("text");
@@ -50,21 +49,20 @@ namespace LunchUp.Model.Migrations
 
             modelBuilder.Entity("LunchUp.Model.Models.ResponseEntity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(36)");
 
                     b.Property<bool>("Like")
                         .HasColumnType("boolean");
 
-                    b.Property<Guid?>("OriginId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("OriginId")
+                        .HasColumnType("varchar(36)");
 
                     b.Property<DateTime>("ResponseDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<Guid?>("TargetId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("TargetId")
+                        .HasColumnType("varchar(36)");
 
                     b.HasKey("Id");
 
