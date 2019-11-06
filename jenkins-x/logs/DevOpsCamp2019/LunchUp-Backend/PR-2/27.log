@@ -1,0 +1,312 @@
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-dpxpn-27[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-wqbcw[0m
+{"level":"warn","ts":1573047632.460612,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573047632.4610717,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-dpxpn-27[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-94xnq[0m
+{"level":"warn","ts":1573047633.526408,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1573047633.528208,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-dpxpn-27[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-dpxpn-27[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-devopscamp2019-lunchup-backend-krjsn[0m
+{"level":"warn","ts":1573047639.6202374,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573047640.5921457,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ master in path /workspace/source"}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-dpxpn-27[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:6b3c5d86dc6cbb0a7237ae2f5e69c83a8337bccb,2:1aeccf05d25fcd78702aa4a0555cc591662f74e6
+DEBUG: ran git fetch --unshallow origin 1aeccf05d25fcd78702aa4a0555cc591662f74e6: 6b3c5d86dc6cbb0a7237ae2f5e69c83a8337bccb: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 6b3c5d86dc6cbb0a7237ae2f5e69c83a8337bccb in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 1aeccf05d25fcd78702aa4a0555cc591662f74e6 in 
+Merged SHA 318c3d5830e881260243605906bd653126e3bd5f with commit message 'Merge commit '1aeccf05d25fcd78702aa4a0555cc591662f74e6'' into base branch master
+Merged SHA 1aeccf05d25fcd78702aa4a0555cc591662f74e6 with commit message 'move env vars to values.yaml' into base branch master
+Merged SHA ff9405fad8f60d08930f0ec4c74d7c2caae4ade3 with commit message 'add more readme stuff' into base branch master
+Merged SHA ffee119baedf4ffa164314d16dba0740a1676fe2 with commit message 'use alias for values on subchart (deployment.yaml)' into base branch master
+Merged SHA b870f342efd2dc7b8a3eb6abe5967abaa9b6113b with commit message 'Merge remote-tracking branch 'origin/feature/postgres_charts' into feature/postgres_charts' into base branch master
+Merged SHA c70c4069420fd8c178800d5ef549e18d88d84242 with commit message 'Merge branch 'feature/postgres_charts' of https://github.com/DevOpsCamp2019/LunchUp-Backend into feature/postgres_charts' into base branch master
+Merged SHA fd1c1900f34b8b3f0ad48fe4aca438428d6c90d5 with commit message 'use alias for values on subchart' into base branch master
+Merged SHA 702317e90de7b6197ed115eff2237846d55b84aa with commit message 'Revert "add postgres env variables to deployment.yaml"' into base branch master
+Merged SHA fbb8fa16a7d2cb027a591bed92cf2823847af642 with commit message 'use prefix for postgres values' into base branch master
+Merged SHA 7a369023205c357e5e9296b48ffa6002891bac11 with commit message 'Merge remote-tracking branch 'origin/feature/postgres_charts' into feature/postgres_charts' into base branch master
+Merged SHA ebe18029185bc3e29bb39698b9cca95f9ee6529b with commit message 'add postgres env variables to deployment.yaml' into base branch master
+Merged SHA eca9c2b657278617410fa160669a02f778f8934e with commit message 'disable persistence for preview' into base branch master
+Merged SHA 1e9d3720b14eb1e6ccf3ea690f69bae8c24f813c with commit message 'fix db name' into base branch master
+Merged SHA 543f93489a688a24f41cee459172bbdd7b1474ea with commit message 'back to static values' into base branch master
+Merged SHA 909bb77d60ac1f09d9a7cc185b41ab969f54b132 with commit message 'set asp net environments' into base branch master
+Merged SHA d5f425e5843eacdb35304d309f1a9adf1a304a5e with commit message 'use password from secret' into base branch master
+Merged SHA 6961969a623ca93147de5dbe8c53b6158ada1ca5 with commit message 'harmonize env variables' into base branch master
+Merged SHA 6a38d229369e1356f57a2a3085a4bf840c056537 with commit message 'set user and pw' into base branch master
+Merged SHA 647292a2e3f563c330706feaff7ba16f22bdc067 with commit message 'fix db service name' into base branch master
+Merged SHA 2ac134d28a9c080b716d13fae5d1640a15d5dc93 with commit message 'fix more repo names' into base branch master
+Merged SHA 6d8a3b407010d4d6350eb7acda9da530b58120c4 with commit message 'fix wrong image repo' into base branch master
+Merged SHA 3f4dea1cacaa4260166b0321d8667c1c878db989 with commit message 'add dummy notes to readme' into base branch master
+Merged SHA cbaa5bbffe2014cba094d3873289783dbd1047eb with commit message 'replace env separator : with __' into base branch master
+Merged SHA 061fe59d054a8275496166d39ff95e399697ddd2 with commit message 'put port in quotes' into base branch master
+Merged SHA 8297e7c3f7a8b77a0b3bba60239585ef7c5ae48a with commit message 'Merge remote-tracking branch 'origin/master' into feature/postgres_charts' into base branch master
+Merged SHA a88e52ef756dbecd610df6cec16c15d9bf9b01a9 with commit message 'add env variables to deployment.yaml' into base branch master
+Merged SHA 5bd1bc578b64bc8425e4607ba4c96759881a3725 with commit message 'change userid to bitnami id' into base branch master
+Merged SHA bd95a7d2a7b585aeeb82b391b012ca3f5de61fa3 with commit message 'add postgres security context' into base branch master
+Merged SHA 72c8eb739f97c548c4f2af3824f1dff73b929cec with commit message 'add postgres username and password' into base branch master
+Merged SHA c579c78ad163cd0eb6978470e94abf332db14479 with commit message 'Add version to preview chart.yaml' into base branch master
+Merged SHA c5c65d63bb4d8fdd1bc0ba412bed42d4bfd565b1 with commit message 'add potential workaround for mysterious file not found issue' into base branch master
+Merged SHA 0b77589002f82cc6dbf9e015c0b19d4f6aee2a2f with commit message 'add alias and move postgres above preview dependency' into base branch master
+Merged SHA 7f24541484a5880e8e11c7182ac035d7e42bd1fd with commit message 'add postrgres to requirements.yml' into base branch master
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-dpxpn-27[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+ERROR: logging before flag.Parse: E1106 13:40:43.361596      10 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+ERROR: logging before flag.Parse: E1106 13:40:43.367915      10 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+2019/11/06 13:40:43 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0000] Error while retrieving image from cache: getting file info: stat /workspace/sha256:803b70d9de2c57a168af4cc7d44e77a9c0591b49ce2af73d50c344aa22048eda: no such file or directory 
+[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+2019/11/06 13:40:44 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0002] Taking snapshot of full filesystem...        
+[36mINFO[0m[0002] ENV COMPlus_EnableDiagnostics=0              
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] WORKDIR /app                                 
+[36mINFO[0m[0002] cmd: workdir                                 
+[36mINFO[0m[0002] Changed working directory to /app            
+[36mINFO[0m[0002] Creating directory /app                      
+[36mINFO[0m[0002] Taking snapshot of files...                  
+[36mINFO[0m[0002] EXPOSE 80                                    
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] EXPOSE 443                                   
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] Storing source image from stage 0 at path /kaniko/stages/0 
+[36mINFO[0m[0023] Deleting filesystem...                       
+[36mINFO[0m[0023] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/06 13:41:06 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0023] Error while retrieving image from cache: getting file info: stat /workspace/sha256:65c0187e27b42bc45ea5ef98226c7ef37d1b706e10031ddce377bf6da3dcd9aa: no such file or directory 
+[36mINFO[0m[0023] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/06 13:41:07 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0024] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0024] Checking for cached layer gcr.io/deliverymachine/cache:e719375e2b2078d8bf8b18098dea2a00d4d527b7563a13a2b383713b0bf5b2ff... 
+[36mINFO[0m[0025] No cached layer found for cmd RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0025] Unpacking rootfs as cmd RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" requires it. 
+[36mINFO[0m[0061] Taking snapshot of full filesystem...        
+[36mINFO[0m[0069] ENV COMPlus_EnableDiagnostics=0              
+[36mINFO[0m[0069] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0069] WORKDIR /src                                 
+[36mINFO[0m[0069] cmd: workdir                                 
+[36mINFO[0m[0069] Changed working directory to /src            
+[36mINFO[0m[0069] Creating directory /src                      
+[36mINFO[0m[0069] Taking snapshot of files...                  
+[36mINFO[0m[0069] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0069] COPY ["src/LunchUp.Backend/", "LunchUp.Backend/"] 
+[36mINFO[0m[0069] Taking snapshot of files...                  
+[36mINFO[0m[0069] RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0069] cmd: /bin/sh                                 
+[36mINFO[0m[0069] args: [-c dotnet restore "LunchUp.Backend/LunchUp.Backend.sln"] 
+  Restore completed in 5.02 sec for /src/LunchUp.Backend/LunchUp.Model/LunchUp.Model.csproj.
+  Restore completed in 5.02 sec for /src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj.
+  Restore completed in 5.01 sec for /src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj.
+[36mINFO[0m[0081] Taking snapshot of full filesystem...        
+[36mINFO[0m[0088] ignoring socket dotnet-diagnostic-59-9697582-socket, not adding to tar 
+[36mINFO[0m[0101] Pushing layer gcr.io/deliverymachine/cache:e719375e2b2078d8bf8b18098dea2a00d4d527b7563a13a2b383713b0bf5b2ff to cache now 
+[36mINFO[0m[0101] Using files from context: [/workspace/source] 
+[36mINFO[0m[0101] COPY . .                                     
+[36mINFO[0m[0101] Taking snapshot of files...                  
+[36mINFO[0m[0101] WORKDIR "/src/LunchUp.Backend"               
+[36mINFO[0m[0101] cmd: workdir                                 
+[36mINFO[0m[0101] Changed working directory to /src/LunchUp.Backend 
+[36mINFO[0m[0101] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0101] RUN dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build 
+[36mINFO[0m[0101] cmd: /bin/sh                                 
+[36mINFO[0m[0101] args: [-c dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build] 
+Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 46.64 ms for /src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj.
+  Restore completed in 50.49 ms for /src/LunchUp.Backend/LunchUp.Model/LunchUp.Model.csproj.
+  Restore completed in 5.4 ms for /src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj.
+2019/11/06 13:42:28 pushed blob: sha256:da8552aab4ba4054a5dd99647247fec0dddfb27042352e3b796b99263fd85ba3
+  LunchUp.Model -> /app/build/LunchUp.Model.dll
+  LunchUp.Core -> /app/build/LunchUp.Core.dll
+DatabaseSettings.cs(4,18): warning CS1591: Missing XML comment for publicly visible type or member 'DatabaseSettings' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+DatabaseSettings.cs(6,23): warning CS1591: Missing XML comment for publicly visible type or member 'DatabaseSettings.Database' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+DatabaseSettings.cs(7,23): warning CS1591: Missing XML comment for publicly visible type or member 'DatabaseSettings.Host' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+DatabaseSettings.cs(8,20): warning CS1591: Missing XML comment for publicly visible type or member 'DatabaseSettings.Port' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+DatabaseSettings.cs(9,23): warning CS1591: Missing XML comment for publicly visible type or member 'DatabaseSettings.Username' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+DatabaseSettings.cs(10,23): warning CS1591: Missing XML comment for publicly visible type or member 'DatabaseSettings.Password' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+  LunchUp.WebHost -> /app/build/LunchUp.WebHost.dll
+
+Build succeeded.
+
+DatabaseSettings.cs(4,18): warning CS1591: Missing XML comment for publicly visible type or member 'DatabaseSettings' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+DatabaseSettings.cs(6,23): warning CS1591: Missing XML comment for publicly visible type or member 'DatabaseSettings.Database' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+DatabaseSettings.cs(7,23): warning CS1591: Missing XML comment for publicly visible type or member 'DatabaseSettings.Host' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+DatabaseSettings.cs(8,20): warning CS1591: Missing XML comment for publicly visible type or member 'DatabaseSettings.Port' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+DatabaseSettings.cs(9,23): warning CS1591: Missing XML comment for publicly visible type or member 'DatabaseSettings.Username' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+DatabaseSettings.cs(10,23): warning CS1591: Missing XML comment for publicly visible type or member 'DatabaseSettings.Password' [/src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj]
+    6 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:11.79
+[36mINFO[0m[0113] Taking snapshot of full filesystem...        
+[36mINFO[0m[0123] ignoring socket g+DM1dBf3hsd22AO8JuBabg4ChjyflqwMaiOYpIurSs, not adding to tar 
+[36mINFO[0m[0123] ignoring socket dotnet-diagnostic-129-9700794-socket, not adding to tar 
+[36mINFO[0m[0123] ignoring socket dotnet-diagnostic-157-9701119-socket, not adding to tar 
+[36mINFO[0m[0125] Pushing layer gcr.io/deliverymachine/cache:3f75bf00b5da3d7191f13f7936dfae50da1538b019ec7f9875ab8ce869f12c1c to cache now 
+2019/11/06 13:42:52 pushed blob: sha256:cc7a2def887329370a7ef40717a944a593d59f1a7af665f4a8f71e4561458bd3
+2019/11/06 13:42:52 pushed blob: sha256:16aa4ffc02c21afd8c799a0b7d487c981e562af7812827f4533ef69fba76b640
+2019/11/06 13:42:53 gcr.io/deliverymachine/cache:e719375e2b2078d8bf8b18098dea2a00d4d527b7563a13a2b383713b0bf5b2ff: digest: sha256:5f46ffcf07814f4a0add635694fe1893e1dbe5df57209ab1b0b01c8ccbd6fa27 size: 430
+2019/11/06 13:42:55 pushed blob: sha256:189a65498bab2b6609a4ec2837e40b5c8e04bd42f50e0b11d3365e21066a4615
+2019/11/06 13:42:56 gcr.io/deliverymachine/cache:3f75bf00b5da3d7191f13f7936dfae50da1538b019ec7f9875ab8ce869f12c1c: digest: sha256:5ff53e95197686c2662c66dabb66f7223456e1b5b0c6cff8d09cd3d466c6fbec size: 429
+[36mINFO[0m[0133] Storing source image from stage 1 at path /kaniko/stages/1 
+[36mINFO[0m[0203] Deleting filesystem...                       
+[36mINFO[0m[0205] Base image from previous stage 1 found, using saved tar at path /kaniko/stages/1 
+[36mINFO[0m[0207] Checking for cached layer gcr.io/deliverymachine/cache:3e99a4a1cc5494ebfd0996efcddf985ca451e40d3ad35e86fe5ee37ff68f4620... 
+[36mINFO[0m[0208] No cached layer found for cmd RUN dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish 
+[36mINFO[0m[0208] Unpacking rootfs as cmd RUN dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish requires it. 
+[36mINFO[0m[0226] Taking snapshot of full filesystem...        
+[36mINFO[0m[0238] RUN dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish 
+[36mINFO[0m[0238] cmd: /bin/sh                                 
+[36mINFO[0m[0238] args: [-c dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/publish] 
+Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 27.19 ms for /src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj.
+  Restore completed in 28.53 ms for /src/LunchUp.Backend/LunchUp.Model/LunchUp.Model.csproj.
+  Restore completed in 3.14 ms for /src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj.
+  LunchUp.Model -> /src/LunchUp.Backend/LunchUp.Model/bin/Release/netcoreapp3.0/LunchUp.Model.dll
+  LunchUp.Core -> /src/LunchUp.Backend/LunchUp.Core/bin/Release/netcoreapp3.0/LunchUp.Core.dll
+  LunchUp.WebHost -> /src/LunchUp.Backend/LunchUp.WebHost/bin/Release/netcoreapp3.0/LunchUp.WebHost.dll
+  LunchUp.WebHost -> /app/publish/
+[36mINFO[0m[0243] Taking snapshot of full filesystem...        
+[36mINFO[0m[0248] ignoring socket dotnet-diagnostic-234-9714528-socket, not adding to tar 
+[36mINFO[0m[0251] Pushing layer gcr.io/deliverymachine/cache:3e99a4a1cc5494ebfd0996efcddf985ca451e40d3ad35e86fe5ee37ff68f4620 to cache now 
+2019/11/06 13:44:58 pushed blob: sha256:4172228b5fe47863378eff42649dbb402f5003f2071d173f146f65b0df61fe66
+2019/11/06 13:45:02 pushed blob: sha256:e2598c3b6858cee2ea2b9dc1e086bb947ad791fb4aa4e7483ac7c902bfb8bfca
+2019/11/06 13:45:03 gcr.io/deliverymachine/cache:3e99a4a1cc5494ebfd0996efcddf985ca451e40d3ad35e86fe5ee37ff68f4620: digest: sha256:b4e99ecc34324114eb373ba59e4d9147336906c6ae94be77fbf0e0f430aed463 size: 429
+[36mINFO[0m[0260] Storing source image from stage 2 at path /kaniko/stages/2 
+[36mINFO[0m[0291] Deleting filesystem...                       
+[36mINFO[0m[0293] Base image from previous stage 0 found, using saved tar at path /kaniko/stages/0 
+[36mINFO[0m[0295] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0295] Taking snapshot of full filesystem...        
+[36mINFO[0m[0298] WORKDIR /app                                 
+[36mINFO[0m[0298] cmd: workdir                                 
+[36mINFO[0m[0298] Changed working directory to /app            
+[36mINFO[0m[0298] Creating directory /app                      
+[36mINFO[0m[0298] Taking snapshot of files...                  
+[36mINFO[0m[0298] COPY --from=publish /app/publish .           
+[36mINFO[0m[0298] Taking snapshot of files...                  
+[36mINFO[0m[0300] ENTRYPOINT ["dotnet", "LunchUp.WebHost.dll"] 
+[36mINFO[0m[0300] No files changed in this command, skipping snapshotting. 
+2019/11/06 13:45:44 existing blob: sha256:8d691f585fa8cec0eba196be460cfaffd69939782d6162986c3e0c5225d54f02
+2019/11/06 13:45:44 existing blob: sha256:a9e6ceefc5a08dc7b1b04a1105c47e00e9340349177009bc8926571ee8a39204
+2019/11/06 13:45:44 existing blob: sha256:68f6aee67b9130df079abf2476334ad9474e116c69efedd19e272bbff3643971
+2019/11/06 13:45:44 existing blob: sha256:9526604e089d8d4aa947f34e52a14ac8793232dd181022932f3c15291c5cd3af
+2019/11/06 13:45:44 existing blob: sha256:7a6b64767b0b4ec3bb235712bc93f6cada4812dbfec432d98ca9c485f9ce2ea8
+2019/11/06 13:45:47 pushed blob: sha256:d9a977a7fb6a48a6803729aae06dc6195cc8c013c89f9348c3fa9f4eca8f0bd1
+2019/11/06 13:45:47 pushed blob: sha256:f90297139b9834be102aa469656639dcb129ccaf80def3de76e491e69aa6029d
+2019/11/06 13:45:47 pushed blob: sha256:b06c35ce4300b68df52d7e5a26221eb2f657eff01b5b4c4ce97f3903fc47118b
+2019/11/06 13:45:50 pushed blob: sha256:0d3e34267aab09f66cabd3aa8f88e726b1f750162f0afbe2db1395532e7c1f9d
+2019/11/06 13:45:52 gcr.io/deliverymachine/lunchup-backend:0.0.0-SNAPSHOT-PR-2-27: digest: sha256:9892a7ef4af387d4a5f2bd3271b8cd8145d18691b3df56ca9180c92f05db7022 size: 1572
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-dpxpn-27[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-dpxpn-27[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-2-27/" Chart.yaml
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-2-27/" ../*/Chart.yaml
+sed -i -e "s|repository:.*|repository: gcr.io\/deliverymachine\/lunchup-backend|" values.yaml
+sed -i -e "s/tag:.*/tag: 0.0.0-SNAPSHOT-PR-2-27/" values.yaml
+sed -i -e "s/tag:.*/tag: 0.0.0-SNAPSHOT-PR-2-27/" values.yaml
+pwd
+/workspace/source/charts/preview
+ls
+Chart.yaml
+Makefile
+requirements.yaml
+templates
+values.yaml
+ls ..
+lunchup-backend
+preview
+echo "  version: 0.0.0-SNAPSHOT-PR-2-27" >> requirements.yaml
+** step helm build
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-dpxpn-27[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-preview[0m
+Creating a preview
+Commit author email is empty for: 7f24541484a5880e8e11c7182ac035d7e42bd1fd
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 0b77589002f82cc6dbf9e015c0b19d4f6aee2a2f
+Looking for commits in: /workspace/source/
+Commit author email is empty for: c5c65d63bb4d8fdd1bc0ba412bed42d4bfd565b1
+Looking for commits in: /workspace/source/
+Commit author email is empty for: c579c78ad163cd0eb6978470e94abf332db14479
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 72c8eb739f97c548c4f2af3824f1dff73b929cec
+Looking for commits in: /workspace/source/
+Commit author email is empty for: bd95a7d2a7b585aeeb82b391b012ca3f5de61fa3
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 5bd1bc578b64bc8425e4607ba4c96759881a3725
+Looking for commits in: /workspace/source/
+Commit author email is empty for: a88e52ef756dbecd610df6cec16c15d9bf9b01a9
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 8297e7c3f7a8b77a0b3bba60239585ef7c5ae48a
+Looking for commits in: /workspace/source/
+Commit author email is empty for: 061fe59d054a8275496166d39ff95e399697ddd2
+Looking for commits in: /workspace/source/
+WARNING: No author for commit: cbaa5bbffe2014cba094d3873289783dbd1047eb
+WARNING: No author for commit: 3f4dea1cacaa4260166b0321d8667c1c878db989
+WARNING: No author for commit: 6d8a3b407010d4d6350eb7acda9da530b58120c4
+WARNING: No author for commit: 2ac134d28a9c080b716d13fae5d1640a15d5dc93
+WARNING: No author for commit: 647292a2e3f563c330706feaff7ba16f22bdc067
+WARNING: No author for commit: 6a38d229369e1356f57a2a3085a4bf840c056537
+WARNING: No author for commit: 6961969a623ca93147de5dbe8c53b6158ada1ca5
+WARNING: No author for commit: d5f425e5843eacdb35304d309f1a9adf1a304a5e
+WARNING: No author for commit: 909bb77d60ac1f09d9a7cc185b41ab969f54b132
+WARNING: No author for commit: 543f93489a688a24f41cee459172bbdd7b1474ea
+WARNING: No author for commit: 1e9d3720b14eb1e6ccf3ea690f69bae8c24f813c
+WARNING: No author for commit: eca9c2b657278617410fa160669a02f778f8934e
+Commit author email is empty for: ebe18029185bc3e29bb39698b9cca95f9ee6529b
+Looking for commits in: /workspace/source/
+WARNING: No author for commit: 7a369023205c357e5e9296b48ffa6002891bac11
+WARNING: No author for commit: fbb8fa16a7d2cb027a591bed92cf2823847af642
+Commit author email is empty for: 702317e90de7b6197ed115eff2237846d55b84aa
+Looking for commits in: /workspace/source/
+WARNING: No author for commit: fd1c1900f34b8b3f0ad48fe4aca438428d6c90d5
+Commit author email is empty for: c70c4069420fd8c178800d5ef549e18d88d84242
+Looking for commits in: /workspace/source/
+Commit author email is empty for: b870f342efd2dc7b8a3eb6abe5967abaa9b6113b
+Looking for commits in: /workspace/source/
+WARNING: No author for commit: ffee119baedf4ffa164314d16dba0740a1676fe2
+Found commit author match for: valkyrjaa with email address: tuana1998@hotmail.de
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  config:
+    domain: 34.65.166.10.nip.io
+    exposer: Ingress
+    http: "true"
+preview:
+  image:
+    repository: gcr.io/deliverymachine/LunchUp-Backend
+    tag: 0.0.0-SNAPSHOT-PR-2-27
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+
+
+WARNING: Could not find the service URL in namespace **-devopscamp2019-lunchup-backend-pr-2 for names LunchUp-Backend, preview, **-devopscamp2019-lunchup-backend-pr-2-preview, preview-LunchUp-Backend: the server could not find the requested resource (get services.serving.knative.dev preview-LunchUp-Backend)
+Updating PipelineActivities devopscamp2019-lunchup-backend-pr-2-27 which has status Running
+WARNING: Failed to find the service LunchUp-Backend : failed to find service LunchUp-Backend in namespace **-devopscamp2019-lunchup-backend-pr-2: services "LunchUp-Backend" not found
