@@ -26,19 +26,13 @@ spec:
         env:
         - name: Database__lunchUp__Username
           value: {{ .Values.postgresqlUsername }}
-        - name: POSTGRESQL_USERNAME
-          value: {{ .Values.postgresqlUsername }}
         - name: Database__lunchUp__Password
-          value: {{ .Values.postgresqlPassword }}
-        - name: POSTGRESQL_PASSWORD
           value: {{ .Values.postgresqlPassword }}
         - name: Database__lunchUp__Host
           value: preview-db
         - name: Database__lunchUp__Port
           value: "5432"
         - name: Database__lunchUp__Database
-          value: {{ .Values.postgresqlDatabase }}
-        - name: POSTGRESQL_DATABASE
           value: {{ .Values.postgresqlDatabase }}
         - name: ASPNETCORE_ENVIRONMENT
           value: staging
