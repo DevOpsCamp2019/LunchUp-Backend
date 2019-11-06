@@ -33,8 +33,9 @@ volumePermissions:
 
 global:
   postgresql:
-    postgresqlUsername: admin
-    postgresqlPassword: admin
+    postgresqlUsername: lunchup
+    postgresqlPassword: lunchup
+    postgresqlDatabase: lunchup
     
 preview:
   image:
