@@ -29,7 +29,7 @@ namespace LunchUp.WebHost
                         .ConfigureLogging((hostingContext, logging) =>
                         {
                             logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
-                            logging.AddConsole(conf => conf.DisableColors = true);
+                            logging.AddConsole();
                             logging.AddDebug();
                             logging.AddEventSourceLogger();
                         }).UseStartup<Startup>();
