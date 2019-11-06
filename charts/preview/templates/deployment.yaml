@@ -29,7 +29,7 @@ spec:
         - name: Database__lunchUp__Password
           value: {{ .Values.postgresqlPassword }}
         - name: Database__lunchUp__Host
-          value: db
+          value: preview-db
         - name: Database__lunchUp__Port
           value: "5432"
         - name: Database__lunchUp__Database
