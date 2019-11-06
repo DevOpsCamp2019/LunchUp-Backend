@@ -7,16 +7,22 @@ image:
   tag: dev
   pullPolicy: IfNotPresent
 
+db:
+  postgresqlUsername: &dbUser lunchup
+  postgresqlPassword: &dbPassword lunchup
+  postgresqlDatabase: &dbName lunchup
+
 # define environment variables here as a map of key: value
 env:
+  Database__lunchUp__Username: *dbUser
+  Database__lunchUp__Password: *dbPassword
+  Database__lunchUp__Host: db
+  Database__lunchUp__Port: "5432"
+  Database__lunchUp__Database: *dbName
+  ASPNETCORE_ENVIRONMENT: production
 
 # enable this flag to use knative serve to deploy the app
 knativeDeploy: false
-
-db:
-  postgresqlUsername: lunchup
-  postgresqlPassword: lunchup
-  postgresqlDatabase: lunchup
 
 service:
   name: lunchup-backend
