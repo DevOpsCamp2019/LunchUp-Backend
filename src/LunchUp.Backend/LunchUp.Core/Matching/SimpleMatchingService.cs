@@ -17,7 +17,7 @@ namespace LunchUp.Core.Matching
         
         public List<PersonEntity> GetSuggestions(string currentUserMail, int count)
         {
-            var person = _lunchUpContext.Person.Where(entity => entity.Email != currentUserMail).OrderBy(r => Guid.NewGuid()).Take(count).ToList();
+            var person = _lunchUpContext.Person.Where(entity => entity.Email != currentUserMail && entity.OptIn != null).OrderBy(r => Guid.NewGuid()).Take(count).ToList();
             return person;
         }
 

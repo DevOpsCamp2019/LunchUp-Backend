@@ -7,7 +7,6 @@ namespace LunchUp.Model.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";");
             migrationBuilder.CreateTable(
                 name: "Person",
                 columns: table => new

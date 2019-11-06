@@ -48,7 +48,7 @@ namespace LunchUp.WebHost.Controller
         {
             var currentUserUpn = HttpContext.User.FindFirst("emails")?.Value;
             var userExists = _commonService.GetPersonExistStatus(currentUserUpn);
-            if (!userExists) throw new ApplicationException("The user not exist");
+            if (!userExists) throw new ApplicationException("user not exist");
             var suggestions = _matchingService.GetSuggestions(currentUserUpn, count);
             return Task.FromResult(_mapper.Map<List<Person>>(suggestions));
         }
@@ -69,7 +69,7 @@ namespace LunchUp.WebHost.Controller
         {
             var currentUserUpn = HttpContext.User.FindFirst("emails")?.Value;
             var userExists = _commonService.GetPersonExistStatus(currentUserUpn);
-            if (!userExists) throw new ApplicationException("The user not exist");
+            if (!userExists) throw new ApplicationException("user not exist");
             _matchingService.AddMatch(currentUserUpn, personId, response.Accepted);
             return Task.FromResult(StatusCodes.Status201Created);
         }
