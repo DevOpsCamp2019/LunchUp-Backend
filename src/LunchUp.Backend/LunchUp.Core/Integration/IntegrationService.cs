@@ -1,4 +1,5 @@
 ﻿using System;
+using LunchUp.Model;
 using LunchUp.Model.Models;
 
 namespace LunchUp.Core.Integration

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace LunchUp.Model.Models
+namespace LunchUp.Model
 {
     // ReSharper disable once UnusedMember.Global
     public class LunchUpContextFactory : IDesignTimeDbContextFactory<LunchUpContext>

@@ -2,8 +2,10 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using LunchUp.Core.Common;
 using LunchUp.Core.Integration;
 using LunchUp.Core.Matching;
+using LunchUp.Model;
 using LunchUp.Model.Models;
 using LunchUp.WebHost.Extension;
 using LunchUp.WebHost.HealthCheck;
@@ -101,6 +103,7 @@ namespace LunchUp.WebHost
                 c.IncludeXmlComments(xmlFile);
             });
 
+            services.AddTransient<ICommonService, CommonService>();
             services.AddTransient<IMatchingService, SimpleMatchingService>();
             services.AddTransient<IIntegrationService, IntegrationService>();
 

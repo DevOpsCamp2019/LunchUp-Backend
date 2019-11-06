@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LunchUp.Model.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace LunchUp.Model.Models
+namespace LunchUp.Model
 {
     public class LunchUpContext : DbContext
     {
@@ -10,5 +11,6 @@ namespace LunchUp.Model.Models
 
         public DbSet<PersonEntity> Person { get; set; }
         public DbSet<ResponseEntity> Response { get; set; }
+
     }
 }

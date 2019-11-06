@@ -37,7 +37,8 @@ namespace LunchUp.WebHost.Controller
         [Produces("application/json")]
         public Task<List<Person>> GetMatches()
         {
-            var matches = _matchingService.GetMatches();
+            var currentUserUpn = HttpContext.User.FindFirst("emails")?.Value;
+            var matches = _matchingService.GetMatches(currentUserUpn);
             return Task.FromResult(_mapper.Map<List<Person>>(matches));
         }
     }
