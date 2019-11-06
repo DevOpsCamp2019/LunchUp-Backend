@@ -9,16 +9,13 @@ image:
 
 db:
   postgresqlUsername: &dbUser lunchup
+  postgresqlPassword: &dbPassword lunchup
   postgresqlDatabase: &dbName lunchup
 
 # define environment variables here as a map of key: value
 env:
   Database__lunchUp__Username: *dbUser
-  Database__lunchUp__Password:
-    valueFrom:
-      secretKeyRef:
-        name: db
-        key: postgresql-password
+  Database__lunchUp__Password: *dbPassword
   Database__lunchUp__Host: db
   Database__lunchUp__Port: "5432"
   Database__lunchUp__Database: *dbName
