@@ -29,7 +29,7 @@ spec:
             secretKeyRef:
               name: preview-db
               key: postgresql-password
-        - name: postgresqlUsername
+        - name: POSTGRESQL_PASSWORD
           valueFrom:
             secretKeyRef:
               name: preview-db
