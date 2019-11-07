@@ -1,0 +1,99 @@
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zlpxw-43[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-djhkn[0m
+{"level":"warn","ts":1573131207.4974458,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573131207.50055,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zlpxw-43[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-nxsh4[0m
+{"level":"warn","ts":1573131209.9480271,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1573131210.1062045,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zlpxw-43[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zlpxw-43[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-devopscamp2019-lunchup-backend-6v5r2[0m
+{"level":"warn","ts":1573131218.7209733,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573131220.7725003,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ v0.1.14 in path /workspace/source"}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zlpxw-43[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:8cb0110c2a36766cdefa6f6f8f33787a0af93ff0
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zlpxw-43[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-zlpxw-43[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+ERROR: logging before flag.Parse: E1107 12:53:46.662947       9 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E1107 12:53:46.677913       9 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2019/11/07 12:53:46 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0001] Error while retrieving image from cache: getting file info: stat /workspace/sha256:803b70d9de2c57a168af4cc7d44e77a9c0591b49ce2af73d50c344aa22048eda: no such file or directory 
+[36mINFO[0m[0001] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+2019/11/07 12:53:47 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0002] Taking snapshot of full filesystem...        
+[36mINFO[0m[0002] ENV COMPlus_EnableDiagnostics=0              
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] WORKDIR /app                                 
+[36mINFO[0m[0002] cmd: workdir                                 
+[36mINFO[0m[0002] Changed working directory to /app            
+[36mINFO[0m[0002] Creating directory /app                      
+[36mINFO[0m[0002] Taking snapshot of files...                  
+[36mINFO[0m[0002] EXPOSE 80                                    
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] EXPOSE 443                                   
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0002] Storing source image from stage 0 at path /kaniko/stages/0 
+[36mINFO[0m[0019] Deleting filesystem...                       
+[36mINFO[0m[0019] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/07 12:54:06 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0020] Error while retrieving image from cache: getting file info: stat /workspace/sha256:65c0187e27b42bc45ea5ef98226c7ef37d1b706e10031ddce377bf6da3dcd9aa: no such file or directory 
+[36mINFO[0m[0020] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/07 12:54:06 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0020] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0020] Checking for cached layer gcr.io/deliverymachine/cache:319ebf5c6f59ce90b2949caa923eaa8fa1a872c11959f877b6ebcef6241906de... 
+[36mINFO[0m[0021] No cached layer found for cmd RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0021] Unpacking rootfs as cmd RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" requires it. 
+[36mINFO[0m[0053] Taking snapshot of full filesystem...        
+[36mINFO[0m[0059] ENV COMPlus_EnableDiagnostics=0              
+[36mINFO[0m[0059] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0059] WORKDIR /src                                 
+[36mINFO[0m[0059] cmd: workdir                                 
+[36mINFO[0m[0059] Changed working directory to /src            
+[36mINFO[0m[0059] Creating directory /src                      
+[36mINFO[0m[0059] Taking snapshot of files...                  
+[36mINFO[0m[0059] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0059] COPY ["src/LunchUp.Backend/", "LunchUp.Backend/"] 
+[36mINFO[0m[0059] Taking snapshot of files...                  
+[36mINFO[0m[0059] RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0059] cmd: /bin/sh                                 
+[36mINFO[0m[0059] args: [-c dotnet restore "LunchUp.Backend/LunchUp.Backend.sln"] 
+  Restore completed in 5.11 sec for /src/LunchUp.Backend/LunchUp.Model/LunchUp.Model.csproj.
+  Restore completed in 5.11 sec for /src/LunchUp.Backend/LunchUp.Core/LunchUp.Core.csproj.
+  Restore completed in 8.19 sec for /src/LunchUp.Backend/LunchUp.Test/LunchUp.Test.csproj.
+  Restore completed in 8.19 sec for /src/LunchUp.Backend/LunchUp.WebHost/LunchUp.WebHost.csproj.
+[36mINFO[0m[0075] Taking snapshot of full filesystem...        
+[36mINFO[0m[0085] ignoring socket dotnet-diagnostic-58-18054899-socket, not adding to tar 
+[36mINFO[0m[0105] Using files from context: [/workspace/source] 
+[36mINFO[0m[0106] COPY . .                                     
+[36mINFO[0m[0106] Taking snapshot of files...                  
+[36mINFO[0m[0106] WORKDIR "/src/LunchUp.Backend"               
+[36mINFO[0m[0106] cmd: workdir                                 
+[36mINFO[0m[0106] Changed working directory to /src/LunchUp.Backend 
+[36mINFO[0m[0106] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0106] RUN dotnet test                              
+[36mINFO[0m[0106] cmd: /bin/sh                                 
+[36mINFO[0m[0106] args: [-c dotnet test]                       
+[36mINFO[0m[0107] Pushing layer gcr.io/deliverymachine/cache:319ebf5c6f59ce90b2949caa923eaa8fa1a872c11959f877b6ebcef6241906de to cache now 
+2019/11/07 12:55:37 pushed blob: sha256:dd7913fc616aca60a82e56c3829d49945ed4e51fbcba3de14b0178aa9e196db5
+Core/IntegrationServiceTests.cs(22,33): error CS1061: 'IIntegrationService' does not contain a definition for 'CreateOrUpdatePerson' and no accessible extension method 'CreateOrUpdatePerson' accepting a first argument of type 'IIntegrationService' could be found (are you missing a using directive or an assembly reference?) [/src/LunchUp.Backend/LunchUp.Test/LunchUp.Test.csproj]
+Core/IntegrationServiceTests.cs(39,33): error CS1061: 'IIntegrationService' does not contain a definition for 'CreateOrUpdatePerson' and no accessible extension method 'CreateOrUpdatePerson' accepting a first argument of type 'IIntegrationService' could be found (are you missing a using directive or an assembly reference?) [/src/LunchUp.Backend/LunchUp.Test/LunchUp.Test.csproj]
+error building image: error building stage: waiting for process to exit: exit status 1
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
