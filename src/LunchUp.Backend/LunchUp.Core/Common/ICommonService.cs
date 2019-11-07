@@ -1,7 +1,9 @@
-﻿namespace LunchUp.Core.Common
+﻿using LunchUp.Model.Models;
+
+namespace LunchUp.Core.Common
 {
     public interface ICommonService
     {
-        bool GetPersonExistStatus(string currentUserUpn);
+        PersonEntity GetPersonExistStatus(string currentUserUpn);
     }
 }
