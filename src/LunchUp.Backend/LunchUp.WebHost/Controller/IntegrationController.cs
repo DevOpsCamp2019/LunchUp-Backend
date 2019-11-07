@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using LunchUp.Core.Integration;
@@ -40,16 +38,15 @@ namespace LunchUp.WebHost.Controller
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public Task CreateOrUpdatePersons([FromBody] [Required] IEnumerable<Person> persons)
+        public async Task<IActionResult> CreateOrUpdatePersons([FromBody] [Required] IEnumerable<Person> persons)
         {
             var entityList = _mapper.Map<IEnumerable<PersonEntity>>(persons);
 
             foreach (var personEntity in entityList)
             {
-                _integrationService.CreateOrUpdatePerson(personEntity);
+                await _integrationService.CreateOrUpdatePerson(personEntity);
             }
-
-            return Task.FromResult(StatusCodes.Status201Created);
+            return StatusCode(StatusCodes.Status201Created);
         }
     }
 }

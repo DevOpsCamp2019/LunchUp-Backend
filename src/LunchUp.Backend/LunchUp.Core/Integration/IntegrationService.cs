@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using LunchUp.Model;
 using LunchUp.Model.Models;
 
@@ -13,7 +14,7 @@ namespace LunchUp.Core.Integration
             _lunchUpContext = lunchUpContext;
         }
 
-        public void CreateOrUpdatePerson(PersonEntity person)
+        public async Task CreateOrUpdatePerson(PersonEntity person)
         {
             var currentPerson = _lunchUpContext.Person.FirstOrDefault(x => x.Id == person.Id);
             if (currentPerson != null)
@@ -27,10 +28,10 @@ namespace LunchUp.Core.Integration
             }
             else
             {
-                _lunchUpContext.Add(person);
+                await _lunchUpContext.AddAsync(person);
             }
 
-            _lunchUpContext.SaveChanges();
+            await _lunchUpContext.SaveChangesAsync();
         }
     }
 }
