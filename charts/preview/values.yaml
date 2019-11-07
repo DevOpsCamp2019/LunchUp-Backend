@@ -26,18 +26,17 @@ cleanup:
 db:
   postgresqlUsername: &dbUser lunchup
   postgresqlDatabase: &dbName lunchup
-  postgresqlPassword: &dbPassword
   persistence:
     enabled: false
 
 # define environment variables here as a map of key: value
 env:
   Database__lunchUp__Username: *dbUser
-  Database__lunchUp__Password: *dbPassword
-  valueFrom:
-    secretKeyRef:
-      name: preview-db
-      key: postgresql-password
+  Database__lunchUp__Password:
+    valueFrom:
+      secretKeyRef:
+        name: preview-db
+        key: postgresql-password
   Database__lunchUp__Host: preview-db
   Database__lunchUp__Port: "5432"
   Database__lunchUp__Database: *dbName
@@ -52,7 +51,7 @@ volumePermissions:
 preview:
   image:
     repository: /deliverymachine/lunchup-backend
-    tag: 
+    tag:
     pullPolicy: IfNotPresent
 
 # enable this flag to use knative serve to deploy the app
