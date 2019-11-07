@@ -20,11 +20,11 @@ namespace LunchUp.WebHost.Controller
         private readonly IIntegrationService _integrationService;
         private readonly IMapper _mapper;
 
-
         /// <inheritdoc />
-        public IntegrationController(IIntegrationService integrationService)
+        public IntegrationController(IIntegrationService integrationService, IMapper mapper)
         {
             _integrationService = integrationService;
+            _mapper = mapper;
         }
         
         /// <summary>
