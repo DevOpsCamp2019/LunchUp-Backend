@@ -11,7 +11,7 @@ namespace LunchUp.Model
             var optionsBuilder = new DbContextOptionsBuilder<LunchUpContext>();
             optionsBuilder.UseNpgsql(
                 "User ID=lunchup;Password=lunchup;Server=localhost;Port=5432;Database=lunchup;Integrated Security=true;Pooling=true;");
-            return new LunchUpContext(optionsBuilder.Options);
+            return new LunchUpContext(optionsBuilder.Options, null);
         }
     }
 }

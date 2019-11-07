@@ -17,7 +17,7 @@ namespace LunchUp.Core.Common
         public PersonEntity GetPersonExistStatus(string currentUserMail)
         {
             var user = _lunchUpContext.Person.FirstOrDefault(x => x.Email == currentUserMail);
-            if (user != null)
+            if (user != null && user.OptIn == null)
             {
                 user.OptIn = DateTime.UtcNow;
                 _lunchUpContext.Update(user);

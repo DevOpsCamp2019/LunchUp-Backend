@@ -33,12 +33,14 @@ namespace LunchUp.Core.Matching
             return persons;
         }
 
-        public List<PersonEntity> GetMatches(string currentUserUpn)
+        public List<PersonEntity> GetMatches(PersonEntity currentUser)
         {
-            var matches = _lunchUpContext.Response.Include(x => x.Origin)
-                .Where(entity => entity.Origin.Email == currentUserUpn && entity.Like)
-                .Select(x => x.Target).ToList();
-            return matches;
+            var matches = from response1 in _lunchUpContext.Response
+                join response2 in _lunchUpContext.Response on response1.Origin equals response2.Target
+                where response1.Like && response2.Like && response2.Origin == response1.Target && response1.Target != currentUser
+                select response1.Target;
+            
+            return matches.ToList();
         }
 
         public void AddMatch(string currentUserUpn, Guid personId, bool accepted)

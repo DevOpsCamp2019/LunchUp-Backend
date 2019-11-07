@@ -15,7 +15,7 @@ namespace LunchUp.Test.Core
                 .UseInMemoryDatabase(Guid.NewGuid().ToString());
             DbContextOptions<LunchUpContext> options = builder.Options;
 
-            LunchUpContext = new LunchUpContext(options);
+            LunchUpContext = new LunchUpContext(options, null);
             LunchUpContext.Database.EnsureDeleted();
             LunchUpContext.Database.EnsureCreated();
         }
