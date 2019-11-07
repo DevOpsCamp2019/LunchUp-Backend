@@ -27,13 +27,9 @@ spec:
         - name: Database__lunchUp__Password
           valueFrom:
             secretKeyRef:
-              name: preview-db
-              key: postgresql-password
-        - name: POSTGRESQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: preview-db
-              key: postgresql-password
+              name: db-password
+              key: password
+
 {{- range $pkey, $pval := .Values.env }}
         - name: {{ $pkey }}
           value: {{ quote $pval }}

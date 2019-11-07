@@ -26,6 +26,11 @@ cleanup:
 db:
   postgresqlUsername: &dbUser lunchup
   postgresqlDatabase: &dbName lunchup
+  postgresqlPassword:
+        valueFrom:
+          secretKeyRef:
+            name: db-password
+            key: password
   persistence:
     enabled: false
 
