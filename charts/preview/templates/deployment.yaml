@@ -25,10 +25,7 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
         - name: Database__lunchUp__Password
-          valueFrom:
-            secretKeyRef:
-              name: preview-db
-              key: postgresql-password
+          value: eueJ7utQg9
 
   {{- range $pkey, $pval := .Values.env }}
         - name: {{ $pkey }}
