@@ -45,7 +45,7 @@ namespace LunchUp.WebHost.Controller
         public Task<List<Person>> GetSuggestions([FromQuery] int count = 10)
         {
             var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst("emails")?.Value);
-            if (currentUser == null) throw new ApplicationException("user not exist");
+            if (currentUser == null) Task.FromResult(StatusCodes.Status403Forbidden);
             var suggestions = _matchingService.GetSuggestions(currentUser, count);
             return Task.FromResult(_mapper.Map<List<Person>>(suggestions));
         }
@@ -65,7 +65,7 @@ namespace LunchUp.WebHost.Controller
         public Task CreateResponse([FromRoute] [Required] Guid personId, [FromBody] [Required] Response response)
         {
             var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst("emails")?.Value);
-            if (currentUser == null) throw new ApplicationException("user not exist");
+            if (currentUser == null) Task.FromResult(StatusCodes.Status403Forbidden);
             _matchingService.AddMatch(currentUser, personId, response.Accepted);
             return Task.FromResult(StatusCodes.Status201Created);
         }
