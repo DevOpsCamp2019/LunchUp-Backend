@@ -25,6 +25,11 @@ cleanup:
 
 db:
   postgresqlUsername: &dbUser lunchup
+  postgresqlPassword:
+    valueFrom:
+      secretKeyRef:
+        name: db-password
+        key: POSTGRESQL_PASSWORD
   postgresqlDatabase: &dbName lunchup
   persistence:
     enabled: false
@@ -32,11 +37,6 @@ db:
 # define environment variables here as a map of key: value
 env:
   Database__lunchUp__Username: *dbUser
-  Database__lunchUp__Password:
-    valueFrom:
-      secretKeyRef:
-        name: preview-db
-        key: postgresql-password
   Database__lunchUp__Host: preview-db
   Database__lunchUp__Port: "5432"
   Database__lunchUp__Database: *dbName

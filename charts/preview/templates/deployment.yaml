@@ -24,7 +24,11 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
-
+        - name: Database__lunchUp__Password
+           valueFrom:
+            secretKeyRef:
+              name: db-password
+              key: POSTGRESQL_PASSWORD
 {{- range $pkey, $pval := .Values.env }}
         - name: {{ $pkey }}
           value: {{ quote $pval }}
