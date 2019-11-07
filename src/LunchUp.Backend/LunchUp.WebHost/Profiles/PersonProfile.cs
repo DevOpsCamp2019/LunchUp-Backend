@@ -12,7 +12,10 @@ namespace LunchUp.WebHost.Profiles
         public PersonProfile()
         {
             CreateMap<PersonEntity, Person>();
-            CreateMap<Person, PersonEntity> (); 
+            CreateMap<Person, PersonEntity>()
+                .ForMember(dest => dest.Company, opt => opt.Ignore())
+                .ForMember(dest => dest.OptIn, opt => opt.Ignore())
+                .ForMember(dest => dest.Responses, opt => opt.Ignore()); 
         }
     }
 }

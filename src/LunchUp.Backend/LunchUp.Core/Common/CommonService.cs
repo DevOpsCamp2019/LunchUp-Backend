@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using LunchUp.Model;
+using LunchUp.Model.Models;
 
 namespace LunchUp.Core.Common
 {
@@ -12,10 +14,17 @@ namespace LunchUp.Core.Common
             _lunchUpContext = lunchUpContext;
         }
 
-        public bool GetPersonExistStatus(string currentUserMail)
+        public PersonEntity GetPersonExistStatus(string currentUserMail)
         {
-            var userExists = _lunchUpContext.Person.Any(x => x.Email == currentUserMail);
-            return userExists;
+            var user = _lunchUpContext.Person.FirstOrDefault(x => x.Email == currentUserMail);
+            if (user != null)
+            {
+                user.OptIn = DateTime.UtcNow;
+                _lunchUpContext.Update(user);
+                _lunchUpContext.SaveChanges();
+            }
+            
+            return user;
         }
     }
 }

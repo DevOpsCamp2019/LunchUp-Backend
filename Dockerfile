@@ -11,6 +11,7 @@ COPY ["src/LunchUp.Backend/", "LunchUp.Backend/"]
 RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln"
 COPY . .
 WORKDIR "/src/LunchUp.Backend"
+RUN dotnet test
 RUN dotnet build "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/build
 
 FROM build AS publish
