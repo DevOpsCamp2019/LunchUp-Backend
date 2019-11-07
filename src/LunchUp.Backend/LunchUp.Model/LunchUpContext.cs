@@ -30,6 +30,8 @@ namespace LunchUp.Model
             modelBuilder.Entity<PersonEntity>()
                 .HasMany(c => c.Responses)
                 .WithOne(e => e.Origin);
+            
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
