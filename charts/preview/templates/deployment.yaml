@@ -25,7 +25,7 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
         - name: Database__lunchUp__Password
-           valueFrom:
+          valueFrom:
             secretKeyRef:
               name: db-password
               key: POSTGRESQL_PASSWORD
