@@ -1,33 +1,54 @@
 
-Showing logs for build [32mdevopscamp2019-lunchup-backend-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-qg54q[0m
-{"level":"warn","ts":1572875514.972245,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1572875514.975069,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-sct9h[0m
+{"level":"warn","ts":1573145751.4720926,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573145751.472679,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
 
-Showing logs for build [32mdevopscamp2019-lunchup-backend-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-rdwmb[0m
-{"level":"warn","ts":1572875516.3373222,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
-{"level":"info","ts":1572875516.3393822,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-ldv5d[0m
+{"level":"warn","ts":1573145753.439244,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1573145753.4995317,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
 
-Showing logs for build [32mdevopscamp2019-lunchup-backend-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
 
-Showing logs for build [32mdevopscamp2019-lunchup-backend-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-devopscamp2019-lunchup-backend-tqr6k[0m
-{"level":"warn","ts":1572875523.47159,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1572875525.3565493,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ v0.0.1 in path /workspace/source"}
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-devopscamp2019-lunchup-bac-zfvlt[0m
+{"level":"warn","ts":1573145760.332465,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573145763.1920445,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ f35b6b5c6322d56d7a9257ba140909258a187785 in path /workspace/source"}
 
-Showing logs for build [32mdevopscamp2019-lunchup-backend-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
-Using SHAs from PULL_REFS=master:393a4e7c186d89dafd4139c2c9f9c5dd437de610
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:f35b6b5c6322d56d7a9257ba140909258a187785
 WARNING: no SHAs to merge, falling back to initial cloned commit
 
-Showing logs for build [32mdevopscamp2019-lunchup-backend-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
-Generated Git credentials file /workspace/xdg_config/git/credentials
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
+SKIP merge-pull-refs: Nothing to merge
 
-Showing logs for build [32mdevopscamp2019-lunchup-backend-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
-[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/sdk:2.2 
-ERROR: logging before flag.Parse: E1104 13:52:06.517050      10 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
-ERROR: logging before flag.Parse: E1104 13:52:06.520002      10 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
-2019/11/04 13:52:06 No matching credentials were found, falling back on anonymous
-[36mINFO[0m[0000] Error while retrieving image from cache: getting file info: stat /workspace/sha256:092a177c84f1dde6aacf0a60ce5f10132db017381f21912ecc6bb4a5eabae651: no such file or directory 
-[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/sdk:2.2 
-2019/11/04 13:52:07 No matching credentials were found, falling back on anonymous
-error building image: error building stage: copy failed: no source files specified
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+error: Missing option: --docker-registry
 [31m
-Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
+Pipeline failed on stage 'meta-pipeline' : container 'step-create-effective-pipeline'. The execution of the pipeline has stopped.[0m
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-sct9h[0m
+{"level":"warn","ts":1573145751.4720926,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573145751.472679,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-ldv5d[0m
+{"level":"warn","ts":1573145753.439244,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1573145753.4995317,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-devopscamp2019-lunchup-bac-zfvlt[0m
+{"level":"warn","ts":1573145760.332465,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573145763.1920445,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ f35b6b5c6322d56d7a9257ba140909258a187785 in path /workspace/source"}
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:f35b6b5c6322d56d7a9257ba140909258a187785
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
+SKIP merge-pull-refs: Nothing to merge
+
+Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-1[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+error: Missing option: --docker-registry
+[31m
+Pipeline failed on stage 'meta-pipeline' : container 'step-create-effective-pipeline'. The execution of the pipeline has stopped.[0m
