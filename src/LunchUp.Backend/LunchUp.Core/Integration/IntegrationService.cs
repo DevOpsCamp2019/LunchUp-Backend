@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using LunchUp.Model;
 using LunchUp.Model.Models;
@@ -23,10 +24,17 @@ namespace LunchUp.Core.Integration
                 currentPerson.Firstname = person.Firstname;
                 currentPerson.Lastname = person.Lastname;
                 currentPerson.Photo = person.Photo;
+                
+                // TODO: Remove in production
+                if(currentPerson.OptIn == null) person.OptIn = DateTime.UtcNow;
+                
                 _lunchUpContext.Update(currentPerson);
             }
             else
             {
+                person.Id = Guid.NewGuid();
+                // TODO: Remove in production
+                person.OptIn = DateTime.UtcNow;
                 await _lunchUpContext.AddAsync(person);
             }
 
