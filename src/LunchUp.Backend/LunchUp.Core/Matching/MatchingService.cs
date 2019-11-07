@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LunchUp.Core.Matching
 {
-    public class SimpleMatchingService : IMatchingService
+    public class MatchingService : IMatchingService
     {
         private readonly LunchUpContext _lunchUpContext;
 
-        public SimpleMatchingService(LunchUpContext lunchUpContext)
+        public MatchingService(LunchUpContext lunchUpContext)
         {
             _lunchUpContext = lunchUpContext;
         }
@@ -25,7 +25,7 @@ namespace LunchUp.Core.Matching
 
             var persons = _lunchUpContext.Person
                 .Where(entity => entity.Email != currentUserMail && entity.OptIn != null &&
-                                 !currentResponses.Contains(entity.Id))
+                                 (currentResponses == null || !currentResponses.Contains(entity.Id)))
                 .AsEnumerable()
                 .OrderBy(x => Guid.NewGuid())
                 .Take(count).ToList();
