@@ -1,0 +1,26 @@
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-vv6hd-33[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-kll4v[0m
+{"level":"warn","ts":1573115658.2609549,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573115658.2615726,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-vv6hd-33[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-lksb2[0m
+{"level":"warn","ts":1573115659.221927,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1573115659.224733,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-vv6hd-33[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-vv6hd-33[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-devopscamp2019-lunchup-backend-jjzql[0m
+{"level":"warn","ts":1573115665.2890651,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573115666.5866628,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ v0.1.4 in path /workspace/source"}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-vv6hd-33[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:f61e47ea2dcdf860a5643e1bbb30550fd4d3697f
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-vv6hd-33[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-vv6hd-33[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+failed to open log file "/var/log/pods/**_devopscamp2019-lunchup-backend-vv6hd-33-from-build-pack-f7hmh-pod-eff578_627b3d9c-0139-11ea-a466-42010aac0048/step-build-container-build/0.log": open /var/log/pods/**_devopscamp2019-lunchup-backend-vv6hd-33-from-build-pack-f7hmh-pod-eff578_627b3d9c-0139-11ea-a466-42010aac0048/step-build-container-build/0.log: no such file or directory
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
