@@ -8,13 +8,7 @@ namespace LunchUp.Test.Core
     public class ServiceTestBase : IDisposable
     {
         protected readonly LunchUpContext LunchUpContext;
-        protected readonly PersonEntity Entity = new PersonEntity()
-        {
-            Id = new Guid("3aeba5b5-7e9e-4786-8df2-c191565f161e"),
-            Firstname = "John", 
-            Lastname = "Doe", 
-            Email = "john.doe@anonymous.com"
-        };
+        
 
         public ServiceTestBase()
         {

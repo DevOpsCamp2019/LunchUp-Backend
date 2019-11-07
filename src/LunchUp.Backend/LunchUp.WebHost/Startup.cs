@@ -62,7 +62,7 @@ namespace LunchUp.WebHost
             services.AddSwaggerGen(CreateSwaggerDoc);
 
             services.AddTransient<ICommonService, CommonService>();
-            services.AddTransient<IMatchingService, SimpleMatchingService>();
+            services.AddTransient<IMatchingService, MatchingService>();
             services.AddTransient<IIntegrationService, IntegrationService>();
 
             services.AddHealthChecks()

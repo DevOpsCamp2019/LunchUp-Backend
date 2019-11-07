@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using LunchUp.Core.Integration;
 using LunchUp.Model.Models;
 using Xunit;
@@ -17,32 +18,34 @@ namespace LunchUp.Test.Core
         [Fact]
         public void GivenNewPersonEntity_WhenCreateOrUpdatePerson_ThenPersonEntityAdded()
         {
-            //Assert.Equal(0, LunchUpContext.Person.Count());
+            // Arrange
+            var p = new PersonEntityBuilder(LunchUpContext, "john.doe@anonymous.com").BuildUnsaved();
+
             // Act
-            _integrationService.CreateOrUpdatePerson(Entity).Wait();
+            _integrationService.CreateOrUpdatePersons(new List<PersonEntity>() { p }).Wait();
             
             // Assert
-            var result = LunchUpContext.Person.FirstOrDefault(p => p.Email == Entity.Email);
+            var result = LunchUpContext.Person.FirstOrDefault(p => p.Email == p.Email);
             Assert.NotNull(result);
-            Assert.Equal(Entity, result);
+            Assert.Equal(p, result);
         }
 
         [Fact]
         public void GivenExistingPersonEntity_WhenCreateOrUpdatePerson_ThenPersonEntityUpdated()
         {
             // Arrange
-            var personEntity = new PersonEntity(){ Firstname = "Peter", Lastname = "Meier", Email = Entity.Email};
-            LunchUpContext.Person.Add(Entity);
-            LunchUpContext.SaveChanges();
+            var p = new PersonEntityBuilder(LunchUpContext, "john.doe@anonymous.com").BuildSaved();
+            p.Firstname = "Peter";
+            p.Lastname = "Meier";
 
             // Act
-            _integrationService.CreateOrUpdatePerson(personEntity).Wait();
+            _integrationService.CreateOrUpdatePersons(new List<PersonEntity>() { p }).Wait();
 
             // Assert
-            var result = LunchUpContext.Person.FirstOrDefault(p => p.Email == Entity.Email);
+            var result = LunchUpContext.Person.FirstOrDefault(p => p.Email == p.Email);
             Assert.NotNull(result);
-            Assert.Equal(personEntity.Firstname, result.Firstname);
-            Assert.Equal(personEntity.Lastname, result.Lastname);
+            Assert.Equal(p.Firstname, result.Firstname);
+            Assert.Equal(p.Lastname, result.Lastname);
         }
     }
 }
