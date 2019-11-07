@@ -41,7 +41,7 @@ namespace LunchUp.WebHost.Controller
         public Task<List<Person>> GetMatches()
         {
             var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst("emails")?.Value);
-            var matches = _matchingService.GetMatches(currentUser.Email);
+            var matches = _matchingService.GetMatches(currentUser);
             return Task.FromResult(_mapper.Map<List<Person>>(matches));
         }
     }
