@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using LunchUp.Core.Integration;
@@ -40,14 +42,10 @@ namespace LunchUp.WebHost.Controller
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public Task CreateOrUpdatePersons([FromBody] [Required] IEnumerable<Person> persons)
         {
-            foreach (var person in persons)
+            var entityList = _mapper.Map<IEnumerable<PersonEntity>>(persons);
+
+            foreach (var personEntity in entityList)
             {
-                var personEntity = new PersonEntity();
-                personEntity.Email = person.Email;
-                personEntity.Firstname = person.Firstname;
-                personEntity.Lastname = person.Lastname;
-                personEntity.Photo = person.Photo;
-                personEntity.Id = person.Id;
                 _integrationService.CreateOrUpdatePerson(personEntity);
             }
 

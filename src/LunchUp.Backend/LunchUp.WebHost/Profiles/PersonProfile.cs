@@ -11,6 +11,7 @@ namespace LunchUp.WebHost.Profiles
         public PersonProfile()
         {
             CreateMap<PersonEntity, Person>();
+            CreateMap<Person, PersonEntity> (); 
         }
     }
 }
