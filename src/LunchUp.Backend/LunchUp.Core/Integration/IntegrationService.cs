@@ -6,7 +6,7 @@ namespace LunchUp.Core.Integration
 {
     public class IntegrationService : IIntegrationService
     {
-        private static LunchUpContext _lunchUpContext;
+        private readonly LunchUpContext _lunchUpContext;
 
         public IntegrationService(LunchUpContext lunchUpContext)
         {

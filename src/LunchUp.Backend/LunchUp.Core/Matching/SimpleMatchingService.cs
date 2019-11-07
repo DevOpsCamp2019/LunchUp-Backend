@@ -9,7 +9,7 @@ namespace LunchUp.Core.Matching
 {
     public class SimpleMatchingService : IMatchingService
     {
-        private static LunchUpContext _lunchUpContext;
+        private readonly LunchUpContext _lunchUpContext;
 
         public SimpleMatchingService(LunchUpContext lunchUpContext)
         {
