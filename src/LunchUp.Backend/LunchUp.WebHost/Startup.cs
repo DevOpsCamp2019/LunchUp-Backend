@@ -136,11 +136,11 @@ namespace LunchUp.WebHost
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-            if (env.IsDevelopment())
-            {
+            //if (env.IsDevelopment())
+            //{
                 app.UseDeveloperExceptionPage();
                 IdentityModelEventSource.ShowPII = true;
-            }
+            //}
 
             app.MigrateDatabase<LunchUpContext>();
             app.UseHsts();
