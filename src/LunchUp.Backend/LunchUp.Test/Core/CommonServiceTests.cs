@@ -1,46 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using LunchUp.Core.Common;
-using LunchUp.Model;
-using LunchUp.Model.Models;
-using LunchUp.WebHost.Dto;
-using Microsoft.EntityFrameworkCore;
+﻿using LunchUp.Core.Common;
 using Xunit;
 
 namespace LunchUp.Test.Core
 {
-    public class CommonServiceTests
+    public class CommonServiceTests : ServiceTestBase
     {
         private readonly ICommonService _commonService;
-        private readonly LunchUpContext _lunchUpContext;
+
         public CommonServiceTests()
         {
-            var builder = new DbContextOptionsBuilder<LunchUpContext>()
-                .UseInMemoryDatabase("lunchup");
-            DbContextOptions<LunchUpContext> options = builder.Options;
-
-            _lunchUpContext = new LunchUpContext(options);
-            _lunchUpContext.Database.EnsureDeleted();
-            _lunchUpContext.Database.EnsureCreated();
-            _commonService = new CommonService(_lunchUpContext);
+            _commonService = new CommonService(LunchUpContext);
         }
 
         [Fact]
         public void GivenPersonEntityInDatabase_WhenGetPersonExistStatus_ThenPersonEntityReturned()
         {
             // Arrange
-            var person = new PersonEntity() {Firstname = "John", Lastname = "Doe", Email = "john.doe@anonymous.com"};
-            _lunchUpContext.Person.Add(person);
-            _lunchUpContext.SaveChanges();
+            LunchUpContext.Person.Add(Entity);
+            LunchUpContext.SaveChanges();
 
             // Act
-            var result = _commonService.GetPersonExistStatus(person.Email);
+            var result = _commonService.GetPersonExistStatus(Entity.Email);
             
             // Assert
-            Assert.Equal(person.Firstname, result.Firstname);
-            Assert.Equal(person.Lastname, result.Lastname);
-            Assert.Equal(person.Email, result.Email);
+            Assert.Equal(Entity.Firstname, result.Firstname);
+            Assert.Equal(Entity.Lastname, result.Lastname);
+            Assert.Equal(Entity.Email, result.Email);
             Assert.NotNull(result.OptIn);
         }
 
@@ -48,11 +33,10 @@ namespace LunchUp.Test.Core
         public void GivenEmptyDatabase_WhenGetPersonExistStatus_ThenNullReturned()
         {
             // Act
-            var result = _commonService.GetPersonExistStatus("john.doe@anonymous.com");
+            var result = _commonService.GetPersonExistStatus(Entity.Email);
 
             // Assert
             Assert.Null(result);
         }
-
     }
 }
