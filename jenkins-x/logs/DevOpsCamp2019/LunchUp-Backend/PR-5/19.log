@@ -1,0 +1,122 @@
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-rfv6l-19[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-j2msn[0m
+{"level":"warn","ts":1573139443.5080132,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573139443.5085144,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-rfv6l-19[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-dffpd[0m
+{"level":"warn","ts":1573139446.2521677,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1573139446.2535977,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-rfv6l-19[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-rfv6l-19[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-devopscamp2019-lunchup-backend-5rxbh[0m
+{"level":"warn","ts":1573139460.0486603,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573139461.3480704,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ master in path /workspace/source"}
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-rfv6l-19[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:d6b5d92ba0ee785f5e8dcb24a4ab1becbd65f0f2,5:346be46cba383f22de5fb5b010c1f1a7a5bd4f13
+DEBUG: ran git fetch --unshallow origin 346be46cba383f22de5fb5b010c1f1a7a5bd4f13: d6b5d92ba0ee785f5e8dcb24a4ab1becbd65f0f2: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard d6b5d92ba0ee785f5e8dcb24a4ab1becbd65f0f2 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 346be46cba383f22de5fb5b010c1f1a7a5bd4f13 in 
+Merged SHA 4c715cd8d1cb13015690eaf0498eb705ed7d7aa2 with commit message 'Merge commit '346be46cba383f22de5fb5b010c1f1a7a5bd4f13'' into base branch master
+Merged SHA 346be46cba383f22de5fb5b010c1f1a7a5bd4f13 with commit message 'change entrypoint of backend' into base branch master
+Merged SHA 84f50517b85383f6355a10bd16a77892ede1416b with commit message 'try something reaaaally weird..' into base branch master
+Merged SHA 7a7ef9e05896a90f4b6612ba61d605b298e8ece8 with commit message 'log password in dockerfile' into base branch master
+Merged SHA bf800454ad8032d6a319f910a4bf3111712ca2b1 with commit message 'remove custom secret' into base branch master
+Merged SHA 82f65e066f134353bdf62d27a2ea1843e949d3f7 with commit message 'add space to deployment.yaml' into base branch master
+Merged SHA 6dcadd6fd593530acb1b553cf92cc9c2080a8234 with commit message 'try again with self created secret' into base branch master
+Merged SHA fb1d4d95362534477756a3374232f2494095a992 with commit message 'remove db-password from deployment.yaml' into base branch master
+Merged SHA afcaf4aa9e26a4a1d8b47b903ec3fc624ae81496 with commit message 'fix mistake in values.yaml' into base branch master
+Merged SHA d42f4f398f1fbc11d7827964cac0e80c93a1a0eb with commit message 'try again with generated secret' into base branch master
+Merged SHA 0d5a3a0539e94e54372cdacfeb98684fb862c35f with commit message 'read secert in values.yaml' into base branch master
+Merged SHA 87ab7b4c6f80b8af7fd30d682df1cdc282ee054b with commit message 'add secret.yaml' into base branch master
+Merged SHA 55586109ce5fb7a1d27314e99edfc7d9d4e9beb8 with commit message 'add new secret and try to read from it' into base branch master
+Merged SHA 9850ff39dc52d1f46557c6cb96a7722a9945a805 with commit message 'Change wrong name' into base branch master
+Merged SHA 1dd933d953a114fa8f4ce245c34cb8f3cbb27205 with commit message 'Add postgresql password to deployment.yaml' into base branch master
+Merged SHA 8eaf04724065941d5087e06aa231f7879ff12875 with commit message 'add host' into base branch master
+Merged SHA 7940f6f7f575c143346f54f8cac08e6452be981d with commit message 'get db password from secret (again 2x)' into base branch master
+
+Showing logs for build [32mdevopscamp2019-lunchup-backend-rfv6l-19[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+ERROR: logging before flag.Parse: E1107 15:11:22.481992      10 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E1107 15:11:22.485843      10 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2019/11/07 15:11:22 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0001] Error while retrieving image from cache: getting file info: stat /workspace/sha256:803b70d9de2c57a168af4cc7d44e77a9c0591b49ce2af73d50c344aa22048eda: no such file or directory 
+[36mINFO[0m[0001] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+2019/11/07 15:11:23 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0003] cmd: EXPOSE                                  
+[36mINFO[0m[0003] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0003] cmd: EXPOSE                                  
+[36mINFO[0m[0003] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0003] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0003] Taking snapshot of full filesystem...        
+[36mINFO[0m[0004] ENV COMPlus_EnableDiagnostics=0              
+[36mINFO[0m[0004] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0004] WORKDIR /app                                 
+[36mINFO[0m[0004] cmd: workdir                                 
+[36mINFO[0m[0004] Changed working directory to /app            
+[36mINFO[0m[0004] Creating directory /app                      
+[36mINFO[0m[0004] Taking snapshot of files...                  
+[36mINFO[0m[0004] EXPOSE 80                                    
+[36mINFO[0m[0004] cmd: EXPOSE                                  
+[36mINFO[0m[0004] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0004] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0004] EXPOSE 443                                   
+[36mINFO[0m[0004] cmd: EXPOSE                                  
+[36mINFO[0m[0004] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0004] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0004] Storing source image from stage 0 at path /kaniko/stages/0 
+[36mINFO[0m[0026] Deleting filesystem...                       
+[36mINFO[0m[0026] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/07 15:11:47 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0026] Error while retrieving image from cache: getting file info: stat /workspace/sha256:65c0187e27b42bc45ea5ef98226c7ef37d1b706e10031ddce377bf6da3dcd9aa: no such file or directory 
+[36mINFO[0m[0026] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/07 15:11:48 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0027] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0027] Checking for cached layer gcr.io/deliverymachine/cache:67be19c3d2b2249525ae443287cc56a140fe0592d40e837f7d55115b772ce658... 
+[36mINFO[0m[0028] Using caching version of cmd: RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0028] Using files from context: [/workspace/source] 
+[36mINFO[0m[0028] Checking for cached layer gcr.io/deliverymachine/cache:4e9929a544983a262c8a8dbcc5ce124bfc72246b00b9ba846a4c832d0dc4d8a3... 
+[36mINFO[0m[0028] No cached layer found for cmd RUN dotnet test 
+[36mINFO[0m[0028] Unpacking rootfs as cmd RUN dotnet test requires it. 
+[36mINFO[0m[0057] Taking snapshot of full filesystem...        
+[36mINFO[0m[0159] ENV COMPlus_EnableDiagnostics=0              
+[36mINFO[0m[0159] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0159] WORKDIR /src                                 
+[36mINFO[0m[0159] cmd: workdir                                 
+[36mINFO[0m[0159] Changed working directory to /src            
+[36mINFO[0m[0159] Creating directory /src                      
+[36mINFO[0m[0159] Taking snapshot of files...                  
+[36mINFO[0m[0159] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0159] COPY ["src/LunchUp.Backend/", "LunchUp.Backend/"] 
+[36mINFO[0m[0159] Taking snapshot of files...                  
+[36mINFO[0m[0159] RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0159] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0175] Taking snapshot of files...                  
+[36mINFO[0m[0198] Using files from context: [/workspace/source] 
+[36mINFO[0m[0214] COPY . .                                     
+[36mINFO[0m[0214] Taking snapshot of files...                  
+[36mINFO[0m[0214] WORKDIR "/src/LunchUp.Backend"               
+[36mINFO[0m[0214] cmd: workdir                                 
+[36mINFO[0m[0215] Changed working directory to /src/LunchUp.Backend 
+[36mINFO[0m[0215] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0215] RUN dotnet test                              
+[36mINFO[0m[0215] cmd: /bin/sh                                 
+[36mINFO[0m[0215] args: [-c dotnet test]                       
+Test run for /src/LunchUp.Backend/LunchUp.Test/bin/Debug/netcoreapp3.0/LunchUp.Test.dll(.NETCoreApp,Version=v3.0)
+Microsoft (R) Test Execution Command Line Tool Version 16.3.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+
+A total of 1 test files matched the specified pattern.
+
+Test Run Successful.
+Total tests: 10
+     Passed: 10
+ Total time: 6.5944 Seconds
+[36mINFO[0m[0316] Taking snapshot of full filesystem...        
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
