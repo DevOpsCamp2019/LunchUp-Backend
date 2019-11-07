@@ -23,12 +23,31 @@ cleanup:
     helm.sh/hook: pre-delete
     helm.sh/hook-delete-policy: hook-succeeded
 
+db:
+  postgresqlUsername: &dbUser lunchup
+  postgresqlPassword: &dbPassword lunchup
+  postgresqlDatabase: &dbName lunchup
+  persistence:
+    enabled: false
+
 # define environment variables here as a map of key: value
 env:
+  Database__lunchUp__Username: *dbUser
+  Database__lunchUp__Password: *dbPassword
+  Database__lunchUp__Host: preview-db
+  Database__lunchUp__Port: "5432"
+  Database__lunchUp__Database: *dbName
+  ASPNETCORE_ENVIRONMENT: staging
+
+volumePermissions:
+  securityContext:
+    runAsUser: 1000
+    fsGroup: 1000
+    enabled: true
 
 preview:
   image:
-    repository: /devopscamp2019/lunchup-backend
+    repository: /deliverymachine/lunchup-backend
     tag: 
     pullPolicy: IfNotPresent
 
