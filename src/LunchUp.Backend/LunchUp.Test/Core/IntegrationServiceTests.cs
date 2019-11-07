@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using LunchUp.Core.Integration;
 using LunchUp.Model.Models;
 using Xunit;
@@ -19,7 +20,7 @@ namespace LunchUp.Test.Core
         {
             //Assert.Equal(0, LunchUpContext.Person.Count());
             // Act
-            _integrationService.CreateOrUpdatePerson(Entity).Wait();
+            _integrationService.CreateOrUpdatePersons(new List<PersonEntity> { Entity }).Wait();
             
             // Assert
             var result = LunchUpContext.Person.FirstOrDefault(p => p.Email == Entity.Email);
@@ -36,7 +37,7 @@ namespace LunchUp.Test.Core
             LunchUpContext.SaveChanges();
 
             // Act
-            _integrationService.CreateOrUpdatePerson(personEntity).Wait();
+            _integrationService.CreateOrUpdatePersons(new List<PersonEntity> { personEntity }).Wait();
 
             // Assert
             var result = LunchUpContext.Person.FirstOrDefault(p => p.Email == Entity.Email);
