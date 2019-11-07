@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using LunchUp.Core.Common;
 using LunchUp.Core.Matching;
 using LunchUp.WebHost.Dto;
 using Microsoft.AspNetCore.Authorization;
@@ -17,12 +18,14 @@ namespace LunchUp.WebHost.Controller
     {
         private readonly IMapper _mapper;
         private readonly IMatchingService _matchingService;
+        private readonly ICommonService _commonService;
 
         /// <inheritdoc />
-        public MatchController(IMapper mapper, IMatchingService matchingService)
+        public MatchController(IMapper mapper, IMatchingService matchingService, ICommonService commonService)
         {
             _mapper = mapper;
             _matchingService = matchingService;
+            _commonService = commonService;
         }
 
         /// <summary>
@@ -37,8 +40,8 @@ namespace LunchUp.WebHost.Controller
         [Produces("application/json")]
         public Task<List<Person>> GetMatches()
         {
-            var currentUserUpn = HttpContext.User.FindFirst("emails")?.Value;
-            var matches = _matchingService.GetMatches(currentUserUpn);
+            var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst("emails")?.Value);
+            var matches = _matchingService.GetMatches(currentUser.Email);
             return Task.FromResult(_mapper.Map<List<Person>>(matches));
         }
     }

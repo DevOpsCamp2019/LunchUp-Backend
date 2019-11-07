@@ -16,11 +16,10 @@ namespace LunchUp.Core.Integration
 
         public async Task CreateOrUpdatePerson(PersonEntity person)
         {
-            var currentPerson = _lunchUpContext.Person.FirstOrDefault(x => x.Id == person.Id);
+            var currentPerson = _lunchUpContext.Person.FirstOrDefault(x => x.Email == person.Email);
             if (currentPerson != null)
             {
                 currentPerson.Company = person.Company;
-                currentPerson.Email = person.Email;
                 currentPerson.Firstname = person.Firstname;
                 currentPerson.Lastname = person.Lastname;
                 currentPerson.Photo = person.Photo;

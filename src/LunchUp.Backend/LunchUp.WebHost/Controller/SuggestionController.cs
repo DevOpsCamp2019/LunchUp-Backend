@@ -18,9 +18,9 @@ namespace LunchUp.WebHost.Controller
     [ApiController]
     public class SuggestionController : ControllerBase
     {
-        private readonly ICommonService _commonService;
         private readonly IMapper _mapper;
         private readonly IMatchingService _matchingService;
+        private readonly ICommonService _commonService;
 
         /// <inheritdoc />
         public SuggestionController(IMapper mapper, IMatchingService matchingService, ICommonService commonService)
@@ -44,10 +44,9 @@ namespace LunchUp.WebHost.Controller
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public Task<List<Person>> GetSuggestions([FromQuery] int count = 10)
         {
-            var currentUserUpn = HttpContext.User.FindFirst("emails")?.Value;
-            var userExists = _commonService.GetPersonExistStatus(currentUserUpn);
-            if (!userExists) throw new ApplicationException("user not exist");
-            var suggestions = _matchingService.GetSuggestions(currentUserUpn, count);
+            var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst("emails")?.Value);
+            if (currentUser == null) throw new ApplicationException("user not exist");
+            var suggestions = _matchingService.GetSuggestions(currentUser.Email, count);
             return Task.FromResult(_mapper.Map<List<Person>>(suggestions));
         }
 
@@ -65,10 +64,9 @@ namespace LunchUp.WebHost.Controller
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public Task CreateResponse([FromRoute] [Required] Guid personId, [FromBody] [Required] Response response)
         {
-            var currentUserUpn = HttpContext.User.FindFirst("emails")?.Value;
-            var userExists = _commonService.GetPersonExistStatus(currentUserUpn);
-            if (!userExists) throw new ApplicationException("user not exist");
-            _matchingService.AddMatch(currentUserUpn, personId, response.Accepted);
+            var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst("emails")?.Value);
+            if (currentUser == null) throw new ApplicationException("user not exist");
+            _matchingService.AddMatch(currentUser.Email, personId, response.Accepted);
             return Task.FromResult(StatusCodes.Status201Created);
         }
     }
