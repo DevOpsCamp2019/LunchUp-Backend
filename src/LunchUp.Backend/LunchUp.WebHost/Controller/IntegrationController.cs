@@ -42,10 +42,7 @@ namespace LunchUp.WebHost.Controller
         {
             var entityList = _mapper.Map<IEnumerable<PersonEntity>>(persons);
 
-            foreach (var personEntity in entityList)
-            {
-                await _integrationService.CreateOrUpdatePerson(personEntity);
-            }
+            await _integrationService.CreateOrUpdatePersons(entityList);
             return StatusCode(StatusCodes.Status201Created);
         }
     }

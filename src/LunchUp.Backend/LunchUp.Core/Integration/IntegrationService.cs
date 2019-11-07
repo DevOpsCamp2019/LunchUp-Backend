@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using LunchUp.Model;
 using LunchUp.Model.Models;
@@ -14,20 +15,23 @@ namespace LunchUp.Core.Integration
             _lunchUpContext = lunchUpContext;
         }
 
-        public async Task CreateOrUpdatePerson(PersonEntity person)
+        public async Task CreateOrUpdatePersons(IEnumerable<PersonEntity> persons)
         {
-            var currentPerson = _lunchUpContext.Person.FirstOrDefault(x => x.Email == person.Email);
-            if (currentPerson != null)
+            foreach (var person in persons)
             {
-                currentPerson.Company = person.Company;
-                currentPerson.Firstname = person.Firstname;
-                currentPerson.Lastname = person.Lastname;
-                currentPerson.Photo = person.Photo;
-                _lunchUpContext.Update(currentPerson);
-            }
-            else
-            {
-                await _lunchUpContext.AddAsync(person);
+                var currentPerson = _lunchUpContext.Person.FirstOrDefault(x => x.Email == person.Email);
+                if (currentPerson != null)
+                {
+                    currentPerson.Company = person.Company;
+                    currentPerson.Firstname = person.Firstname;
+                    currentPerson.Lastname = person.Lastname;
+                    currentPerson.Photo = person.Photo;
+                    _lunchUpContext.Update(currentPerson);
+                }
+                else
+                {
+                    await _lunchUpContext.AddAsync(person);
+                }
             }
 
             await _lunchUpContext.SaveChangesAsync();
