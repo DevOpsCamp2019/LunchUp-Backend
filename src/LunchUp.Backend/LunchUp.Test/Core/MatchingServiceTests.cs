@@ -23,7 +23,7 @@ namespace LunchUp.Test.Core
             var p = new PersonEntityBuilder(LunchUpContext, "john.doe@anonymous.com").BuildSaved();
 
             // Act
-            var result = _matchingService.GetSuggestions("bla", 1);
+            var result = _matchingService.GetSuggestions(new PersonEntity {Email = "bla"}, 1);
 
             // Assert            
             Assert.Empty(result);
@@ -37,7 +37,7 @@ namespace LunchUp.Test.Core
                 .WithOptIn(DateTime.Now).BuildSaved();
 
             // Act
-            var result = _matchingService.GetSuggestions("bla", 1);
+            var result = _matchingService.GetSuggestions(new PersonEntity {Email = "bla"}, 1);
 
             // Assert            
             Assert.Single(result);
@@ -51,7 +51,7 @@ namespace LunchUp.Test.Core
                 .WithOptIn(DateTime.Now).BuildSaved();
 
             // Act
-            var result = _matchingService.GetSuggestions("john.doe@anonymous.com", 1);
+            var result = _matchingService.GetSuggestions(new PersonEntity {Email = "john.doe@anonymous.com"}, 1);
 
             // Assert            
             Assert.Empty(result);
@@ -67,7 +67,7 @@ namespace LunchUp.Test.Core
             var response = new ResponseBuilder(LunchUpContext, origin, target, true, DateTime.Now).BuildSaved();
 
             // Act
-            var result = _matchingService.GetSuggestions("john.doe@anonymous.com", 1);
+            var result = _matchingService.GetSuggestions(new PersonEntity {Email = "john.doe@anonymous.com"}, 1);
 
             // Assert            
             Assert.Empty(result);

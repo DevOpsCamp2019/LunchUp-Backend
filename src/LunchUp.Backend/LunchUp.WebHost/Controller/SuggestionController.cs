@@ -46,7 +46,7 @@ namespace LunchUp.WebHost.Controller
         {
             var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst("emails")?.Value);
             if (currentUser == null) throw new ApplicationException("user not exist");
-            var suggestions = _matchingService.GetSuggestions(currentUser.Email, count);
+            var suggestions = _matchingService.GetSuggestions(currentUser, count);
             return Task.FromResult(_mapper.Map<List<Person>>(suggestions));
         }
 
@@ -66,7 +66,7 @@ namespace LunchUp.WebHost.Controller
         {
             var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst("emails")?.Value);
             if (currentUser == null) throw new ApplicationException("user not exist");
-            _matchingService.AddMatch(currentUser.Email, personId, response.Accepted);
+            _matchingService.AddMatch(currentUser, personId, response.Accepted);
             return Task.FromResult(StatusCodes.Status201Created);
         }
     }

@@ -20,7 +20,7 @@ namespace LunchUp.Core.Integration
         {
             foreach (var person in persons)
             {
-                var currentPerson = _lunchUpContext.Person.FirstOrDefault(x => x.Email == person.Email);
+                var currentPerson = _lunchUpContext.Person.FirstOrDefault(x => x == person);
                 if (currentPerson != null)
                 {
                     currentPerson.Company = person.Company;
