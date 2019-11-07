@@ -27,10 +27,6 @@ db:
   postgresqlUsername: &dbUser lunchup
   postgresqlDatabase: &dbName lunchup
   postgresqlPassword: &dbPassword
-    valueFrom:
-      secretKeyRef:
-        name: db-password
-        key: POSTGRESQL_PASSWORD
   persistence:
     enabled: false
 
@@ -38,6 +34,10 @@ db:
 env:
   Database__lunchUp__Username: *dbUser
   Database__lunchUp__Password: *dbPassword
+  valueFrom:
+    secretKeyRef:
+      name: preview-db
+      key: postgresql-password
   Database__lunchUp__Host: preview-db
   Database__lunchUp__Port: "5432"
   Database__lunchUp__Database: *dbName
