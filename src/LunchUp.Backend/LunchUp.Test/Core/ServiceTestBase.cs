@@ -1,6 +1,5 @@
 ﻿using System;
 using LunchUp.Model;
-using LunchUp.Model.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace LunchUp.Test.Core

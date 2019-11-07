@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Linq;
-using LunchUp.Core.Integration;
 using LunchUp.Core.Matching;
-using LunchUp.Model.Models;
 using Xunit;
 
 namespace LunchUp.Test.Core
