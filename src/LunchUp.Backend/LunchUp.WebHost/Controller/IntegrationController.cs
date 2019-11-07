@@ -28,13 +28,13 @@ namespace LunchUp.WebHost.Controller
         }
         
         /// <summary>
-        ///     Create or update a person
+        ///     Create or update multiple persons
         /// </summary>
-        /// <response code="200">Person updated</response>
-        /// <response code="201">Person created</response>
+        /// <response code="200">Persons updated</response>
+        /// <response code="201">Persons created</response>
         /// <response code="401">Unauthorized</response>
         [HttpPut]
-        [Route("person")]
+        [Route("persons")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -42,10 +42,7 @@ namespace LunchUp.WebHost.Controller
         {
             var entityList = _mapper.Map<IEnumerable<PersonEntity>>(persons);
 
-            foreach (var personEntity in entityList)
-            {
-                await _integrationService.CreateOrUpdatePerson(personEntity);
-            }
+            await _integrationService.CreateOrUpdatePersons(entityList);
             return StatusCode(StatusCodes.Status201Created);
         }
     }

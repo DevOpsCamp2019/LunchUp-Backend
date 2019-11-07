@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LunchUp.Model;
@@ -15,27 +16,28 @@ namespace LunchUp.Core.Integration
             _lunchUpContext = lunchUpContext;
         }
 
-        public async Task CreateOrUpdatePerson(PersonEntity person)
+        public async Task CreateOrUpdatePersons(IEnumerable<PersonEntity> persons)
         {
-            var currentPerson = _lunchUpContext.Person.FirstOrDefault(x => x.Email == person.Email);
-            if (currentPerson != null)
+            foreach (var person in persons)
             {
-                currentPerson.Company = person.Company;
-                currentPerson.Firstname = person.Firstname;
-                currentPerson.Lastname = person.Lastname;
-                currentPerson.Photo = person.Photo;
-                
-                // TODO: Remove in production
-                if(currentPerson.OptIn == null) person.OptIn = DateTime.UtcNow;
-                
-                _lunchUpContext.Update(currentPerson);
-            }
-            else
-            {
-                person.Id = Guid.NewGuid();
-                // TODO: Remove in production
-                person.OptIn = DateTime.UtcNow;
-                await _lunchUpContext.AddAsync(person);
+                var currentPerson = _lunchUpContext.Person.FirstOrDefault(x => x.Email == person.Email);
+                if (currentPerson != null)
+                {
+                    currentPerson.Company = person.Company;
+                    currentPerson.Firstname = person.Firstname;
+                    currentPerson.Lastname = person.Lastname;
+                    currentPerson.Photo = person.Photo;
+                    // TODO: Remove on production
+                    if(person.OptIn == null) person.OptIn = DateTime.UtcNow;
+                    _lunchUpContext.Update(currentPerson);
+                }
+                else
+                {
+                    person.Id = Guid.NewGuid();
+                    // TODO: Remove on production
+                    person.OptIn = DateTime.UtcNow;
+                    await _lunchUpContext.AddAsync(person);
+                }
             }
 
             await _lunchUpContext.SaveChangesAsync();
