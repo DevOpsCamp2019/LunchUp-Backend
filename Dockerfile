@@ -5,7 +5,6 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
-RUN echo $Database__lunchUp__Password
 ENV COMPlus_EnableDiagnostics=0
 WORKDIR /src
 COPY ["src/LunchUp.Backend/", "LunchUp.Backend/"]
@@ -20,4 +19,4 @@ RUN dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/p
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "LunchUp.WebHost.dll"]
+ENTRYPOINT ["env"]
