@@ -1,54 +1,119 @@
 
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-tjlkt[0m
-{"level":"warn","ts":1573145970.8600814,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1573145970.8606687,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Showing logs for build [32mdevopscamp2019-lunchup-backend-ctfgl-2[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-nkfgq[0m
+{"level":"warn","ts":1573158380.4424255,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573158380.4465148,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
 
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-5qvxh[0m
-{"level":"warn","ts":1573145971.9637642,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
-{"level":"info","ts":1573145971.965068,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+Showing logs for build [32mdevopscamp2019-lunchup-backend-ctfgl-2[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-bpwwn[0m
+{"level":"warn","ts":1573158382.4772954,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1573158382.4804993,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
 
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
+Showing logs for build [32mdevopscamp2019-lunchup-backend-ctfgl-2[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
 
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-devopscamp2019-lunchup-bac-44zfz[0m
-{"level":"warn","ts":1573145977.810702,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1573145979.397756,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ dd29425c8365cef5574073a4891dabd54fc49d37 in path /workspace/source"}
+Showing logs for build [32mdevopscamp2019-lunchup-backend-ctfgl-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-devopscamp2019-lunchup-backend-w65sh[0m
+{"level":"warn","ts":1573158393.4012501,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1573158395.1123085,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ v0.1.26 in path /workspace/source"}
 
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
-Using SHAs from PULL_REFS=master:dd29425c8365cef5574073a4891dabd54fc49d37
+Showing logs for build [32mdevopscamp2019-lunchup-backend-ctfgl-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:32bb5efce3391d6e75430e209d196fc0d69dfe05
 WARNING: no SHAs to merge, falling back to initial cloned commit
 
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
-SKIP merge-pull-refs: Nothing to merge
+Showing logs for build [32mdevopscamp2019-lunchup-backend-ctfgl-2[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
 
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
-Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
-error: Missing option: --docker-registry
+Showing logs for build [32mdevopscamp2019-lunchup-backend-ctfgl-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+ERROR: logging before flag.Parse: E1107 20:26:39.279419       9 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E1107 20:26:39.284640       9 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2019/11/07 20:26:39 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0001] Error while retrieving image from cache: getting file info: stat /workspace/sha256:803b70d9de2c57a168af4cc7d44e77a9c0591b49ce2af73d50c344aa22048eda: no such file or directory 
+[36mINFO[0m[0001] Downloading base image mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim 
+2019/11/07 20:26:40 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0002] cmd: EXPOSE                                  
+[36mINFO[0m[0002] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0002] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0002] Taking snapshot of full filesystem...        
+[36mINFO[0m[0004] ENV COMPlus_EnableDiagnostics=0              
+[36mINFO[0m[0004] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0004] WORKDIR /app                                 
+[36mINFO[0m[0004] cmd: workdir                                 
+[36mINFO[0m[0004] Changed working directory to /app            
+[36mINFO[0m[0004] Creating directory /app                      
+[36mINFO[0m[0004] Taking snapshot of files...                  
+[36mINFO[0m[0004] EXPOSE 80                                    
+[36mINFO[0m[0004] cmd: EXPOSE                                  
+[36mINFO[0m[0004] Adding exposed port: 80/tcp                  
+[36mINFO[0m[0004] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0004] EXPOSE 443                                   
+[36mINFO[0m[0004] cmd: EXPOSE                                  
+[36mINFO[0m[0004] Adding exposed port: 443/tcp                 
+[36mINFO[0m[0004] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0004] Storing source image from stage 0 at path /kaniko/stages/0 
+[36mINFO[0m[0055] Deleting filesystem...                       
+[36mINFO[0m[0055] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/07 20:27:34 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0056] Error while retrieving image from cache: getting file info: stat /workspace/sha256:65c0187e27b42bc45ea5ef98226c7ef37d1b706e10031ddce377bf6da3dcd9aa: no such file or directory 
+[36mINFO[0m[0056] Downloading base image mcr.microsoft.com/dotnet/core/sdk:3.0-buster 
+2019/11/07 20:27:35 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0057] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0057] Checking for cached layer gcr.io/deliverymachine/cache:121a13f5da2e594b67a0a5d6bd23989effbe8de08df0a6c376eb33700b1fde2e... 
+[36mINFO[0m[0058] Using caching version of cmd: RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0058] Using files from context: [/workspace/source] 
+[36mINFO[0m[0058] Checking for cached layer gcr.io/deliverymachine/cache:ab2991792db4bf6f5c5f1ecca8bb2362aa5d3f148caa2b40c1e88779b76502db... 
+[36mINFO[0m[0059] No cached layer found for cmd RUN dotnet test 
+[36mINFO[0m[0059] Unpacking rootfs as cmd RUN dotnet test requires it. 
+[36mINFO[0m[0175] Taking snapshot of full filesystem...        
+[36mINFO[0m[0545] ENV COMPlus_EnableDiagnostics=0              
+[36mINFO[0m[0545] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0545] WORKDIR /src                                 
+[36mINFO[0m[0545] cmd: workdir                                 
+[36mINFO[0m[0545] Changed working directory to /src            
+[36mINFO[0m[0545] Creating directory /src                      
+[36mINFO[0m[0545] Taking snapshot of files...                  
+[36mINFO[0m[0545] Using files from context: [/workspace/source/src/LunchUp.Backend] 
+[36mINFO[0m[0545] COPY ["src/LunchUp.Backend/", "LunchUp.Backend/"] 
+[36mINFO[0m[0545] Taking snapshot of files...                  
+[36mINFO[0m[0545] RUN dotnet restore "LunchUp.Backend/LunchUp.Backend.sln" 
+[36mINFO[0m[0545] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0587] Taking snapshot of files...                  
+[36mINFO[0m[0630] Using files from context: [/workspace/source] 
+[36mINFO[0m[0630] COPY . .                                     
+[36mINFO[0m[0630] Taking snapshot of files...                  
+[36mINFO[0m[0630] WORKDIR "/src/LunchUp.Backend"               
+[36mINFO[0m[0630] cmd: workdir                                 
+[36mINFO[0m[0630] Changed working directory to /src/LunchUp.Backend 
+[36mINFO[0m[0630] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0630] RUN dotnet test                              
+[36mINFO[0m[0630] cmd: /bin/sh                                 
+[36mINFO[0m[0630] args: [-c dotnet test]                       
+Test run for /src/LunchUp.Backend/LunchUp.Test/bin/Debug/netcoreapp3.0/LunchUp.Test.dll(.NETCoreApp,Version=v3.0)
+Microsoft (R) Test Execution Command Line Tool Version 16.3.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:10.37]     LunchUp.Test.Core.MatchingServiceTests.GivenExistingPersonEntityWithResponse_WhenGetSuggestions_ThenNothingReturned [FAIL]
+[xUnit.net 00:00:10.38]     LunchUp.Test.Core.MatchingServiceTests.GivenOwnPersonEntityWithOptIn_WhenGetSuggestions_ThenNothingReturned [FAIL]
+  X LunchUp.Test.Core.MatchingServiceTests.GivenExistingPersonEntityWithResponse_WhenGetSuggestions_ThenNothingReturned [95ms]
+  Error Message:
+   Assert.Empty() Failure
+Collection: [PersonEntity { Company = null, Email = "peter.meier@google.com", Firstname = null, Id = 80353c8f-3ccd-4f9b-ac99-bc2965d7a2ba, Lastname = null, ... }]
+  Stack Trace:
+     at LunchUp.Test.Core.MatchingServiceTests.GivenExistingPersonEntityWithResponse_WhenGetSuggestions_ThenNothingReturned() in /src/LunchUp.Backend/LunchUp.Test/Core/MatchingServiceTests.cs:line 71
+  X LunchUp.Test.Core.MatchingServiceTests.GivenOwnPersonEntityWithOptIn_WhenGetSuggestions_ThenNothingReturned [4ms]
+  Error Message:
+   Assert.Empty() Failure
+Collection: [PersonEntity { Company = null, Email = "john.doe@anonymous.com", Firstname = null, Id = 5b398697-0192-4216-b8a2-ceef7a9cacac, Lastname = null, ... }]
+  Stack Trace:
+     at LunchUp.Test.Core.MatchingServiceTests.GivenOwnPersonEntityWithOptIn_WhenGetSuggestions_ThenNothingReturned() in /src/LunchUp.Backend/LunchUp.Test/Core/MatchingServiceTests.cs:line 55
+
+Test Run Failed.
+Total tests: 10
+     Passed: 8
+     Failed: 2
+ Total time: 12.0808 Seconds
+error building image: error building stage: waiting for process to exit: exit status 1
 [31m
-Pipeline failed on stage 'meta-pipeline' : container 'step-create-effective-pipeline'. The execution of the pipeline has stopped.[0m
-
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-tjlkt[0m
-{"level":"warn","ts":1573145970.8600814,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1573145970.8606687,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
-
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-5qvxh[0m
-{"level":"warn","ts":1573145971.9637642,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
-{"level":"info","ts":1573145971.965068,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
-
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
-
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-devopscamp2019-lunchup-bac-44zfz[0m
-{"level":"warn","ts":1573145977.810702,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
-{"level":"info","ts":1573145979.397756,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/DevOpsCamp2019/LunchUp-Backend.git @ dd29425c8365cef5574073a4891dabd54fc49d37 in path /workspace/source"}
-
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
-Using SHAs from PULL_REFS=master:dd29425c8365cef5574073a4891dabd54fc49d37
-WARNING: no SHAs to merge, falling back to initial cloned commit
-
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
-SKIP merge-pull-refs: Nothing to merge
-
-Showing logs for build [32mmeta-devopscamp2019-lunchup-bac-cwrtf-2[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
-Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
-error: Missing option: --docker-registry
-[31m
-Pipeline failed on stage 'meta-pipeline' : container 'step-create-effective-pipeline'. The execution of the pipeline has stopped.[0m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
