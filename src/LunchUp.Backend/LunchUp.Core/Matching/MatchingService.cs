@@ -23,13 +23,15 @@ namespace LunchUp.Core.Matching
                 .FirstOrDefault(x => x.Id == user.Id)?.Responses
                 .Select(x => x.Target.Id).AsEnumerable();
 
-            var persons = _lunchUpContext.Person
-                .Where(entity => entity.Id != user.Id && entity.OptIn != null &&
-                                 (currentResponses == null || !currentResponses.Contains(entity.Id)))
+            var personIds = _lunchUpContext.Person
+                .Where(entity => entity.Id != user.Id && entity.OptIn != null && (currentResponses == null || !currentResponses.Contains(entity.Id)))
+                .Select(x => x.Id)
                 .AsEnumerable()
                 .OrderBy(x => Guid.NewGuid())
                 .Take(count).ToList();
 
+            var persons = _lunchUpContext.Person.Where(x => personIds.Contains(x.Id)).ToList();
+            
             return persons;
         }
 
