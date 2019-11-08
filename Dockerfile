@@ -19,4 +19,4 @@ RUN dotnet publish "LunchUp.WebHost/LunchUp.WebHost.csproj" -c Release -o /app/p
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["env", "&&", "dotnet", "LunchUp.WebHost.dll"]
+ENTRYPOINT ["env", "dotnet", "LunchUp.WebHost.dll"]
