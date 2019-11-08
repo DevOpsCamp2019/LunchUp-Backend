@@ -52,7 +52,7 @@ namespace LunchUp.Test.Core
             var result = _matchingService.GetSuggestions(new PersonEntity {Email = "john.doe@anonymous.com"}, 1);
 
             // Assert            
-            Assert.Empty(result);
+            Assert.Single(result);
         }
 
         [Fact]
@@ -62,12 +62,13 @@ namespace LunchUp.Test.Core
             var origin = new PersonEntityBuilder(LunchUpContext, "john.doe@anonymous.com").BuildSaved();
             var target = new PersonEntityBuilder(LunchUpContext, "peter.meier@google.com")
                 .WithOptIn(DateTime.Now).BuildSaved();
+            target.OptIn = null;
             var response = new ResponseBuilder(LunchUpContext, origin, target, true, DateTime.Now).BuildSaved();
 
             // Act
             var result = _matchingService.GetSuggestions(new PersonEntity {Email = "john.doe@anonymous.com"}, 1);
 
-            // Assert            
+            // Assert           
             Assert.Empty(result);
         }
     }
