@@ -16,7 +16,8 @@ namespace LunchUp.Core.Common
 
         public PersonEntity GetPersonExistStatus(string currentUserMail)
         {
-            var user = _lunchUpContext.Person.FirstOrDefault(x => String.Equals(x.Email, currentUserMail, StringComparison.CurrentCultureIgnoreCase));
+            // ReSharper disable once SpecifyStringComparison (not compatible with linq to sql)
+            var user = _lunchUpContext.Person.FirstOrDefault(x => x.Email.ToLower() == currentUserMail.ToLower());
             if (user != null && user.OptIn == null)
             {
                 user.OptIn = DateTime.UtcNow;
