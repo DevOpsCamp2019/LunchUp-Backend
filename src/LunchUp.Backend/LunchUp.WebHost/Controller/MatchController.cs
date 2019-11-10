@@ -38,12 +38,16 @@ namespace LunchUp.WebHost.Controller
         [ProducesResponseType(typeof(List<Person>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(List<Person>), StatusCodes.Status401Unauthorized)]
         [Produces("application/json")]
-        public Task<List<Person>> GetMatches()
+        public async Task<IActionResult> GetMatches()
         {
-            var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst("emails")?.Value);
-            if (currentUser == null) Task.FromResult(StatusCodes.Status403Forbidden);
+            var email = HttpContext.User.FindFirst("emails")?.Value;
+            if (email == null) return Forbid();
+
+            var currentUser = _commonService.GetPersonExistStatus(email);
+            if (currentUser == null) return Forbid();
+
             var matches = _matchingService.GetMatches(currentUser);
-            return Task.FromResult(_mapper.Map<List<Person>>(matches));
+            return Ok(_mapper.Map<List<Person>>(matches));
         }
     }
 }

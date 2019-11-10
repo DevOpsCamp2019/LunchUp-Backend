@@ -36,41 +36,29 @@ namespace LunchUp.WebHost
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            
-            var connection = Configuration.GetSection("Database:lunchup").Get<DatabaseSettings>();
-            DatabaseConnection = new NpgsqlConnectionStringBuilder
-            {
-                Database = connection.Database, Host = connection.Host, Port = connection.Port,
-                Username = connection.Username, Password = connection.Password
-            };
         }
 
-        public void ConfigureServices(IServiceCollection services)
+        public virtual void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
-            services.AddMvcCore().AddApiExplorer();
+            services.AddMvcCore().AddApiExplorer().AddApplicationPart(typeof(Startup).Assembly);
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(ConfigureAuthentication());
             services.AddAuthorization();
 
             services.AddMvcCore().AddApiExplorer().ConfigureApiBehaviorOptions(
                 options => { options.SuppressMapClientErrors = true; });
 
-            services.AddDbContext<LunchUpContext>(opt =>
-                opt.UseNpgsql(DatabaseConnection.ConnectionString)
-            );
+            ConfigureDatabase(services);
 
             services.Configure<KestrelServerOptions>(options => { options.AllowSynchronousIO = true; });
             services.AddSwaggerGen(CreateSwaggerDoc);
 
             services.AddTransient<ICommonService, CommonService>();
             services.AddTransient<IMatchingService, MatchingService>();
-            services.AddTransient<IIntegrationService, IntegrationService>();
-
-            services.AddHealthChecks()
-                .AddCheck("LunchDbHealthCheck", new NpgSqlConnectionHealthCheck(DatabaseConnection.ConnectionString));
+            services.AddTransient<IIntegrationService, IntegrationService>();            
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseRouting();
             app.UseAuthentication();
@@ -92,8 +80,27 @@ namespace LunchUp.WebHost
             });
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            app.UseHealthChecks("/api/health");
         }
+
+        protected virtual void ConfigureDatabase(IServiceCollection services)
+        {
+            var connection = Configuration.GetSection("Database:lunchup").Get<DatabaseSettings>();
+            DatabaseConnection = new NpgsqlConnectionStringBuilder
+            {
+                Database = connection.Database,
+                Host = connection.Host,
+                Port = connection.Port,
+                Username = connection.Username,
+                Password = connection.Password
+            };
+            services.AddDbContext<LunchUpContext>(opt =>
+                opt.UseNpgsql(DatabaseConnection.ConnectionString)
+            );
+
+            services.AddHealthChecks()
+                .AddCheck("LunchDbHealthCheck", new NpgSqlConnectionHealthCheck(DatabaseConnection.ConnectionString));
+        }       
+
 
         private static void CreateSwaggerDoc(SwaggerGenOptions c)
         {
