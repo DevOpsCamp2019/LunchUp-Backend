@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using LunchUp.Core.Common;
@@ -44,7 +45,7 @@ namespace LunchUp.WebHost.Controller
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public Task<List<Person>> GetSuggestions([FromQuery] int count = 10)
         {
-            var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst("emails")?.Value);
+            var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst(ClaimTypes.Email)?.Value);
             if (currentUser == null) Task.FromResult(StatusCodes.Status403Forbidden);
             var suggestions = _matchingService.GetSuggestions(currentUser, count);
             return Task.FromResult(_mapper.Map<List<Person>>(suggestions));
@@ -64,7 +65,7 @@ namespace LunchUp.WebHost.Controller
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public Task CreateResponse([FromRoute] [Required] Guid personId, [FromBody] [Required] Response response)
         {
-            var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst("emails")?.Value);
+            var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst(ClaimTypes.Email)?.Value);
             if (currentUser == null) Task.FromResult(StatusCodes.Status403Forbidden);
             _matchingService.AddMatch(currentUser, personId, response.Accepted);
             return Task.FromResult(StatusCodes.Status201Created);

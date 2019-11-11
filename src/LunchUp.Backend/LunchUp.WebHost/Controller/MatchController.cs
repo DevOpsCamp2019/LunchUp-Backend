@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using LunchUp.Core.Common;
@@ -40,7 +41,7 @@ namespace LunchUp.WebHost.Controller
         [Produces("application/json")]
         public Task<List<Person>> GetMatches()
         {
-            var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst("emails")?.Value);
+            var currentUser = _commonService.GetPersonExistStatus(HttpContext.User.FindFirst(ClaimTypes.Email)?.Value);
             if (currentUser == null) Task.FromResult(StatusCodes.Status403Forbidden);
             var matches = _matchingService.GetMatches(currentUser);
             return Task.FromResult(_mapper.Map<List<Person>>(matches));
